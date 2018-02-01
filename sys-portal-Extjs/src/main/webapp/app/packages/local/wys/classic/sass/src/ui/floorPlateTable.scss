@@ -1,0 +1,194 @@
+.x-component-default{min-height:30px;,height: 100%;}
+.thumb-wrap{
+  width:128px;height:128px; border:0px solid red; float:left; margin:8px;text-align:center
+}
+
+ul, menu, dir {
+  display: block;
+  list-style-type: disc;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 5px;
+}
+
+#container {
+  position: relative;
+  padding: 0 0 0 80px;
+  min-width: 1100px;
+  font-size: 14px;
+  height: 100%;
+}
+.xsd-text-center {
+  text-align: center;
+}
+#separate>div#rentalContainer {
+  background: inherit;
+}
+#separate>div {
+  margin-left: 8px;
+  padding: 0 16px 16px;
+  margin-top: 20px;
+  margin-right: 20px;
+  background: #FFF;
+}
+
+#separate>div#rentalContainer .top {
+  line-height: 42px;
+  border-bottom: 2px #e7e7e7 dotted;
+}
+
+.xsd-margin-t16 {
+  margin-top: 16px;
+}
+
+.xsd-font-size16 {
+  font-size: 16px;
+}
+
+#separate>div#rentalContainer .top a.apartment {
+  margin-left: 0;
+  color: #333;
+}
+
+#separate>div#rentalContainer .top a {
+  color: #59acff;
+}
+
+#separate>div#rentalContainer .top .xsd-margin-l32 {
+  margin-left: 32px;
+}
+
+#separate>div#rentalContainer .top a {
+  color: #59acff;
+}
+
+.font-size14 {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.xsd-clearfix {
+  zoom: 1;
+}
+
+.xsd-clearfix:after {
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  content: ".";
+}
+
+
+.xsd-bg-primary {
+  background: #59acff;
+}
+.xsd-bg-gray {
+  background: #F5F5F5;
+}
+
+address, cite, dfn, em, i, var {
+  font-style: normal;
+}
+
+#separate>div#rentalContainer .roomList li {
+  float: left;
+  list-style-type:none;
+}
+
+#separate>div#rentalContainer .roomList li dt {
+  padding: 8px 0 8px
+}
+
+#separate>div#rentalContainer .roomList li dd {
+  margin-left:5px;
+  width: 187px;
+  position: relative;
+  background: #fff;
+  height: 38px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+  cursor: pointer;
+  font-size: 12px
+}
+
+#separate>div#rentalContainer .roomList li dd i {
+  position: absolute;
+  width: 6px;
+  height: 38px
+}
+
+#separate>div#rentalContainer .roomList li dd a,#separate>div#rentalContainer .roomList li dd span {
+  display: inline-block;
+  padding: 10px 0 0 22px
+}
+
+#separate>div#rentalContainer .roomList li dd img {
+  position: absolute;
+  top: -1px;
+  right: -2px;
+  z-index: 1
+}
+
+#separate>div#rentalContainer .roomList li dd.add {
+  font-weight: bolder;
+  line-height: 36px;
+  font-size: 24px
+}
+
+#separate>div#rentalContainer .roomList li dd:hover .contract_card {
+  display: block
+}
+
+#separate>div#rentalContainer .roomList li dd .contract_card {
+  display: none;
+  position: absolute;
+  background: #fff;
+  top: 0;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+  font-size: 12px
+}
+
+#separate>div#rentalContainer .roomList li dd .contract_card .card_top {
+  padding: 5px 0 0 12px;
+  width: 187px;
+  background: #fff3f3;
+  height: 38px
+}
+
+#separate>div#rentalContainer .roomList li dd .contract_card .card_top .margin-top-2 {
+  margin-top: -6px
+}
+
+#separate>div#rentalContainer .roomList li dd .contract_card .card_top .margin-top-2 span {
+  padding-top: 0
+}
+
+#separate>div#rentalContainer .roomList li dd .contract_card .card_bottom {
+  padding: 6px 14px
+}
+
+#separate>div#rentalContainer .roomList li dd .contract_card .card_bottom a {
+  color: #fff;
+  background: #59acff;
+  padding: 2px 6px;
+  margin-right: 10px
+}
+
+#separate>div#rentalContainer .roomList li dd .card_top_gray {
+  background: #f1f1f1!important;
+}
+
+#separate>div#rentalContainer .roomList li dd .card_top_bule {
+  background: #e8f3ff!important;
+}
+
+#separate>div#rentalContainer .roomList li dd .card_top_yellow {
+  background: #fff0df!important;
+}
+
+#separate>div#rentalContainer .roomList li dd .card_top_red {
+  color: #fd6164;
+}

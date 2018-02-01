@@ -1,0 +1,40 @@
+{
+  "success":true,
+  "code":"INIT_MENU_SUCCESS",
+  "list":[
+    {"id": 1, "icon": "", "title": "系统管理", "href": "javascript:void();","active": true, "sub": [
+      {"id": 10, "icon": "", "title": "权限管理", "href": "#admin.html", "active": true},
+      {"id": 12, "icon": "", "title": "角色管理", "href": "javascript:void(0);","active": false},
+      {"id": 13, "icon": "", "title": "用户管理", "href": "javascript:void(0);","active": false},
+      {"id": 11, "icon": "", "title": "日志监控", "href": "javascript:void(0);","active": false, "sub": [
+        {"id": 110, "icon": "", "title": "系统操作日志", "href": "javascript:void(0);","active": false},
+        {"id": 111, "icon": "", "title": "数据库操作日志", "href": "javascript:void(0);","active": false}
+        ]
+      }]
+    },
+    {"id": 5, "icon": "", "title": "数据管理", "href": "javascript:void();","active": false, "sub": [
+      {"id": 52, "icon": "", "title": "电梯基本信息管理", "href": "#welcome/index.html","active": false},
+      {"id": 52, "icon": "", "title": "使用单位信息管理", "href": "#welcome/index.html","active": false},
+      {"id": 52, "icon": "", "title": "维保单位信息管理", "href": "#welcome/index.html","active": false},
+      {"id": 52, "icon": "", "title": "救援机构信息管理", "href": "#welcome/index.html","active": false}
+    ]
+    },
+    {"id": 6, "icon": "", "title": "统计分析", "href": "javascript:void();","active": false, "sub": [
+      {"id": 52, "icon": "", "title": "应急处置分析", "href": "#welcome/index.html","active": false},
+      {"id": 52, "icon": "", "title": "安全隐患分析", "href": "#welcome/index.html","active": false},
+      {"id": 52, "icon": "", "title": "应急救援分析", "href": "#welcome/index.html","active": false},
+      {"id": 52, "icon": "", "title": "困人故障分析", "href": "#welcome/index.html","active": false},
+      {"id": 52, "icon": "", "title": "故障原因分析", "href": "#welcome/index.html","active": false}
+    ]
+    },
+    {"id": 7, "icon": "", "title": "接口管理", "href": "javascript:void();","active": false, "sub": [
+      {"id": 52, "icon": "", "title": "接口配置", "href": "#dataCollection/ws/wsManager.html","active": false},
+      {"id": 53, "icon": "", "title": "访问日志", "href": "#welcome/index.html","active": false}
+      ]
+    },
+    {"id": 8, "icon": "", "title": "地理系统", "href": "javascript:void();","active": false, "sub": [
+      {"id": 52, "icon": "", "title": "快速定位查询", "href": "#welcome/index.html","active": false}
+    ]
+    }
+  ]
+}

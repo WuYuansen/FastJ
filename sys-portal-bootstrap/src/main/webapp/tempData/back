@@ -1,0 +1,24 @@
+{"id":4,"icon": "","title":"控件演示","href":"javascript:void(0);","active":false,"sub":[
+      {"id":40,"icon": "","title":"表单&验证控件","href":"javascript:void(0);","active":false,"sub":[
+        {"id":400,"icon": "","title":"按钮","href":"#Components/button/button.html","active":false},
+        {"id":400,"icon": "","title":"输入框","href":"javascript:void(0);","active":false},
+        {"id":400,"icon": "","title":"下拉框","href":"javascript:void(0);","active":false},
+        {"id":400,"icon": "","title":"复选框&单选框","href":"javascript:void(0);","active":false},
+        {"id":400,"icon": "","title":"富文本编辑器","href":"javascript:void(0);","active":false},
+        {"id":400,"icon": "","title":"多行文本框","href":"javascript:void(0);","active":false},
+        {"id":400,"icon": "","title":"页面弹窗","href":"javascript:void(0);","active":false},
+        {"id": 2, "icon": "","title": "表单&验证", "href": "#user/form.html", "active": false}
+      ]},
+      {"id":40,"icon": "","title":"布局方式","href":"javascript:void(0);","active":false,"sub":[
+        {"id":400,"icon": "","title":"左右布局","href":"javascript:void(0);","active":false},
+        {"id":400,"icon": "","title":"上下布局","href":"javascript:void(0);","active":false},
+        {"id":400,"icon": "","title":"经典布局","href":"javascript:void(0);","active":false}
+      ]},
+      {"id":40,"icon": "","title":"图表控件","href":"javascript:void(0);","active":false,"sub":[
+        {"id":400,"icon": "","title":"ECharts","href":"javascript:void(0);","active":false},
+        {"id":400,"icon": "","title":"HighCharts","href":"javascript:void(0);","active":false}
+      ]},
+      {"id":40,"icon": "","title":"表格控件","href":"javascript:void(0);","active":false,"sub":[
+        {"id":400,"icon": "","title":"分页表格","href":"#Tables/paging/index.html","active":false}
+      ]}
+    ]}

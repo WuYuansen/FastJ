@@ -1,0 +1,14 @@
+/*
+    定义ui='button-linkbtn-toolbar'
+*/
+@include extjs-button-toolbar-small-ui(
+    $ui: 'button-linkbtn',
+    $color:#ffffff,
+    $glyph-color:#ffffff,
+    $background-color:#86ae99,
+	$inner-border-width:1px,
+	$border-color:#86ae99,
+    $text-padding:0px,
+    $icon-spacing:0px,
+    $border-width:1px
+);

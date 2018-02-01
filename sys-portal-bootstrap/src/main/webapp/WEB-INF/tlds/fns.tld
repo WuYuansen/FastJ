@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+  version="2.0">
+    
+  <description>自定义JSTL</description>
+  <display-name>JSTL functions sys</display-name>
+  <tlib-version>1.1</tlib-version>
+  <short-name>fns</short-name>
+  <uri>http://java.sun.com/jsp/jstl/functionss</uri>
+
+  <function>
+    <description>根据字典类型获取字段数据</description>
+    <name>getDicByType</name>
+    <function-class>com.gtjy.p2p.modules.tags.MyTags</function-class>
+    <function-signature>java.util.List findDictByType(java.lang.String)</function-signature>
+    <example>${fns:getDicByType(type)}</example>
+  </function>
+  
+  <function>
+    <description>根据字典类型和KeyCode获取字段数据</description>
+    <name>getDicByTypeAndCode</name>
+    <function-class>com.gtjy.p2p.modules.tags.MyTags</function-class>
+    <function-signature>java.util.List findDictByTypeAndCode(java.lang.String,java.lang.String)</function-signature>
+    <example>${fns:getDicByTypeAndCode(type,code)}</example>
+  </function>
+  <!-- ================================= StringUtils方法 ========================================== -->
+  <function>
+	<description>判断是否包含字符串</description>
+	<name>contains</name>
+	<function-class>org.gtjy.p2p.util.StringUtils</function-class>
+	<function-signature>java.lang.Boolean contains(java.lang.String,java.lang.String)</function-signature>
+	<example>${fns:contains(str,substr)}</example>  	
+  </function>
+  <function>
+	<description>分割字符串</description>
+	<name>split</name>
+	<function-class>org.gtjy.p2p.util.StringUtils</function-class>
+	<function-signature>java.lang.String[] splitString(java.lang.String,java.lang.String)</function-signature>
+	<example>${fns:split(str,separator)}</example>  	
+  </function>
+  <function>
+	<description>是否为空</description>
+	<name>isEmpty</name>
+	<function-class>org.gtjy.p2p.util.StringUtils</function-class>
+	<function-signature>java.lang.Boolean isEmpty(java.lang.String)</function-signature>
+	<example>${fns:isEmpty(str)}</example>  	
+  </function>
+  <function>
+    <description>HTML编码</description>
+    <name>escapeHtml</name>
+    <function-class>org.gtjy.p2p.util.Encodes</function-class>
+    <function-signature>java.lang.String escapeHtml(java.lang.String)</function-signature>
+    <example>${fns:escapeHtml(html)}</example>  
+  </function>
+  <function>
+    <description>HTML解码</description>
+    <name>unescapeHtml</name>
+    <function-class>org.gtjy.p2p.util.Encodes</function-class>
+    <function-signature>java.lang.String unescapeHtml(java.lang.String)</function-signature>
+    <example>${fns:unescapeHtml(html)}</example>  
+  </function>
+  <function>
+    <description>缩写字符串，超过最大宽度用“...”表示</description>
+    <name>abbr</name>
+    <function-class>org.gtjy.p2p.util.StringUtils</function-class>
+    <function-signature>java.lang.String abbr(java.lang.String, int)</function-signature>
+    <example>${fns:abbr(str,length)}</example>  
+  </function>
+  <function>
+  	<description>字符串替换</description>
+  	<name>replace</name>
+  	<function-class>org.gtjy.p2p.util.StringUtils</function-class>
+  	<function-signature>java.lang.String replace(java.lang.String,java.lang.String,java.lang.String)</function-signature>
+  	<example>${fns:replace(text,searchString,replacement)}</example>
+  </function>
+</taglib>

@@ -1,0 +1,396 @@
+<div class="my-main">
+    <fieldset class="my-elem-field my-field-title" style="margin-top: 20px;">
+        <legend>响应式的表单集合</legend>
+    </fieldset>
+    <form class="my-form" name="form" data-auto="true" method="post">
+        <div class="my-form-item">
+            <label class="my-form-label">单行输入框</label>
+            <div class="my-input-block">
+                <input type="text" name="title" autocomplete="off" placeholder="请输入标题" class="my-input">
+            </div>
+        </div>
+        <div class="my-form-item">
+            <label class="my-form-label">验证必填项</label>
+            <div class="my-input-block">
+                <input type="text"
+                       name="username"
+                       required="required"
+                       data-tips-error-required="内容不能为空"
+                       placeholder="必填填，不填会错的呢"
+                       autocomplete="off"
+                       class="my-input" />
+            </div>
+        </div>
+        <div class="my-form-item">
+            <label class="my-form-label">验证手机</label>
+            <div class="my-input-inline">
+                <input
+                        type="tel"
+                        pattern="^1[3-9]\d{9}$"
+                        data-tips-invalid="请输入正确的手机号码"
+                        name="phone"
+                        autocomplete="off"
+                        class="my-input">
+            </div>
+        </div>
+
+        <div class="my-form-item">
+            <label class="my-form-label">验证邮箱</label>
+            <div class="my-input-inline">
+                <input
+                        type="text"
+                        pattern="^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$"
+                        data-tips-invalid="请输入正确的邮箱地址"
+                        name="email"
+                        autocomplete="off"
+                        class="my-input">
+            </div>
+        </div>
+
+        <div class="my-form-item">
+            <div class="my-inline">
+                <label class="my-form-label">验证数字</label>
+                <div class="my-input-inline">
+                    <input type="number" name="number"  autocomplete="off" class="my-input">
+                </div>
+            </div>
+            <div class="my-inline">
+                <label class="my-form-label">验证日期</label>
+                <div class="my-input-block">
+                    <input type="text" name="date" id="date" placeholder="yyyy-mm-dd" autocomplete="off" class="my-input" onclick="layer.laydate({elem: this})" />
+                </div>
+            </div>
+            <div class="my-inline">
+                <label class="my-form-label">验证链接</label>
+                <div class="my-input-block">
+                    <input type="tel" name="url" autocomplete="off" class="my-input">
+                </div>
+            </div>
+        </div>
+        <div class="my-form-item">
+            <label class="my-form-label">验证身份证</label>
+            <div class="my-input-block">
+                <input type="text" name="identity" placeholder="" autocomplete="off" class="my-input">
+            </div>
+        </div>
+        <div class="my-form-item">
+            <label class="my-form-label">自定义验证</label>
+            <div class="my-input-inline">
+                <input type="password" name="password" placeholder="请输入密码" autocomplete="off" class="my-input">
+            </div>
+            <div class="my-form-mid my-word-aux">请填写6到12位密码</div>
+        </div>
+
+        <div class="my-form-item">
+            <div class="my-inline">
+                <label class="my-form-label">范围</label>
+                <div class="my-input-inline" style="width: 100px;">
+                    <input type="text" name="price_min" placeholder="￥" autocomplete="off" class="my-input">
+                </div>
+                <div class="my-form-mid">-</div>
+                <div class="my-input-inline" style="width: 100px;">
+                    <input type="text" name="price_max" placeholder="￥" autocomplete="off" class="my-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="my-form-item">
+            <label class="my-form-label">单行选择框</label>
+            <div class="my-input-block">
+                <select name="interest">
+                    <option value=""></option>
+                    <option value="0">写作</option>
+                    <option value="1">阅读</option>
+                    <option value="2">游戏</option>
+                    <option value="3">音乐</option>
+                    <option value="4">旅行</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="my-form-item">
+            <label class="my-form-label">分组选择框</label>
+            <div class="my-input-inline">
+                <select name="quiz">
+                    <option value="">请选择问题</option>
+                    <optgroup label="城市记忆">
+                        <option value="你工作的第一个城市">你工作的第一个城市</option>
+                    </optgroup>
+                    <optgroup label="学生时代">
+                        <option value="你的工号">你的工号</option>
+                        <option value="你最喜欢的老师">你最喜欢的老师</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+
+        <div class="my-form-item">
+            <label class="my-form-label">行内选择框</label>
+            <div class="my-input-inline">
+                <select name="quiz1">
+                    <option value="">请选择省</option>
+                    <option value="浙江" selected="">浙江省</option>
+                    <option value="你的工号">江西省</option>
+                    <option value="你最喜欢的老师">福建省</option>
+                </select>
+            </div>
+            <div class="my-input-inline">
+                <select name="quiz2">
+                    <option value="">请选择市</option>
+                    <option value="杭州">杭州</option>
+                    <option value="宁波" disabled="disabled">宁波</option>
+                    <option value="温州">温州</option>
+                    <option value="台州">台州</option>
+                    <option value="绍兴">绍兴</option>
+                </select>
+            </div>
+            <div class="my-input-inline">
+                <select name="quiz3">
+                    <option value="">请选择县/区</option>
+                    <option value="西湖区">西湖区</option>
+                    <option value="余杭区">余杭区</option>
+                    <option value="拱墅区">临安市</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="my-form-item">
+            <label class="my-form-label">复选框</label>
+            <div class="my-input-block">
+                <input type="checkbox" name="mode[]" title="写作" value="write">
+                <input type="checkbox" name="mode[]" title="阅读" value="read">
+                <input type="checkbox" name="mode[]" title="游戏" value="game">
+            </div>
+        </div>
+        <div class="my-form-item">
+            <label class="my-form-label">开关-关</label>
+            <div class="my-input-block">
+                <input type="checkbox" name="close" value="0" data-ng-style="switch">
+            </div>
+        </div>
+        <div class="my-form-item">
+            <label class="my-form-label">开关-开</label>
+            <div class="my-input-block">
+                <input type="checkbox" name="open" value="1" data-ng-style="switch">
+            </div>
+            <div class="my-form-item">
+                <label class="my-form-label">单选框 ({{form.sex}})</label>
+                <div class="my-input-block">
+                    <input type="radio" name="sex" value="男" title="男">
+                    <input type="radio" name="sex" value="女" title="女">
+                    <input type="radio" name="sex" value="禁" title="禁用" disabled="disabled">
+                </div>
+            </div>
+            <div class="my-form-item my-form-text">
+                <label class="my-form-label">普通文本域</label>
+                <div class="my-input-block">
+                    <textarea placeholder="请输入内容" class="my-textarea"></textarea>
+                </div>
+            </div>
+            <div class="my-form-item my-form-text">
+                <label class="my-form-label">编辑器</label>
+                <div class="my-input-block">
+                    <textarea class="my-textarea my-hide" name="content" id="LAY_demo_editor"></textarea>
+                </div>
+            </div>
+            <div class="my-form-item">
+                <div class="my-input-block">
+                    <button type="submit" class="my-btn">立即提交</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<fieldset class="my-elem-field my-field-title" style="margin-top: 20px;">
+    <legend>代码</legend>
+
+        <textarea class="site-demo-text">
+<form class="my-form" name="form" data-auto="true" method="post">
+    <div class="my-form-item">
+        <label class="my-form-label">单行输入框</label>
+        <div class="my-input-block">
+            <input type="text" name="title" autocomplete="off" placeholder="请输入标题" class="my-input">
+        </div>
+    </div>
+    <div class="my-form-item">
+        <label class="my-form-label">验证必填项</label>
+        <div class="my-input-block">
+            <input type="text"
+                   name="username"
+                   required="required"
+                   data-tips-error-required="内容不能为空"
+                   placeholder="必填填，不填会错的呢"
+                   autocomplete="off"
+                   class="my-input" />
+        </div>
+    </div>
+    <div class="my-form-item">
+        <label class="my-form-label">验证手机</label>
+        <div class="my-input-inline">
+            <input
+                    type="tel"
+                    pattern="^1[3-9]\d{9}$"
+                    data-tips-invalid="请输入正确的手机号码"
+                    name="phone"
+                    autocomplete="off"
+                    class="my-input">
+        </div>
+    </div>
+
+    <div class="my-form-item">
+        <label class="my-form-label">验证邮箱</label>
+        <div class="my-input-inline">
+            <input
+                    type="text"
+                    pattern="^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$"
+                    data-tips-invalid="请输入正确的邮箱地址"
+                    name="email"
+                    autocomplete="off"
+                    class="my-input">
+        </div>
+    </div>
+
+    <div class="my-form-item">
+        <div class="my-inline">
+            <label class="my-form-label">验证数字</label>
+            <div class="my-input-inline">
+                <input type="number" name="number"  autocomplete="off" class="my-input">
+            </div>
+        </div>
+        <div class="my-inline">
+            <label class="my-form-label">验证日期</label>
+            <div class="my-input-block">
+                <input type="text" name="date" id="date" placeholder="yyyy-mm-dd" autocomplete="off" class="my-input" onclick="my.laydate({elem: this})" />
+            </div>
+        </div>
+        <div class="my-inline">
+            <label class="my-form-label">验证链接</label>
+            <div class="my-input-block">
+                <input type="tel" name="url" autocomplete="off" class="my-input">
+            </div>
+        </div>
+    </div>
+    <div class="my-form-item">
+        <label class="my-form-label">验证身份证</label>
+        <div class="my-input-block">
+            <input type="text" name="identity" placeholder="" autocomplete="off" class="my-input">
+        </div>
+    </div>
+    <div class="my-form-item">
+        <label class="my-form-label">自定义验证</label>
+        <div class="my-input-inline">
+            <input type="password" name="password" placeholder="请输入密码" autocomplete="off" class="my-input">
+        </div>
+        <div class="my-form-mid my-word-aux">请填写6到12位密码</div>
+    </div>
+
+    <div class="my-form-item">
+        <div class="my-inline">
+            <label class="my-form-label">范围</label>
+            <div class="my-input-inline" style="width: 100px;">
+                <input type="text" name="price_min" placeholder="￥" autocomplete="off" class="my-input">
+            </div>
+            <div class="my-form-mid">-</div>
+            <div class="my-input-inline" style="width: 100px;">
+                <input type="text" name="price_max" placeholder="￥" autocomplete="off" class="my-input">
+            </div>
+        </div>
+    </div>
+
+    <div class="my-form-item">
+        <label class="my-form-label">单行选择框</label>
+        <div class="my-input-block">
+            <select name="interest">
+                <option value=""></option>
+                <option value="0">写作</option>
+                <option value="1">阅读</option>
+                <option value="2">游戏</option>
+                <option value="3">音乐</option>
+                <option value="4">旅行</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="my-form-item">
+        <label class="my-form-label">分组选择框</label>
+        <div class="my-input-inline">
+            <select name="quiz">
+                <option value="">请选择问题</option>
+                <optgroup label="城市记忆">
+                    <option value="你工作的第一个城市">你工作的第一个城市</option>
+                </optgroup>
+                <optgroup label="学生时代">
+                    <option value="你的工号">你的工号</option>
+                    <option value="你最喜欢的老师">你最喜欢的老师</option>
+                </optgroup>
+            </select>
+        </div>
+    </div>
+
+    <div class="my-form-item">
+        <label class="my-form-label">行内选择框</label>
+        <div class="my-input-inline">
+            <select name="quiz1">
+                <option value="">请选择省</option>
+                <option value="浙江" selected="">浙江省</option>
+                <option value="你的工号">江西省</option>
+                <option value="你最喜欢的老师">福建省</option>
+            </select>
+        </div>
+        <div class="my-input-inline">
+            <select name="quiz2">
+                <option value="">请选择市</option>
+                <option value="杭州">杭州</option>
+                <option value="宁波" disabled="disabled">宁波</option>
+                <option value="温州">温州</option>
+                <option value="台州">台州</option>
+                <option value="绍兴">绍兴</option>
+            </select>
+        </div>
+        <div class="my-input-inline">
+            <select name="quiz3">
+                <option value="">请选择县/区</option>
+                <option value="西湖区">西湖区</option>
+                <option value="余杭区">余杭区</option>
+                <option value="拱墅区">临安市</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="my-form-item">
+        <label class="my-form-label">复选框</label>
+        <div class="my-input-block">
+            <input type="checkbox" name="mode[]" title="写作" value="write">
+            <input type="checkbox" name="mode[]" title="阅读" value="read">
+            <input type="checkbox" name="mode[]" title="游戏" value="game">
+        </div>
+    </div>
+    <div class="my-form-item">
+        <label class="my-form-label">开关-关</label>
+        <div class="my-input-block">
+            <input type="checkbox" name="close" value="0" data-ng-style="switch">
+        </div>
+    </div>
+    <div class="my-form-item">
+        <label class="my-form-label">开关-开</label>
+        <div class="my-input-block">
+            <input type="checkbox" name="open" value="1" data-ng-style="switch">
+        </div>
+        <div class="my-form-item">
+            <label class="my-form-label">单选框 ({{form.sex}})</label>
+            <div class="my-input-block">
+                <input type="radio" name="sex" value="男" title="男">
+                <input type="radio" name="sex" value="女" title="女">
+                <input type="radio" name="sex" value="禁" title="禁用" disabled="disabled">
+            </div>
+        </div>
+        <div class="my-form-item">
+            <div class="my-input-block">
+                <button type="submit" class="my-btn">立即提交</button>
+            </div>
+        </div>
+    </div>
+</form>
+        </textarea>
+
+</fieldset>

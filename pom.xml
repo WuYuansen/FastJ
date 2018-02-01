@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- groupId，必须设置，为项目组唯一标志，生成的路径也是依此生成�?如com.sm.sapp生成的相对路径为�?com/sm/sapp -->
+	<groupId>com.gtjy.p2p.modules</groupId>
+
+	<!-- artifactId，必须设置，为项目的名称 -->
+	<artifactId>gtjyFramework</artifactId>
+
+	<!-- version，必须设置，为项目版�?-->
+	<version>0.6.1-SNAPSHOT</version>
+
+	<!-- packaging，打包的机制，如pom, jar, maven-plugin, ejb, war, ear, rar, par�?通常父级模块为pom，子级组件模块为jar，站点模块为war -->
+	<packaging>pom</packaging>
+
+	<!-- name，可选，对项目名称的描述 -->
+	<name>gtjyFramework</name>
+	<description>顶层模块</description>
+
+	<!-- 定义jar包的版本号变量，供各个模块引用�?引用示例�?{jetty-version} -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<junit.version>4.8.2</junit.version>
+		<mongodb.version>2.9.1</mongodb.version>
+		<spring.version>3.2.3.RELEASE</spring.version>
+		<jacson.version>1.9.12</jacson.version>
+		<servlet.version>2.5</servlet.version>
+		<dom4j.version>1.6.1</dom4j.version>
+		<log4j.version>1.2.16</log4j.version>
+		<jetty-version>8.1.0.v20120127</jetty-version>
+	</properties>
+
+	<!-- 依赖jar包的管理 -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>${servlet.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>dom4j</groupId>
+				<artifactId>dom4j</artifactId>
+				<version>${dom4j.version}</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+				<scope>compile</scope>
+			</dependency>
+
+			<!-- Spring MVC -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${spring.version}</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.version}</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-oxm</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<!-- 单元测试组件junit -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- 引入Spring的测试组�?用于测试基于SpringMVC�?��的服�?-->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>  
+	            <directory>src/main/resources</directory>
+	            <includes>
+	                <include>**/*.properties</include>
+	                <include>**/*.xml</include>
+	            </includes>
+	            <filtering>false</filtering>
+	        </resource>
+        </resources>
+		<!-- 插件管理 -->
+		<pluginManagement>
+			<plugins>
+				<!-- maven-resources-plugin 用来处理src/main/resources下的资源文件 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.6</version>
+					<configuration>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+				</plugin>
+				<!-- maven-compiler-plugin 用来编译src/main/java/目录下的主源�?-->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.3.2</version>
+					<configuration>
+						<source>1.6</source>
+						<target>1.6</target>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<!-- maven项目子模块配置�? 在默认情况下，maven会根据多模块配置构建�?��的模块， maven还会根据模块间的依赖关系自动计算构建顺序，以确保被依赖的模块会先得以构建�?-->
+	<modules>
+		<module>sys-common</module>	<!-- 通用基础类库 -->
+		<module>sys-services</module>	<!-- Service层，处理业务逻辑，放�?��Service接口和实�?-->
+		<module>sys-tiles</module>		<!-- 功能模块，此示例模块用来生成验证码图�?-->
+		<module>sys-dao</module>
+		<module>sys-generator</module>
+		<module>sys-portal-Extjs</module> 	 <!-- 表现层的web站点 -->
+    	<module>sys-portal-bootstrap</module>
+	</modules>
+</project>

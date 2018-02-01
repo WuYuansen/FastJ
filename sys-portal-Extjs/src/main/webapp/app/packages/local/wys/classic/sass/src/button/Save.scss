@@ -1,0 +1,14 @@
+/*
+    定义ui='button-savebtn-toolbar'
+*/
+@include extjs-button-toolbar-small-ui(
+    $ui: 'button-savebtn',
+	$color:#ffffff,
+	$glyph-color:#ffffff,
+	$background-color:/*#cacaca*/#009688,
+	$inner-border-width:1px,
+	$border-color:#cacaca,
+    $text-padding:0px,
+    $icon-spacing:0px,
+    $border-width:1px
+);

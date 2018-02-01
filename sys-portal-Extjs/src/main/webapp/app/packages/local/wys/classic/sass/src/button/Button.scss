@@ -1,0 +1,21 @@
+/*
+    定义ui='button-commonToolbarBtn-toolbar'的控件
+*/
+$uiCommon:'button-commonToolbarBtn';
+
+@include extjs-button-toolbar-small-ui(
+	$ui: $uiCommon,
+	$color:#1176BD,
+	$glyph-color:#1176BD,
+	$background-color:transparent,
+	$inner-border-width:1px,
+	$text-padding:0px,
+	$icon-spacing:0px,
+	$border-width:1px
+);
+
+
+
+
+
+

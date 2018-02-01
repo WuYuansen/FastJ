@@ -1,0 +1,38 @@
+﻿body{font-size: 12px;font-family: 宋体;}
+/*文件列表框*/
+.panel-files{border: 1px solid #6FBCE2;background-color: #FFFFFF;font-family: 新宋体;font-size: 12px;width: 450px;height:400px;overflow-x:hidden;overflow-y:scroll;}
+/*细线*/
+.Line{background-color: #E3E6EB;overflow: hidden;display: none;height: 1px;}
+/*新构架*/
+div.UploaderItem{font-family: 新宋体;font-size: 12px; background-color: #FFFFFF;width: 410px; height:55px; margin:5px 10px 0 20px;display:none;}
+div.top-space{margin:3px 0 0 0;}
+div.UploaderItemLeft{width:370px; float:left;}
+div.UploaderItemRight{width:30px; float:left;margin:3px 0 0 0;}
+div.UploaderItem div.FileName{font-weight: bold; overflow:hidden; width:364px;word-break: break-word; /* 文本行的任意字内断开 */ 
+		word-wrap: break-word; /* IE */ 
+		white-space: -moz-pre-wrap; /* Mozilla */ }
+div.UploaderItem div.ProcessBorder{padding: 0px;border: 1px solid #AAAAAA;width:364px;}
+div.UploaderItem div.Process{ height:12px; background-color: #A5DF16;width:0;/*width:200px;*/}
+div.UploaderItem div.PostInf{color: #7A8F99;}
+div.UploaderItem div.ProcessNum{width:30px; height:14px; line-height:14px; margin:3px 0 0 0;}
+div.UploaderItem a.Btn,div.UploaderItem a.Btn:hover{text-decoration: underline; color:#244281; height:12px;display:block;}
+
+/*图片粘贴控件消息样式*/
+.panel-paster{font-family: 新宋体;font-size: 12px; background-color: #FFFFFF; height: 50px; width: 150px;}
+.panel-paster img{ float:left; border:0;}
+.panel-paster span{ float:left;}
+.panel-setup {padding:10px;display:none;}
+/**/
+.demoHeaders { margin-top: 2em; }
+#dialog_link {padding: .4em 1em .4em 20px;text-decoration: none;position: relative;}
+#dialog_link span.ui-icon {margin: 0 5px 0 0;position: absolute;left: .2em;top: 50%;margin-top: -8px;}
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}

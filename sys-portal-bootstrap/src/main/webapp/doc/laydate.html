@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>layDate</title>
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="js/laycode/laycode.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/laycode/laycode.min.js"></script>
+<script type="text/javascript" src="js/laydate/laydate.js"></script>
+<style>
+.laydate-icon-qianhuang{border:1px solid #ccc; background-image:url(http://res.layui.com/lay/lib/laydate/skins/qianhuang/icon.png)}
+.laydate-icon-yalan{border:1px solid #ccc; background-image:url(http://res.layui.com/lay/lib/laydate/skins/yalan/icon.png)}
+.laydate-icon-yahui{border:1px solid #ccc; background-image:url(http://res.layui.com/lay/lib/laydate/skins/yahui/icon.png)}
+.laydate-icon-huanglv{border:1px solid #ccc; background-image:url(http://res.sentsin.com/lay/lib/laydate/skins/huanglv/icon.png)}
+.laydate-icon {border: 1px solid #B1D2EC;background-image: url(http://res.layui.com/lay/lib/laydate/skins/danlan/icon.png);}
+.laydate-icon, .laydate-icon-default, .laydate-icon-danlan, .laydate-icon-dahong, .laydate-icon-molv {height: 22px;line-height: 22px;padding-right: 20px;border: 1px solid #C6C6C6;background-repeat: no-repeat;background-position: right center;background-color: #fff;outline: 0;}
+
+.layupdate{position:absolute; right:0; top:-5px; font-size:0;}
+.layupdate li{margin-left:20px; line-height:28px;}
+.layupdate #nowtime{padding:0 10px; background-color:#D3B59D; color:#fff;}
+.layupdate .laylogs{padding:0 50px;}
+.layupdate .github{line-height:26px; padding-left:57px; background:url(http://www.oschina.net/img/github_logo.gif) -10px 0 no-repeat;}
+.github a{color:#005B8C; font-family: Courier New;}
+.github a:hover{text-decoration:underline;}
+.laytext{margin-bottom: 10px; text-indent: 2em; line-height: 23px;}
+.layinput{position:relative; height:30px; width:210px; border: 1px solid #ccc; }
+.layinput input{position:absolute; left:-1px; top:-1px; height:32px; line-height:32px; width:170px; padding:0 35px 0 5px; border:none; background:none; z-index:1;}
+.layinput label{position:absolute; right:4px; top:5px; width:25px; border:none;}
+.laylist dt{position:relative; text-indent:65px;}
+.laylist dt i{position:absolute; left:0; _left:-65px; width:52px; height:25px; padding-top:15px; line-height:20px; font-family: Georgia; font-size:18px; background-position:0 -136px; text-align:center; color:#CAA58A; text-indent:0;}
+.laylist dd{margin-bottom:16px; text-indent:65px; line-height:22px; color:#666; font-size:12px;}
+.demolist{padding-top:20px;}
+.demomore{text-align:center;}
+.demomore a{height:40px; line-height:40px; padding:0 30px;}
+.demoicon {border: none;width: 10px;cursor: pointer;}
+.inline, .laynav a, .tabskin a, .tabskin span, .skindemo, .layupdate li {display: inline-block;vertical-align: top;font-size: 14px;}
+</style>
+</head>
+
+<body class="fmy">
+<div class="centauto">
+     <h1 class="centtitle f20">layDate - js日期控件与时间插件</h1>
+     <div class="centinfo f14">
+     <!--  start  -->
+        <pre class="codes" title="核心方法与其它方法" skin="5">
+一、核心方法：laydate(options);
+    options是一个对象，它包含了以下key: '默认值'
+        elem: '#id', //需显示日期的元素选择器
+        event: 'click', //触发事件
+        format: 'YYYY-MM-DD hh:mm:ss', //日期格式
+        istime: false, //是否开启时间选择
+        isclear: true, //是否显示清空
+        istoday: true, //是否显示今天
+        issure: true, 是否显示确认
+        festival: true //是否显示节日
+        min: '1900-01-01 00:00:00', //最小日期
+        max: '2099-12-31 23:59:59', //最大日期
+        start: '2014-6-15 23:00:00',    //开始日期
+        fixed: false, //是否固定在可视区域
+        zIndex: 99999999, //css z-index
+        choose: function(dates){ //选择好日期的回调
+
+        }
+    
+二、其它方法/属性
+
+    laydate.v   //获取laydate版本号
+    laydate.skin(lib);  //加载皮肤，参数lib为皮肤名 
+    
+    /*
+        layer.now支持多类型参数。timestamp可以是前后若干天，也可以是一个时间戳。format为日期格式，为空时则采用默认的“-”分割。
+        如laydate.now(-2)将返回前天，laydate.now(3999634079890)将返回2096-09-28
+    */
+    layer.now(timestamp, format);   //该方法提供了丰富的功能，推荐灵活使用。
+    
+    laydate.reset();    //重设日历控件坐标，一般用于页面dom结构改变时。无参
+        </pre>
+        <pre class="codes" title="初步认识对应的说明">
+&lt;input onclick="laydate()"&gt;
+这是是一个最简单的调用方式，它会把自身作为目标元素。除此之外，您还可以按照需求传入一些其它key，比如：
+&lt;input onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})"&gt;
+那么对于输入框，如果用户乱填怎么办？没关系，laydate会智能纠错，你可以尝试在上述表单输入任意值，然后点击页面其它处测试一下。
+当然，您其实还可以设定任何html元素作为目标对象，又比如：&lt;div onclick="laydate()"&gt;&lt;/div&gt;
+        </pre>
+        <p class="laytext">
+            layDate除了包含<em class="b">日期范围限制</em>、<em class="b">开始日期设定</em>、<em class="b">自定义日期格式</em>、<em class="b">时间戳转换</em>、<em class="b">当天的前后若干天返回</em>、<em class="b">时分秒选择</em>、<em class="b">智能响应</em>、<em class="b">自动纠错</em>、<em class="b">节日识别</em>，<em class="b">快捷键操作</em>等常规功能外，还拥有更多趋近完美的解决方案。
+        </p>
+        <div class="demolist" style="padding-bottom: 10px;">
+            外部js调用：<input id="hello" class="laydate-icon">
+            <label style="padding-left:20px;">图标触发日期：</label><input readonly class="inline layinput" id="hello1">
+            <div class="laydate-icon inline demoicon" onclick="laydate({elem: '#hello1'});"></div>
+        </div>
+        
+        <pre class="codes" heg="200">
+【外部js调用】
+&lt;input id="hello" class="laydate-icon"&gt;
+&lt;script&gt;<span class="run">
+laydate({
+    elem: '#hello', //目标元素。由于laydate.js封装了一个轻量级的选择器引擎，因此elem还允许你传入class、tag但必须按照这种方式 '#id .class'
+    event: 'focus', //响应事件。如果没有传入event，则按照默认的click
+    istoday: false,
+    init: false
+});</span>
+&lt;/script&gt;
+
+【图标触发日期】
+&lt;input id="hello1"&gt;
+&lt;span class="laydate-icon" onclick="laydate({elem: '#hello1'});"&gt;&lt;/span&gt;
+        </pre>
+        <div class="demolist">
+            自定义日期格式：<div id="test1" class="inline laydate-icon" style="width:150px;"></div>
+            <label style="padding-left:20px;">日期范围限定在昨天到明天：</label>
+            <div class="inline laydate-icon" style="width:150px;" id="hello3"></div>
+        </div>
+        <pre class="codes" heg="200">
+【自定义日期格式】
+&lt;div id="test1" class="laydate-icon"&gt;&lt;/div&gt;
+&lt;script&gt;<span class="run">
+laydate({
+    elem: '#test1',
+    format: 'YYYY/MM', // 分隔符可以任意定义，该例子表示只显示年月
+    festival: true, //显示节日
+    choose: function(datas){ //选择日期完毕的回调
+        alert('得到：'+datas);
+    }
+});
+</span>&lt;/script&gt;
+
+【日期范围限定在昨天到明天】
+&lt;div id="hello3" class="laydate-icon"&gt;&lt;/div&gt;
+&lt;script&gt;<span class="run">
+laydate({
+    elem: '#hello3',
+    min: laydate.now(-1), //-1代表昨天，-2代表前天，以此类推
+    max: laydate.now(+1) //+1代表明天，+2代表后天，以此类推
+});
+</span>&lt;/script&gt;
+        </pre>
+        
+        <div class="demolist"  style="padding-bottom: 10px;">日期范围限制：
+            <ul class="inline">
+                开始日：<li class="inline laydate-icon" id="start" style="width:200px; margin-right:10px;"></li>
+                结束日：<li class="inline laydate-icon" id="end" style="width:200px;"></li>
+            </ul>
+        </div>
+        <pre class="codes" skin="5" heg="300">
+开始日：&lt;li class="laydate-icon" id="start" style="width:200px; margin-right:10px;"&gt;&lt;/li&gt;
+结束日：&lt;li class="laydate-icon" id="end" style="width:200px;"&gt;&lt;/li&gt;
+&lt;script&gt;<span class="run">
+var start = {
+    elem: '#start',
+    format: 'YYYY/MM/DD hh:mm:ss',
+    min: laydate.now(), //设定最小日期为当前日期
+    max: '2099-06-16 23:59:59', //最大日期
+    istime: true,
+    istoday: false,
+    choose: function(datas){
+         end.min = datas; //开始日选好后，重置结束日的最小日期
+         end.start = datas //将结束日的初始值设定为开始日
+    }
+};
+var end = {
+    elem: '#end',
+    format: 'YYYY/MM/DD hh:mm:ss',
+    min: laydate.now(),
+    max: '2099-06-16 23:59:59',
+    istime: true,
+    istoday: false,
+    choose: function(datas){
+        start.max = datas; //结束日选好后，重置开始日的最大日期
+    }
+};
+laydate(start);
+laydate(end);
+</span>&lt;/script&gt;
+        </pre>
+
+
+<!--  end  -->
+     </div>
+</div>
+<script type="text/javascript">
+    //修饰代码
+    $('.codes').each(function(i){
+        var othis = $(this);
+        othis.laycode({
+            title: othis.attr('title') || '对应代码说明',
+            height: othis.attr('heg') || 'auto',
+            skin: othis.attr('skin') || 0,
+			by:false
+        });
+    });
+	//触发例子
+    new Function($('.run').text())();
+</script>
+</body>
+</html>

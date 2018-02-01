@@ -1,0 +1,16 @@
+/*
+    定义ui='button-danger-toolbar'的控件
+*/
+$ui:'button-info';
+
+@include extjs-button-toolbar-small-ui(
+    $ui: $ui,
+    $color:#ffffff,
+    $glyph-color:#ffffff,
+    $background-color:#86ae99,
+	$inner-border-width:1px,
+	$border-color:#86ae99,
+    $text-padding:0px,
+    $icon-spacing:0px,
+    $border-width:1px
+);

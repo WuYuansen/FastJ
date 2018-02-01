@@ -1,0 +1,58 @@
+﻿
+
+/* 1.2 =Default
+---------------------------------------------------------------------- */
+
+
+
+#wrapper {
+  width: 942px;
+  border: 9px solid #33373b;
+  margin: 0 auto;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+#site {
+  border: 1px solid #222527;
+  background-color: #282b2e;
+  padding: 40px;
+}
+
+
+#title {
+  text-align: center;
+  position: relative;
+}
+
+#title h1 {
+  font: normal 36px/45px "Myriad Pro", "Myriad", "Gill Sans", "Frutiger Linotype", "Helvetica Neue", sans-serif;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 1px 4px;
+  color: #46c5ec;
+  position: relative;
+  height: 45px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#title p {
+  margin-top: 3px;
+  margin-right: 0;
+  color:#ffffff;
+}
+
+/* 2. CONTENT
+•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• */
+span.subtitle{
+	margin-top: 20px;
+  	padding: 5px 20px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	background-color: #FFCC00;
+	display: block;
+	font-size:16px;
+	font-weight:bold;
+	color:#000;
+}

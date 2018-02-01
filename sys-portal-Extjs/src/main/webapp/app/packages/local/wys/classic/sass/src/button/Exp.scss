@@ -1,0 +1,15 @@
+/*
+    定义ui='button-expbtn-toolbar'
+*/
+$uiExpBtn:'button-expbtn';
+@include extjs-button-toolbar-small-ui(
+    $ui: $uiExpBtn,
+    $color:#ffffff,
+    $glyph-color:#ffffff,
+    $background-color:#3c8dbc,
+	$inner-border-width:1px,
+	$border-color:#3c8dbc,
+    $text-padding:0px,
+    $icon-spacing:0px,
+    $border-width:1px
+);

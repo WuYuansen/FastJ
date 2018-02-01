@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gtjy.p2p.modules.sys.DAO.UserDAO">
+	<!-- 类名： 此表为添加说明信息 -->
+	<!-- 缓存 -->
+	<cache eviction="FIFO" flushInterval="60000" size="1024"
+		readOnly="true" />
+	<!-- Result Map -->
+	<resultMap id="BaseResultMap" type="com.gtjy.p2p.modules.sys.dto.User">
+		<result column="id" property="id" />
+		<result column="loginname" property="loginname" />
+		<result column="password" property="password" />
+		<result column="realname" property="realname" />
+		<result column="deptcode" property="deptcode" />
+		<result column="post" property="post" />
+		<result column="idcard" property="idcard" />
+		<result column="sex" property="sex" />
+		<result column="nation" property="nation" />
+		<result column="tel" property="tel" />
+		<result column="mobphone" property="mobphone" />
+		<result column="qq" property="qq" />
+		<result column="email" property="email" />
+		<result column="jobstate" property="jobstate" />
+		<result column="address" property="address" />
+		<result column="remarks" property="remarks" />
+		<result column="deptname" property="deptname"/>
+	</resultMap>
+	<!-- sys_user 查询所需列 -->
+	<sql id="Base_Column_List">
+		id,loginname,password,realname,deptcode,post,idcard,sex,nation,tel,mobphone,qq,email,jobstate,address,remarks,
+		(select keyname from sys_dict where sex = value and type='Sex') as sexText,
+		(select keyname from sys_dict where nation = value and type='NATION') as nationText,
+		(select keyname from sys_dict where post = value and type='POST') as postText,
+		(select keyname from sys_dict where jobstate = value and type='JobState') as jobstateText,
+		(select DEPTNAME from sys_dept where ID=deptcode) as DEPTNAME
+	</sql>
+
+	<!-- 分页查询条件 -->
+	<sql id="Example_Where_Clause_Page">
+		where 1=1
+		<trim suffixOverrides=",">
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id}
+			</if>
+			<if test="params.loginname != null and params.loginname != ''">
+				and loginname = #{params.loginname}
+			</if>
+			<if test="params.password != null and params.password != ''">
+				and password = #{params.password}
+			</if>
+			<if test="params.realname != null and params.realname != ''">
+				and realname like CONCAT('%',CONCAT(#{params.realname},'%'))
+			</if>
+			<if test="params.deptcode != null and params.deptcode != ''">
+				and deptcode = #{params.deptcode}
+			</if>
+			<if test="params.post != null and params.post != ''">
+				and post = #{params.post}
+			</if>
+			<if test="params.idcard != null and params.idcard != ''">
+				and idcard = #{params.idcard}
+			</if>
+			<if test="params.sex != null and params.sex != ''">
+				and sex = #{params.sex}
+			</if>
+			<if test="params.nation != null and params.nation != ''">
+				and nation = #{params.nation}
+			</if>
+			<if test="params.tel != null and params.tel != ''">
+				and tel = #{params.tel}
+			</if>
+			<if test="params.mobphone != null and params.mobphone != ''">
+				and mobphone like CONCAT('%',CONCAT(#{params.mobphone},'%'))
+			</if>
+			<if test="params.qq != null and params.qq != ''">
+				and qq = #{params.qq}
+			</if>
+			<if test="params.email != null and params.email != ''">
+				and email = #{params.email}
+			</if>
+			<if test="params.jobstate != null and params.jobstate != ''">
+				and jobstate = #{params.jobstate}
+			</if>
+			<if test="params.address != null and params.address != ''">
+				and address = #{params.address}
+			</if>
+			<if test="params.remarks != null and params.remarks != ''">
+				and remarks = #{params.remarks}
+			</if>
+		</trim>
+	</sql>
+	<!-- 查询条件 -->
+	<sql id="Example_Where_Clause">
+		where 1=1
+		<trim suffixOverrides=",">
+			<if test="id != null and id != ''">
+				and id = #{id}
+			</if>
+			<if test="loginname != null and loginname != ''">
+				and loginname = #{loginname}
+			</if>
+			<if test="password != null and password != ''">
+				and password = #{password}
+			</if>
+			<if test="realname != null and realname != ''">
+				and realname like CONCAT('%',CONCAT(#{realname},'%'))
+			</if>
+			<if test="deptcode != null and deptcode != ''">
+				and deptcode = #{deptcode}
+			</if>
+			<if test="post != null and post != ''">
+				and post = #{post}
+			</if>
+			<if test="idcard != null and idcard != ''">
+				and idcard = #{idcard}
+			</if>
+			<if test="sex != null and sex != ''">
+				and sex = #{sex}
+			</if>
+			<if test="nation != null and nation != ''">
+				and nation = #{nation}
+			</if>
+			<if test="tel != null and tel != ''">
+				and tel = #{tel}
+			</if>
+			<if test="mobphone != null and mobphone != ''">
+				and mobphone = #{mobphone}
+			</if>
+			<if test="qq != null and qq != ''">
+				and qq = #{qq}
+			</if>
+			<if test="email != null and email != ''">
+				and email = #{email}
+			</if>
+			<if test="jobstate != null and jobstate != ''">
+				and jobstate = #{jobstate}
+			</if>
+			<if test="address != null and address != ''">
+				and address = #{address}
+			</if>
+			<if test="remarks != null and remarks != ''">
+				and remarks = #{remarks}
+			</if>
+		</trim>
+	</sql>
+	<!-- 插入列 -->
+	<sql id="insert_columns">
+		<trim suffixOverrides=",">
+			<if test="loginname != null and loginname != ''">
+				loginname,
+			</if>
+			<if test="password != null and password != ''">
+				password,
+			</if>
+			<if test="realname != null and realname != ''">
+				realname,
+			</if>
+			<if test="deptcode != null and deptcode != ''">
+				deptcode,
+			</if>
+			<if test="post != null and post != ''">
+				post,
+			</if>
+			<if test="idcard != null and idcard != ''">
+				idcard,
+			</if>
+			<if test="sex != null and sex != ''">
+				sex,
+			</if>
+			<if test="nation != null and nation != ''">
+				nation,
+			</if>
+			<if test="tel != null and tel != ''">
+				tel,
+			</if>
+			<if test="mobphone != null and mobphone != ''">
+				mobphone,
+			</if>
+			<if test="qq != null and qq != ''">
+				qq,
+			</if>
+			<if test="email != null and email != ''">
+				email,
+			</if>
+			<if test="jobstate != null and jobstate != ''">
+				jobstate,
+			</if>
+			<if test="address != null and address != ''">
+				address,
+			</if>
+			<if test="remarks != null and remarks != ''">
+				remarks,
+			</if>
+		</trim>
+	</sql>
+	<!-- 插入值 -->
+	<sql id="insert_value">
+		<trim suffixOverrides=",">
+			<if test="loginname != null and loginname != ''">
+				#{loginname},
+			</if>
+			<if test="password != null and password != ''">
+				#{password},
+			</if>
+			<if test="realname != null and realname != ''">
+				#{realname},
+			</if>
+			<if test="deptcode != null and deptcode != ''">
+				#{deptcode},
+			</if>
+			<if test="post != null and post != ''">
+				#{post},
+			</if>
+			<if test="idcard != null and idcard != ''">
+				#{idcard},
+			</if>
+			<if test="sex != null and sex != ''">
+				#{sex},
+			</if>
+			<if test="nation != null and nation != ''">
+				#{nation},
+			</if>
+			<if test="tel != null and tel != ''">
+				#{tel},
+			</if>
+			<if test="mobphone != null and mobphone != ''">
+				#{mobphone},
+			</if>
+			<if test="qq != null and qq != ''">
+				#{qq},
+			</if>
+			<if test="email != null and email != ''">
+				#{email},
+			</if>
+			<if test="jobstate != null and jobstate != ''">
+				#{jobstate},
+			</if>
+			<if test="address != null and address != ''">
+				#{address},
+			</if>
+			<if test="remarks != null and remarks != ''">
+				#{remarks},
+			</if>
+		</trim>
+	</sql>
+	<!-- 插入记录 按需插入 -->
+	<insert id="insert" parameterType="Object">
+		INSERT INTO sys_user(
+		<include refid="insert_columns" />
+		) VALUES(
+		<include refid="insert_value" />
+		)
+	</insert>
+
+	<!-- 根据id，修改记录 ,完全修改 类似hibernate的save方法 -->
+	<update id="updateByPrimaryKey" parameterType="Object">
+		update sys_user
+		set
+		loginname=#{loginname},password=#{password},realname=#{realname},deptcode=#{deptcode},post=#{post},idcard=#{idcard},sex=#{sex},nation=#{nation},tel=#{tel},mobphone=#{mobphone},qq=#{qq},email=#{email},jobstate=#{jobstate},address=#{address},remarks=#{remarks}
+		where id=#{id}
+	</update>
+
+	<!-- 修改记录，只修改只不为空的字段 -->
+	<update id="updateBySelective" parameterType="Object">
+		update sys_user set
+		<trim suffixOverrides=",">
+			<if test="loginname != null  and loginname != '' ">
+				loginname=#{loginname},
+			</if>
+			<if test="password != null  and password != '' ">
+				password=#{password},
+			</if>
+			<if test="realname != null  and realname != '' ">
+				realname=#{realname},
+			</if>
+			<if test="deptcode != null  ">
+				deptcode=#{deptcode},
+			</if>
+			<if test="post != null  and post != '' ">
+				post=#{post},
+			</if>
+			<if test="idcard != null  and idcard != '' ">
+				idcard=#{idcard},
+			</if>
+			<if test="sex != null  ">
+				sex=#{sex},
+			</if>
+			<if test="nation != null  ">
+				nation=#{nation},
+			</if>
+			<if test="tel != null  and tel != '' ">
+				tel=#{tel},
+			</if>
+			<if test="mobphone != null  and mobphone != '' ">
+				mobphone=#{mobphone},
+			</if>
+			<if test="qq != null  and qq != '' ">
+				qq=#{qq},
+			</if>
+			<if test="email != null  and email != '' ">
+				email=#{email},
+			</if>
+			<if test="jobstate != null  ">
+				jobstate=#{jobstate},
+			</if>
+			<if test="address != null  and address != '' ">
+				address=#{address},
+			</if>
+			<if test="remarks != null  and remarks != '' ">
+				remarks=#{remarks},
+			</if>
+		</trim>
+		where id=#{id}
+	</update>
+
+	<!-- 删除记录 -->
+	<delete id="deleteByPrimaryKey" parameterType="Object">
+		delete from
+		sys_user where id = #{id}
+	</delete>
+
+	<!-- 根据id查询 此表为添加说明信息 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="Object">
+		select
+		<include refid="Base_Column_List" />
+		from sys_user where id = #{id}
+	</select>
+
+	<!-- 此表为添加说明信息 列表总数 (分页) -->
+	<select id="selectByMapPagingCount" resultType="java.lang.Integer"
+		useCache="false" parameterType="Object">
+		select count(1) from sys_user
+		<include refid="Example_Where_Clause" />
+	</select>
+
+	<!-- 查询此表为添加说明信息列表 (分页) useCache="false" -->
+	<select id="selectByMapPaging" resultType="com.gtjy.p2p.modules.sys.dto.User" useCache="false">
+		select
+		<include refid="Base_Column_List" />
+		from sys_user
+		<include refid="Example_Where_Clause_Page" />
+	</select>
+
+	<!-- 此表为添加说明信息 递归查询 此方法公开需要自己实现 -->
+	<select id="selectByChild" resultMap="BaseResultMap">
+
+	</select>
+	<!-- 此表为添加说明信息 列表总数 -->
+	<select id="selectByMapCount" resultType="java.lang.Integer"
+		parameterType="java.util.Map">
+		select count(1) from sys_user
+		<include refid="Example_Where_Clause" />
+	</select>
+	<!-- 此表为添加说明信息 列表 -->
+	<select id="selectByMap" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from sys_user
+		<include refid="Example_Where_Clause" />
+	</select>
+	
+	<select id="validateUserName" resultMap="BaseResultMap" parameterType="java.lang.String">
+		SELECT <include refid="Base_Column_List"/> FROM sys_user WHERE 
+		 loginname=#{loginname}
+	</select>
+	<select id="validateUserNameAndPwd" resultMap="BaseResultMap" parameterType="java.util.Map">
+		SELECT <include refid="Base_Column_List"/> FROM sys_user WHERE 
+		 loginname =#{loginname} AND password=#{password}
+	</select>
+</mapper>   

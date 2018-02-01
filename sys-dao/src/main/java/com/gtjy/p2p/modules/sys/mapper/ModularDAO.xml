@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gtjy.p2p.modules.sys.DAO.ModularDAO">
+	<!-- 模块信息 -->
+	<!-- 缓存 -->
+	<cache eviction="FIFO" flushInterval="60000" size="1024" readOnly="true" />
+	<!-- Result Map -->
+	<resultMap id="BaseResultMap" type="com.gtjy.p2p.modules.sys.dto.Modular">
+		<result column="id" property="id" />
+		<result column="modularcode" property="modularcode" />
+		<result column="modularname" property="name" />
+		<result column="modularen" property="modularen" />
+		<result column="modularright" property="modularright" />
+		<result column="showname" property="showname" />
+		<result column="parent" property="parent_" />
+		<result column="children" property="children_" />
+		<result column="extendclass" property="extendclass" />
+		<result column="extendtype" property="extendtype" />
+		<result column="modifyuser" property="modifyuser" />
+		<result column="modifydate" property="modifydate" />
+		<result column="remarks" property="remarks" />
+		<result column="orders" property="order" />
+		<result column="icon"   property="icon"/>                              
+	</resultMap>
+
+	<!-- sys_modular table all fields -->
+	<sql id="Base_Column_List">
+		id,modularcode,modularname,modularen,modularright,showname,parent,children,extendclass,extendtype,modifyuser,modifydate,remarks,orders,icon
+	</sql>
+
+	<sql id="Example_Where_Clause_Page">
+		where 1=1
+		<trim suffixOverrides=",">
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id}
+			</if>
+			<if test="params.modularcode != null and params.modularcode != ''">
+				and modularcode = #{params.modularcode}
+			</if>
+			<if test="params.name != null and params.name != ''">
+				and modularname like CONCAT('%',CONCAT(#{params.name},'%'))
+			</if>
+			<if test="params.modularen != null and params.modularen != ''">
+				and modularen = #{params.modularen}
+			</if>
+			<if test="params.modularright != null and params.modularright != ''">
+				and modularright = #{params.modularright}
+			</if>
+			<if test="params.showname != null and params.showname != ''">
+				and showname = #{params.showname}
+			</if>
+			<if test="params.parent_ != null and params.parent_ != ''">
+				and parent = #{params.parent_}
+			</if>
+			<if test="params.children != null and params.children != ''">
+				and children = #{params.children}
+			</if>
+			<if test="params.extendclass != null and params.extendclass != ''">
+				and extendclass = #{params.extendclass}
+			</if>
+			<if test="params.extendtype != null and params.extendtype != ''">
+				and extendtype = #{params.extendtype}
+			</if>
+			<if test="params.modifyuser != null and params.modifyuser != ''">
+				and modifyuser = #{params.modifyuser}
+			</if>
+			<if test="params.modifydate != null and params.modifydate != ''">
+				and modifydate = #{params.modifydate}
+			</if>
+			<if test="params.remarks != null and params.remarks != ''">
+				and remarks = #{params.remarks}
+			</if>
+			<if test="params.order != null and params.order != ''">
+				and orders = #{params.order}
+			</if>
+			<if test="params.icon != null and params.icon != ''">
+			    and icon =#{params.icon}
+			</if>
+		</trim>
+	</sql>
+	<!-- 查询条件 -->
+	<sql id="Example_Where_Clause">
+		where 1=1
+		<trim suffixOverrides=",">
+			<if test="id != null and id != ''">
+				and id = #{id}
+			</if>
+			<if test="modularcode != null and modularcode != ''">
+				and modularcode = #{modularcode}
+			</if>
+			<if test="name != null and name != ''">
+				and modularname like CONCAT('%',CONCAT(#{name},'%'))
+			</if>
+			<if test="modularen != null and modularen != ''">
+				and modularen = #{modularen}
+			</if>
+			<if test="modularright != null and modularright != ''">
+				and modularright = #{modularright}
+			</if>
+			<if test="showname != null and showname != ''">
+				and showname = #{showname}
+			</if>
+			<if test="parent_ != null and parent_ != ''">
+				and parent = #{parent_}
+			</if>
+			<if test="children != null and children != ''">
+				and children = #{children}
+			</if>
+			<if test="extendclass != null and extendclass != ''">
+				and extendclass = #{extendclass}
+			</if>
+			<if test="extendtype != null and extendtype != ''">
+				and extendtype = #{extendtype}
+			</if>
+			<if test="modifyuser != null and modifyuser != ''">
+				and modifyuser = #{modifyuser}
+			</if>
+			<if test="modifydate != null and modifydate != ''">
+				and modifydate = #{modifydate}
+			</if>
+			<if test="remarks != null and remarks != ''">
+				and remarks = #{remarks}
+			</if>
+			<if test="order != null and order != ''">
+				and orders = #{order}
+			</if>
+			<if test="icon != null and icon != ''">
+			    and icon =#{icon}
+			</if>
+		</trim>
+	</sql>
+	<!-- 插入列 -->
+	<sql id="insert_columns">
+		<trim suffixOverrides=",">
+			<if test="modularcode != null and modularcode != ''">
+				modularcode,
+			</if>
+			<if test="name != null and name != ''">
+				modularname,
+			</if>
+			<if test="modularen != null and modularen != ''">
+				modularen,
+			</if>
+			<if test="modularright != null and modularright != ''">
+				modularright,
+			</if>
+			<if test="showname != null and showname != ''">
+				showname,
+			</if>
+			<if test="parent_ != null and parent_ != ''">
+				parent,
+			</if>
+			<if test="children_ != null and children_ != ''">
+				children,
+			</if>
+			<if test="extendclass != null and extendclass != ''">
+				extendclass,
+			</if>
+			<if test="extendtype != null and extendtype != ''">
+				extendtype,
+			</if>
+			<if test="modifyuser != null and modifyuser != ''">
+				modifyuser,
+			</if>
+			<if test="modifydate != null and modifydate != ''">
+				modifydate,
+			</if>
+			<if test="remarks != null and remarks != ''">
+				remarks,
+			</if>
+			<if test="order != null and order != ''">
+				orders,
+			</if>
+			<if test="icon != null and icon != ''">
+				icon,
+			</if>
+		</trim>
+	</sql>
+	<!-- 插入值 -->
+	<sql id="insert_value">
+		<trim suffixOverrides=",">
+			<if test="modularcode != null and modularcode != ''">
+				#{modularcode},
+			</if>
+			<if test="name != null and name != ''">
+				#{name},
+			</if>
+			<if test="modularen != null and modularen != ''">
+				#{modularen},
+			</if>
+			<if test="modularright != null and modularright != ''">
+				#{modularright},
+			</if>
+			<if test="showname != null and showname != ''">
+				#{showname},
+			</if>
+			<if test="parent_ != null and parent_ != ''">
+				#{parent_},
+			</if>
+			<if test="children_ != null and children_ != ''">
+				#{children_},
+			</if>
+			<if test="extendclass != null and extendclass != ''">
+				#{extendclass},
+			</if>
+			<if test="extendtype != null and extendtype != ''">
+				#{extendtype},
+			</if>
+			<if test="modifyuser != null and modifyuser != ''">
+				#{modifyuser},
+			</if>
+			<if test="modifydate != null and modifydate != ''">
+				#{modifydate},
+			</if>
+			<if test="remarks != null and remarks != ''">
+				#{remarks},
+			</if>
+			<if test="order != null and order != ''">
+				#{order},
+			</if>
+			<if test="icon != null and icon != ''">
+				#{icon},
+			</if>
+		</trim>
+	</sql>
+	<!-- 插入记录 -->
+	<insert id="insert" parameterType="Object">
+		INSERT INTO sys_modular(
+		<include refid="insert_columns" />
+		) VALUES(
+		<include refid="insert_value" />
+		)
+	</insert>
+
+	<!-- 根据id，修改记录 -->
+	<update id="updateByPrimaryKey" parameterType="Object">
+		update sys_modular
+		set
+		modularcode=#{modularcode},modularname=#{name},modularen=#{modularen},modularright=#{modularright},showname=#{showname},parent=#{parent},children=#{children},extendclass=#{extendclass},extendtype=#{extendtype},modifyuser=#{modifyuser},modifydate=#{modifydate},remarks=#{remarks},orders=#{order},icon=#{icon}
+		where id=#{id}
+	</update>
+
+	<!-- 修改记录，只修改只不为空的字段 -->
+	<update id="updateBySelective" parameterType="Object">
+		update sys_modular set
+		<trim suffixOverrides=",">
+			<if test="modularcode != null  and modularcode != '' ">
+				modularcode=#{modularcode},
+			</if>
+			<if test="name != null  and name != '' ">
+				modularname=#{name},
+			</if>
+			<if test="modularen != null  and modularen != '' ">
+				modularen=#{modularen},
+			</if>
+			<if test="modularright != null  and modularright != '' ">
+				modularright=#{modularright},
+			</if>
+			<if test="showname != null  and showname != '' ">
+				showname=#{showname},
+			</if>
+			<if test="parent != null  and parent != '' ">
+				parent=#{parent},
+			</if>
+			<if test="children != null  and children != '' ">
+				children=#{children},
+			</if>
+			<if test="extendclass != null  and extendclass != '' ">
+				extendclass=#{extendclass},
+			</if>
+			<if test="extendtype != null  and extendtype != '' ">
+				extendtype=#{extendtype},
+			</if>
+			<if test="modifyuser != null  and modifyuser != '' ">
+				modifyuser=#{modifyuser},
+			</if>
+			<if test="modifydate != null  ">
+				modifydate=#{modifydate},
+			</if>
+			<if test="remarks != null  and remarks != '' ">
+				remarks=#{remarks},
+			</if>
+			<if test="order != null  ">
+				orders=#{order},
+			</if>
+			<if test="icon != null  ">
+				icon=#{icon},
+			</if>
+		</trim>
+		where id=#{id}
+	</update>
+
+	<!-- 删除记录 -->
+	<delete id="deleteByPrimaryKey" parameterType="Object">
+		delete from
+		sys_modular where id = #{id}
+	</delete>
+
+	<!-- 根据id查询 模块信息 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="Object">
+		select
+		<include refid="Base_Column_List" />
+		from sys_modular where id = #{id}
+	</select>
+
+	<!-- 模块信息 列表总数 (分页) -->
+	<select id="selectByMapPagingCount" resultType="java.lang.Integer"
+		useCache="false" parameterType="Object">
+		select count(1) from sys_modular
+		<include refid="Example_Where_Clause" />
+		ORDER BY orders asc
+	</select>
+
+	<!-- 查询模块信息列表 (分页) -->
+	<select id="selectByMapPaging" useCache="false" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM sys_modular
+		<include refid="Example_Where_Clause_Page" />
+		ORDER BY orders
+	</select>
+
+	<!-- 模块信息 递归查询 此方法公开需要自己实现 -->
+	<select id="selectByChild" resultMap="BaseResultMap">
+
+	</select>
+	<!-- 模块信息 列表总数 -->
+	<select id="selectByMapCount" resultType="java.lang.Integer"
+		parameterType="java.util.Map">
+		select count(1) from sys_modular
+		<include refid="Example_Where_Clause" />
+		ORDER BY id desc
+	</select>
+	<!-- 模块信息 列表 -->
+	<select id="selectByMap" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from sys_modular
+		<include refid="Example_Where_Clause" />
+		ORDER BY orders desc
+	</select>
+	<!-- =============================== 动态公共部分 传入sql执行 ========================================== -->
+	<select id="selectBySql" resultType="java.util.Map"
+		parameterType="java.lang.String"><![CDATA[#{SQL}]]></select>
+	<delete id="deleteByEntity" parameterType="Object"></delete>
+	<delete id="deleteBySql" parameterType="java.lang.String"><![CDATA[#{sql}]]></delete>
+	<update id="updateBySql" parameterType="java.lang.String"><![CDATA[#{sql}]]></update>
+	<insert id="insertBySql" parameterType="java.lang.String"><![CDATA[#{sql}]]></insert>
+
+	<!-- =============================== 标签使用方法 ========================================== -->
+	<select id="selectParent" resultMap="BaseResultMap"
+		parameterType="Object">
+		select
+		<include refid="Base_Column_List" />
+		from sys_modular where parent='0'
+	</select>
+	<select id="selectMKByParent" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from sys_modular where parent=#{parent_}
+	</select>
+	<!-- 查询最大typeCode -->
+	<select id="selectNextCode" resultType="java.lang.String"
+		parameterType="java.lang.String">
+		select max(modularcode) from sys_modular where
+		parent=#{parent_}
+	</select>
+	<select id="CurrentPosition" resultType="com.gtjy.p2p.modules.sys.dto.Modular"
+		parameterType="java.lang.String">
+		SELECT p.*, children.modularname as "parent.name"
+		FROM
+		sys_modular p
+		LEFT OUTER JOIN
+		sys_modular children
+		ON children.mkbm =
+		p.FL
+		WHERE p.ysm=#{rep2path}
+	</select>
+</mapper>

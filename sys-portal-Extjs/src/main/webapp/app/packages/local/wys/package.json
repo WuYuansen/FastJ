@@ -1,0 +1,297 @@
+{
+    /**
+     * The name of the package.
+     */
+    "name": "wys",
+
+    /**
+     * Alternate names for this package.
+     *
+     *    "alternateName": [],
+     */
+     
+     /**
+      * The namespace of this package.
+      *
+      * As a general rule, all classes that belong to this package should be under this namespace
+      * if multiple namespaces are part of this package, set this to "".
+      */
+     "namespace": "wys",
+    /**
+     * The package type.
+     *
+     * Sencha Cmd understands the following types of packages:
+     *  - code : An arbitrary package of code for use by applications or other packages.
+     *  - theme : A package to be used as an application’s theme.
+     *  - locale : A package containing localization strings or locale-specific code.
+     *  - template : A package containing one or more templates.
+     */
+    "type": "theme",
+	
+	"extend": "theme-crisp",
+    /**
+     * The toolkit used by this theme (only for "theme" package type).
+     *
+     * Themes can specify the toolkit they apply to ("classic" or "modern").
+     *
+     *    "toolkit": "classic",
+     */
+    "toolkit": "classic",
+
+     /**
+      * The author of the package.
+      *
+      * Required only if you are distributing this package through a Sencha Cmd repository,
+      * in which case it should match the name you assign to your local package repository.
+      */
+    "creator": "吴元森",
+
+    /**
+     * 此包的摘要说明。
+     */
+    "summary": "词包主要对Extjs进行从组封装",
+
+    /**
+     * 此包的详细描述。
+     */
+    "detailedDescription": "此包主要是封装Extjs原始组件，主要母体是为了开发者适应方便",
+
+    /**
+     * 包版本。
+	 *
+	 *通常，包的更改应该伴随着对版本的更改。
+	 *这个数字应该是这种格式：D +（+ +）*
+     */
+    "version": "1.0.0",
+
+    /**
+     * The version that users can transparently update from without requiring code changes.
+     *
+     * In addition the version property, packages can also indicate the degree to which
+     * they are backward compatible using the compatVersion property.
+     */
+    "compatVersion": "1.0.0",
+
+    /**
+     * Spec. version of this package.json file.
+     * This is set automatically by Sencha Cmd when first generating this file
+     */
+    "format": "1",
+
+    /**
+     * 主题切割操作期间使用的额外资源
+     */
+    "slicer": {
+        "js": [
+            {
+                "path": "${package.dir}/sass/example/custom.js",
+                "isWidgetManifest": true
+            }
+        ]
+    },
+
+    /**
+     * 控制输出目录。
+     */
+    "output": "${package.dir}/build",
+
+    /**
+     * 指示这是本地开发的包还是下载的存储库表单。
+	 * 在新生成的包上默认为true，不应更改。
+     */
+    "local": true,
+
+    /**
+     * The theme (package) this package will use (e.g., "ext-theme-neptune", etc.).
+     * This is only needed if the built package will be used by a non-Cmd application.
+     *
+     *     "theme": "ext-theme-classic",
+     */
+
+    /**
+     * Sass configuration properties.
+     */
+    "sass" : {
+        /**
+         * The namespace to which this package's SASS corresponds. The default value of
+         * "wys" means that the files in ./sass/src (and ./sass/var) match classes in
+         * the wys" root namespace. In other words, "wys.panel.Panel" maps to
+         * ./sass/src/panel/Panel.scss.
+         *
+         * To style classes from any namespace, set this to blank. If this is blank,
+         * then to style "wys.panel.Panel" you would put SASS in
+         * ./sass/src/wys/panel/Panel.scss.
+         */
+        "namespace": "wys",
+
+        /**
+         * Comma-separated list of files or folders containing extra Sass. These
+         * files are automatically included in the Sass compilation. By default this
+         * is just "etc/all.scss" to allow import directives to control the order
+         * other files are included.
+         *
+         * All "etc" files are included at the top of the Sass compilation in their
+         * dependency order:
+         *
+         *      +-------+---------+
+         *      |       | base    |
+         *      | theme +---------+
+         *      |       | derived |
+         *      +-------+---------+
+         *      | packages        |  (in package dependency order)
+         *      +-----------------+
+         *      | application     |
+         *      +-----------------+
+         */
+        "etc": "${package.dir}/sass/etc/all.scss,${package.dir}/${toolkit.name}/sass/etc/all.scss",
+
+        /**
+         * Comma-separated list of folders containing Sass variable definitions
+         * files. These file can also define Sass mixins for use by components.
+         *
+         * All "var" files are included after "etc" files in the Sass compilation in
+         * dependency order:
+         *
+         *      +-------+---------+
+         *      |       | base    |
+         *      | theme +---------+
+         *      |       | derived |
+         *      +-------+---------+
+         *      | packages        |  (in package dependency order)
+         *      +-----------------+
+         *      | application     |
+         *      +-----------------+
+         *
+         * The "sass/var/all.scss" file is always included at the start of the var
+         * block before any files associated with JavaScript classes.
+         */
+        "var": "${package.dir}/sass/var,${package.dir}/${toolkit.name}/sass/var",
+
+        /**
+         * Comma-separated list of folders containing Sass rule files.
+         *
+         * All "src" files are included after "var" files in the Sass compilation in
+         * dependency order (the same order as "etc"):
+         *
+         *      +-------+---------+
+         *      |       | base    |
+         *      | theme +---------+
+         *      |       | derived |
+         *      +-------+---------+
+         *      | packages        |  (in package dependency order)
+         *      +-----------------+
+         *      | application     |
+         *      +-----------------+
+         */
+        "src": "${package.dir}/sass/src,${package.dir}/${toolkit.name}/sass/src"
+    },
+
+    /**
+     * This is the comma-separated list of folders where classes reside. These
+     * classes must be explicitly required to be included in the build.
+     */
+    "classpath": "${package.dir}/src,${package.dir}/${toolkit.name}/src",
+
+    /**
+     * Comma-separated string with the paths of directories or files to search. Any classes
+     * declared in these locations will be automatically required and included in the build.
+     * If any file defines an Ext JS override (using Ext.define with an "override" property),
+     * that override will in fact only be included in the build if the target class specified
+     * in the "override" property is also included.
+     */
+    "overrides": "${package.dir}/overrides,${package.dir}/${toolkit.name}/overrides",
+
+    "example": {
+        /**
+         * One or more folders that contain example applications for this package.
+         */
+        "path": [
+            "${package.dir}/examples"
+        ]
+
+        /**
+         * You can list apps specifically.
+         *
+         *      "apps": [
+         *          "demo1",
+         *          "demo2"
+         *      ]
+         *
+         * By default, all subfolders in the path are considered example applications.
+         */
+    },
+
+    /**
+     * The framework this package will use (i.e., "ext" or "touch").
+     * This is only needed if the built package will be used by a non-Cmd application.
+     *
+     *     
+     */
+	"framework": "ext",
+    /**
+     * Packages can require other packages in the same way that applications can require
+     * packages.
+     *
+     * Can be specified as an array of package names or configuration objects.
+     *
+     *      "requires": [
+     *          "foo",
+     *          "bar@1.1-2.0",
+     *          {
+     *              "name": "baz"
+     *              "version": "1.5"
+     *          }
+     *      ]
+     *
+     * Can also be specified as an object:
+     *
+     *      "requires": {
+     *          "foo": "2.2",
+     *          "bar": {
+     *              "minVersion": "1.1",
+     *              "version": "2.0"
+     *          }
+     *      }
+     */
+    "requires": [],
+    /**
+    	第三方依赖
+    */
+    "css": [
+        {
+            "path": "${build.out.css.path}",
+            "bundle": true,
+            "exclude": ["fashion"]
+        },{
+        	"path" :  "resources/icons/css/font-awesome.min.css",
+        	"update" : "full"
+        },{
+        	"path" : 'resources/console.css',
+        	"update" : "full"
+        }/*,{
+        	"path" : 'resources/plugins/intro/introjs.css',
+        	"update" : "full"
+        },{
+	        "path" : "resources/plugins/codeMirror/doc/docs.css",
+        	"update" : "full"
+    	},{
+			"path" : "resources/plugins/codeMirror/lib/codemirror.css",
+        	"update" : "full"
+    	},{
+			"path" : "resources/plugins/codeMirror/theme/vibrant-ink.css",
+        	"update" : "full"
+        },{// 文本编辑器 
+        	"path" : 'resources/plugins/ckeditor/WordPaster/css/WordPaster.css',
+			"update" : 'full'
+        },{
+        	"path" : 'resources/plugins/ckeditor/WordPaster/js/skygqbox.css',
+			"update" : 'full'
+        }*/
+    ],
+    "js": [
+    	{
+			"path" : 'resources/lang/zh_CN.js',
+			"update" : 'full'
+		}
+    ]
+}

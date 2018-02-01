@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>项目说明</title>
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="js/laycode/laycode.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/laycode/laycode.min.js"></script>
+<script type="text/javascript" src="js/jegrid/jquery.jegrid.js"></script>
+<style>
+.tabledata{width:100%;border-collapse:collapse;border-spacing:0;border:solid 1px #ddd;font-family:Consolas;color:#333;background-color:white;margin:10px 0}
+.tabledata th,td{font-size:14px;border:solid 1px #ddd;padding:8px;display:table-cell;vertical-align:inherit;text-align:left}
+.tc{text-align:center}
+.tabledata th{border-bottom:solid 2px #ddd;background-color:#eef;font-weight:normal;color:#00A1CB; text-align:center}
+.tabledata td img{width:100px;}
+.tabledata tr:hover{background-color:#ffffcd;}
+.odd{background-color:#f8f8f8;}
+.even{background-color:#ffffff;}
+#divPage{text-align:left;padding:10px 0;font-size:14px;line-height: 30px;overflow:hidden;}
+#divPage a,#divPage span{height: 28px;line-height: 28px;padding: 0 12px;border-radius: 3px;text-decoration:none;color:#666;background-color:#f1eff0;text-align:center;border:solid 1px #ddd;display:inline-block; overflow:hidden; margin:0 0 0 8px; float:left;}
+#divPage i{height: 28px;line-height: 28px;padding: 0 6px;overflow:hidden; margin:0 0 0 8px; float:left;color:#333;font-size:16px;display:inline-block;}
+#divPage em{padding: 0 6px;margin:0 0 0 8px; float:left;color:#666;display:inline-block;}
+#divPage span{color:gray}
+#divPage a:hover{background-color:#00A1CB;color:#fff;border:solid 1px #00A1CB;}
+#divPage .acurr{background-color:#00A1CB;color:#fff;border:solid 1px #00A1CB;font-weight:bold}
+#divPage .pagecount{color:#333;}
+#divPage .pagenum{width:40px;height: 26px;line-height: 26px;border:solid 1px #ccc;border-radius: 3px; text-align:center; margin:0 5px;vertical-align: top; -webkit-box-shadow: inset 1px 1px 3px rgba(0,0,0,.15);box-shadow: inset 1px 1px 3px rgba(0,0,0,.15);}
+#divPage .pagebut{height: 28px;line-height: 28px;padding: 0 12px;border-radius: 3px;text-decoration:none;background-color:#00A1CB;color:#fff;border:solid 1px #00A1CB;}
+.sortall{ background-repeat:no-repeat; background-position:right center;background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAJCAYAAADdA2d2AAAAT0lEQVR4XqXSoQ0AIAxE0ZYwCpqE/YcgQbPLoVBnPuFMVV/aQkoKktaH9poZIIWCt36jBkG4cJDD4KbvqWxSjz2arc8aHeSoAwB0lML0nx7DbyYN4ji8FwAAAABJRU5ErkJggg==');cursor:pointer;}
+.sort-desc{ background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAEAQMAAABbU+brAAAABlBMVEX///8jLTBpOkGEAAAAAXRSTlMAQObYZgAAABtJREFUeF4FwDENAAAIA7DiBInI37GDmCI4rAcadwKGQAhN2QAAAABJRU5ErkJggg==');}
+.sort-asc{ background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAEAQMAAABbU+brAAAABlBMVEUAAAAjLTCZnys1AAAAAXRSTlMAQObYZgAAABpJREFUeF4FwAENAAAIArBHMA7hyM4ch6CYBwgEAcOLW/JRAAAAAElFTkSuQmCC');}
+</style>
+</head>
+
+<body class="fmy">
+<div class="centauto">
+    <h1 class="centtitle f20">项目说明</h1>
+	<h2 class="b f16">工具和框架 (Tools and Frameworks)</h2>
+	<div id="divData" onselectstart="return false;" style="-moz-user-select:none;"></div>
+       <div id="divPage"></div>
+       <div class="prebox mb15">
+		<pre>Java: JDK1.7
+IDE: Eclipse Indigo
+Version: Spring3.2.2 / MyBatis 3.1.1 / mybatisspring 1.1.1
+DataBase: MySql/oracle
+Web Server: Tomcat,Jetty
+Build Tool: Maven
+Other: Druid 1.0.9(database connection pool) Log4j dom4j-1.6.1 FastJson1.2.6 POI3.15 ehcache-core-2.6.6 quartz-all-1.6.0等
+Web Service:cfx2.7.1
+		</pre>
+	</div>
+	<div class="centinfo f14">
+        <pre class="codes" title="工程结构">
+parent_framework
+---->sys_generator				系统代码生成器
+---->sys_common				系统模块-公共类，Utils，邮件发送，短信模块，Excel导出，Xml解析，JSON解析，以及对MyBatis以及SpringMVC进行的封装，优化等
+---->sys_dao						系统模块-DAO访问层
+---->sys-tiles						系统模块-services服务层
+---->sys-services					系统模块-Controller服务层以及其他
+---->sys-portal-bootstrap			统一前端展示-Bootstrap、RequireJS、Angularjs版本
+---->sys-portal-Extjs				统一前端展示-Extjs版本
+---->其他扩展项目包				系统其他功能模块包
+       	</pre>
+       	<div class="prebox mb15">
+		<pre>&nbsp;&nbsp;本系统后端采用模块化模式进行开发，每一个模块可单独作为一个服务打包加入到总服务中即可运行。如需移除某一块功能则可以直接移除对应Jar包即可完成。<br>
+&nbsp;&nbsp;本系统除数据库连接等基础配置外无其他任何配置项。<br>
+&nbsp;&nbsp;用户权限功能做到细粒度控制，页面，按钮，后台方法。<br>
+&nbsp;&nbsp;系统数据缓存采用Redis作为缓存介质。<br>
+&nbsp;&nbsp;未完待续...<br>
+		</pre>
+	 </div>
+	</div>
+     <h2 class="b f16">框架前端(Front Frameworks)</h2>
+     <div id="divData" onselectstart="return false;" style="-moz-user-select:none;"></div>
+       <div id="divPage"></div>
+       <div class="prebox mb15">
+		<pre>&nbsp;&nbsp;本系统基于Bootstrap v3.3.7、layui、AngularJS v1.5.9、requirejs进行二次开发并封装。系统展示页面开发文件存储位置必须放在pages目录下，按照模块进行存储，一个页面必须存在与之对应的一个javascript脚本文件，具体文件格式以及内容可参考系统中页面以及脚本文件。<br />&nbsp;&nbsp;现在系统中封装的有：表格控件、下拉选择控件、树型控件、按钮、提示框、表单、视图、选项卡、布局控件等<br />&nbsp;&nbsp;系统正在完成，开发中如有好的建议或者意见可以发送邮件到15909910367@163.com 中，我将认真听取您的意见或者建议。并在系统中得以运用。
+		</pre>
+	 </div>
+     <div class="centinfo f14">
+        <pre class="codes" title="目录结构">
+ROOT:
+---->doc								系统帮助文档
+---->pages							系统模块页面
+---->script							第三方javascript脚本&自行封装的脚本以及工具类
+		└locale						国际化脚本
+		└plugs						第三方插件
+		└provider					第三方工具包以及自己封装的工具包
+		└boostrap.js					javascript脚本依赖关系配置
+		└setup.js					项目启动脚本
+		└urlMapping.js				项目请求URL
+---->tempData						测试数据存放地址
+		└menu.json
+---->theme							系统主题样式存放目录
+		└css
+		└font-awesome
+		└fonts
+		└images
+		└img
+	index.jsp						系统登陆界面
+	admin.jsp						系统管理界面
+	empty.jsp						空页面
+        </pre>
+     </div>
+</div>
+<script type="text/javascript">
+    //修饰代码
+    $('.codes').each(function(i){
+        var othis = $(this);
+        othis.laycode({
+            title: othis.attr('title') || '对应代码说明',
+            height: othis.attr('heg') || 'auto',
+            skin: othis.attr('skin') || 0,
+			by:false
+        });
+    });
+	//触发例子
+    new Function($('.run').text())();
+</script>
+</body>
+</html>

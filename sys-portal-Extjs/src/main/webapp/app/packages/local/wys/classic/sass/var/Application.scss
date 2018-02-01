@@ -1,0 +1,127 @@
+/*
+	修改整体框架基础颜色
+*/
+$base-color: dynamic(#3892d4);
+$font-family: dynamic ( helvetica , arial , verdana , sans-serif );
+$font-size:dynamic(13px);
+$panel-header-background-color:dynamic(#f0f0f0);
+$font-weight-bold:bold;
+$toolbar-background-color:dynamic(#f9f9f9);
+/**
+	公共颜色定义
+*/
+$color-soft-blue:#339999;
+$color-soft-cyan:#66CCCC;
+$color-soft-green:#339999;
+$color-soft-red:#CC3333;
+$color-soft-purple:#996699;
+$color-green:#339999;
+$color-gray:#CCCCCC;
+$color-blue:#339999;
+/** 
+	修改tab选项卡所在背景颜色
+*/
+$panel-header-background-color:dynamic(#CFCFCF);
+$panel-header-border-color:dynamic(#CCCCCC);
+$panel-border-width:1px;
+$panel-border-color:dynamic(#CCCCCC);
+
+/**
+	重写 Ext.LoadMask样式
+*/
+$scroll-indicator-border-radius:0;
+$loadmask-background-color:dynamic(#eee);
+$loadmask-border-color-focus:#a3bad9;
+$loadmask-border-style-focus:solid;
+$loadmask-border-width-focus:dynamic(1px);
+$loadmask-msg-background-color:dynamic(#dfe9f6);
+$loadmask-msg-border-color:dynamic(#a3bad9);
+$loadmask-msg-text-padding:dynamic(5px 5px 5px 20px);
+$loadmask-msg-padding:dynamic(2px);
+$loadmask-msg-border-radius:dynamic(0);
+$loadmask-msg-border-width:dynamic(1px);
+$loadmask-msg-border-style:solid;
+$loadmask-msg-border-color:dynamic(#a3bad9);
+$loadmask-msg-text-padding:dynamic(5px 5px 5px 20px);
+$loadmask-msg-inner-border-color:dynamic(#a3bad9);
+$loadmask-msg-inner-border-style:solid;
+$loadmask-msg-inner-border-width:dynamic(1px);
+$loadmask-msg-inner-padding:dynamic(0 5px);
+$loadmask-msg-inner-background-color:dynamic(#eee);
+$loadmask-msg-inner-icon-position:dynamic(0 center);
+
+/* 重新定义fieldset样式 */
+$fieldset-border-color:dynamic(#A00000);
+$fieldset-header-line-height: dynamic(14px);
+$fieldset-collapse-tool-size: dynamic(15px);
+$fieldset-collapse-tool-margin: dynamic(1px 3px 0 0);
+$fieldset-border-color: dynamic($neutral-dark-color);
+$fieldset-header-color: dynamic($color);
+$fieldset-collapse-tool-background-image: dynamic('fieldset/collapse-tool');
+$fieldset-collapse-tool-opacity: dynamic(.8);
+$fieldset-collapse-tool-opacity-over: dynamic(.9);
+$fieldset-collapse-tool-opacity-pressed: dynamic(1);
+
+.treelist-with-nav .#{$prefix}panel-body {
+    background-color: #32404e;
+}
+
+/**
+ * 专门为window提供一组专用样式
+ */
+.windowByQQ{
+	$ui-padding:dynamic(4px),
+    $ui-border-radius: dynamic(4px),
+    $ui-border-color : '#FF4B4A',
+    $ui-border-width: dynamic(1px),
+    $ui-inner-border-color:dynamic(#fff),
+    $ui-inner-border-width:dynamic(0),
+    $ui-header-color: dynamic(#000),
+    $ui-header-background-color : '#C52020',
+}
+
+/* set gridpanel title style
+$grid-header-background-color:dynamic(#C8C8C8);
+$grid-column-header-font-weight:dynamic(600);
+*/
+
+/* set gridpanel row background color */
+.grid-columns-background-color-skyblue {
+	background-color: #87CEEB;
+}
+.grid-columns-background-color-stop {
+	background-color:#FF3030;
+}
+.grid-columns-background-color-red {
+	background-color: #9C9C9C;
+}
+.grid-columns-background-important{
+	background-color: #FF4500;
+}
+/* set devices gridpanel row interlaced background color */
+.devicesInfo_interlaced_backgroud_oddNumber{
+	background-color:#FFFFFF;
+}
+.devicesInfo_interlaced_backgroud_even{
+	background-color:#E7F2FA;
+}
+/**
+定义证书状态颜色值
+*/
+.state_effective{
+}
+.state_Invalid{
+}
+.state_BeOverdue{
+}
+.state_PendingAudit{
+}
+/**
+  报表部分表头样式
+*/
+.chartsPanelHeaderCls{
+	background-color:#4572A7;
+	color :white;
+	font-size:12px;
+	border-right: 1px solid #cfcfcf;
+}

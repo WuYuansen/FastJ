@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta name="renderer" content="webkit">
+<meta charset="utf-8">
+<title>后台管理系统前端框架说明文档</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<link href="css/panel_admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/framPanel.js"></script>
+<script type="text/javascript" src="js/jTrees.js"></script>
+</head>
+
+<body>
+<div class="layoutcon" id="main">
+     <!-- top nav start -->
+     <div class="topPanel" panels="top">
+          <p class="tc fmy f22" style="line-height:40px; padding-left:200px;">API接口展示</p>
+     </div>
+     <!-- left menu start -->
+     <div class="leftPanel" panels="left" id="leftList">
+     <div id="leftList_Content" class="jtree fmy" style="display:block"></div>
+     </div>
+     <!-- content start -->
+     <div class="centPanel" panels="content" id="tabmain">
+          <iframe id="Panel_frame" name="mymain" src="explain.html" width="100%" height="100%" frameborder="0" scrolling="yes"></iframe>  
+     </div>
+     <!-- bottom start -->
+     <div class="botPanel g6 tc" panels="bottom">吴元森15909910367@163.com 版权所有</div> 
+</div>
+
+<script type="text/javascript">
+framPanel({PanCell:"#main",size:{topH:40,rightW:0,bottomH:0,leftW:200}});
+var zNodes =[
+	{ cid:1, pid:0, name:"页面案例",isAccordion:true,isopen:true},
+	{ cid:100, pid:1, name:"项目介绍",url:"explain.html"},
+	{ cid:100, pid:1, name:"JS日期控件",url:"laydate.html"},
+	{ cid:101, pid:1, name:"jeGrid表格控件",url:"jegrid.html"},
+	{ cid:102, pid:1, name:"页面布局",url:"layout.html"}
+];
+
+jTrees({treeCell:"#leftList_Content",DataList:zNodes,trigger:true,targetType:"mymain"});
+
+</script>
+</body>
+</html>

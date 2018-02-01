@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Word图片上传控件安装页面</title>
+    <script language="javascript" type="text/javascript">
+    	window.onload = function()
+    	{
+    		try
+    		{
+    			var acx = ['Xproer.ImageFileUploader', 'Xproer.ImagePaster', 'Xproer.WordParser'];
+
+    			for (var i = 0; i < acx.length; ++i)
+    			{
+    				var obj = new ActiveXObject(acx[i]);
+    			}
+    			var div = document.getElementById("spInstall");
+    			div.style.display = "none";
+
+    			div = document.getElementById("spCmp");
+    			div.style.display = "";
+    		}
+    		catch (e)
+    		{
+    		}
+    	};
+    </script>
+</head>
+<body>
+	<ul>
+		<li>如果无法识别数字证书，请先下载运行<a target="_blank" href="http://www.ncmem.com/download/rootsupd.rar">Windows证书补丁</a></li>
+		<li>如果无法安装组件请下载进行安装<a target="_blank" href="http://www.microsoft.com/downloads/details.aspx?FamilyID=9b2da534-3e03-4391-8a4d-074b9f2bc1bf%20">Microsoft Visual C++ 2008 Redistributable Package (x86)</a></li>
+		<li>如果有任何问题或建议请向我们<a target="_blank" href="http://www.ncmem.com/blog/guestbook.asp">反馈</a></li>
+	</ul>
+	<div id="spInstall">
+		<img id="imgLoad" src="loading.gif" alt="加载" /><span id="msg" style="font-size: 16px; font-weight: bold;">正在安装Web控件...</span>
+		<p style="font: 12px/12px 宋体;">
+			安装过程已在进行中，现在您的浏览器或安全防护软件可能暂时阻止了控件的安装。请根据以下提示完成安装过程：</p>
+		<ul style="list-style-type: decimal;">
+			<li>在页面顶部是否出现了如下图所示的信息栏：<br />
+				<img alt="" src="1.gif" /></li>
+			<li>如果已显示信息栏，请右键单击信息栏，然后选择“安装 ActiveX 控件”：<br />
+				<img alt="" src="2.gif" /></li>
+			<li>在“Internet Explorer 安全警告”对话框中，单击“安装”：<br />
+				<img alt="" src="3.gif" /></li>
+			<li>完成安装！<br />
+				<img alt="" src="4.gif" /></li>
+		</ul>
+		<div style="display: none;">
+			<!--加载图片粘贴控件-->
+			<object classid="clsid:DC4A6931-3570-44b4-842D-C13EE637BBC1" codebase="http://www.ncmem.com/products/word-imagepaster/fckeditor2461/WordPaster/WordPaster.cab#version=1,4,22,54574" width="1" height="1">
+			</object>
+			<!--加载上传控件-->
+			<object classid="clsid:26CFEDE7-789D-4077-B49D-C7F1D7150B93" codebase="http://www.ncmem.com/products/word-imagepaster/fckeditor2461/WordPaster/WordPaster.cab#version=1,4,22,54574" width="1" height="1">
+			</object>
+			<!--加载解析组件-->
+			<object classid="clsid:1832A49E-09D5-470E-AA4B-BE8F28034218" codebase="http://www.ncmem.com/products/word-imagepaster/fckeditor2461/WordPaster/WordPaster.cab#version=1,4,22,54574" width="1" height="1">
+			</object>
+		</div>
+	</div>
+	<div id="spCmp" style="display:none;">
+		<p style="font 16px/16px 宋体; color: Red;">
+			已成功安装Word图片上传控件！</p>
+		<input type="button" value="关闭窗口" onclick="javascript:window.close();" />
+	</div>
+</body>
+</html>

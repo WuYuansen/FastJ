@@ -1,0 +1,14 @@
+/*
+    定义ui='button-searchbtn-toolbar'
+*/
+@include extjs-button-toolbar-small-ui(
+    $ui: 'button-searchbtn',
+    $color:#ffffff,
+    $glyph-color:#ffffff,
+    $background-color:#00c0ef,
+    $inner-border-width:1px,
+	$border-color:#00c0ef,
+    $text-padding:0px,
+    $icon-spacing:0px,
+    $border-width:1px
+);

@@ -1,0 +1,91 @@
+
+.ui-progress {
+    padding: 50px;
+    .ui-progress-segment {
+        position: relative;
+        float: left;
+        margin-right: 37px;
+        .ui-progress-segment-failed-popup {
+            position: absolute;
+            display: none;
+            top: -20px;
+            z-index: 2;
+            width: 100px;
+            height: auto;
+            line-height: 20px;
+            border: 1px solid #ccc;
+            padding: 5px;
+            span {
+                display:block;
+                width: 0; 
+                height: 0; 
+                border-width:10px; 
+                border-style: solid; 
+                border-color: #ccc transparent transparent transparent; 
+                position: absolute;
+                top: 50px;
+                left: 45px;
+            }
+            em {
+                display: block;
+                width: 0; 
+                height: 0;
+                border-width: 10px; 
+                border-style: solid; 
+                border-color: #fff transparent transparent transparent; 
+                position: absolute; 
+                top: 48px;
+                left: 45px;
+            }
+        }
+        .ui-progress-segment-main {
+            .ui-progress-segment-main-up {
+                margin-bottom: 5px;
+                width: 110px;
+                height: 40px;
+                line-height: 20px;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+            }
+            .ui-progress-segment-main-icon {
+                margin: 0 auto;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background: white;
+            }
+            .ui-progress-segment-main-icon-being {
+                background: yellow;
+            }
+            .ui-progress-segment-main-icon-successed {
+                background: green;
+            }
+            .ui-progress-segment-main-icon-failed {
+                cursor: pointer;
+                background: gray;
+            }
+            .ui-progress-segment-main-down {
+                margin-top: 5px;
+                width: 110px;
+                height: 40px;
+                line-height: 20px;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+            }
+        }
+        .ui-progress-segment-bar {
+            position: absolute;
+            top: 50%;
+            left: 66%;
+            //z-index: -1;
+            height: 2px;
+            width: 100%;
+            background: #e8e8e9;
+        }
+    }
+
+}

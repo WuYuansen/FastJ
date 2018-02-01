@@ -1,0 +1,31 @@
+@include extjs-window-ui(
+  $ui: 'updateNotice',
+  $ui-border-color:transparent,
+  $ui-body-background-color:transparent,
+  $ui-border-width:0
+);
+
+@include extjs-window-ui(
+  $ui: 'attachmentList',
+  $ui-border-color:transparent,
+  $ui-body-background-color:transparent,
+  $ui-border-width:0
+);
+
+
+.updateNoticeHeader{
+  width:683px;
+  height:60px;
+  position:absolute;
+  bottom:0;
+  & p{
+    width:683px;
+    text-align:center;
+    font-size:24px;
+    margin:10px 0;
+  }
+  & div{
+    width:683px;
+    text-align:center;
+  }
+}

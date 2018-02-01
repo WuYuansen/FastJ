@@ -1,0 +1,14 @@
+/*
+    定义ui='button-syncbtn-toolbar'
+*/
+@include extjs-button-toolbar-small-ui(
+    $ui: 'button-syncbtn',
+    $color:#000000,
+    $glyph-color:#000000,
+    $background-color:#f4f4f4,
+    $inner-border-width:1px,
+	$border-color:#f4f4f4,
+    $text-padding:0px,
+    $icon-spacing:0px,
+    $border-width:1px
+);

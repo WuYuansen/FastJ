@@ -1,0 +1,185 @@
+﻿var xjdt=
+{
+	"data":
+	[
+		{"code":"650100","name":"乌鲁木齐市","value":"2","quantity":"15916"},
+		{"code":"650200","name":"克拉玛依市","value":"0","quantity":"0"},
+		{"code":"652100","name":"吐鲁番地区","value":"0","quantity":"0"},
+		{"code":"652200","name":"哈密地区","value":"0","quantity":"0"},
+		{"code":"652300","name":"昌吉回族自治州","value":"0","quantity":"0"},
+		{"code":"652700","name":"博尔塔拉蒙古自治州","value":"0","quantity":"0"},
+		{"code":"652800","name":"巴音郭楞蒙古自治州","value":"0","quantity":"0"},
+		{"code":"652900","name":"阿克苏地区","value":"1","quantity":"0"},
+		{"code":"653000","name":"克孜勒苏柯尔克孜自治州","value":"0","quantity":"0"},
+		{"code":"653100","name":"喀什地区","value":"2","quantity":"2618"},
+		{"code":"653200","name":"和田地区","value":"0","quantity":"0"},
+		{"code":"654000","name":"伊犁哈萨克自治州","value":"0","quantity":"0"},
+		{"code":"654200","name":"塔城地区","value":"0","quantity":"0"},
+		{"code":"654300","name":"阿勒泰地区","value":"0","quantity":"0"},
+		{"code":"659001","name":"石河子市","value":"0","quantity":"0"},
+		{"code":"659002","name":"阿拉尔市","value":"0","quantity":"0"},
+		{"code":"659003","name":"图木舒克市","value":"0","quantity":"0"},
+		{"code":"659004","name":"五家渠市","value":"0","quantity":"0"},
+		{"code":"659005","name":"北屯市","value":"0","quantity":"0"},
+		{"code":"659006","name":"铁门关市","value":"0","quantity":"0"},
+		{"code":"659007","name":"双河市","value":"0","quantity":"0"}
+	]	
+};
+
+var wsdt=
+{
+	"data":
+	[
+		{"code":"650102","name":"天山区","value":"2","quantity":"3057"},
+		{"code":"650103","name":"沙依巴克区","value":"2","quantity":"3062"},
+		{"code":"650104","name":"新市区","value":"2","quantity":"4788"},
+		{"code":"650105","name":"水磨沟区","value":"2","quantity":"2125"},
+		{"code":"650106","name":"头屯河区","value":"2","quantity":"1047"},
+		{"code":"650107","name":"达坂城区","value":"2","quantity":"4"},
+		{"code":"650109","name":"米东区","value":"2","quantity":"1520"},
+		{"code":"650121","name":"乌鲁木齐县","value":"2","quantity":"313"}
+	]	
+};
+
+var ksdt=
+{
+	"data":
+	[
+		{"code":"653101","name":"喀什市","value":"1","quantity":"1644"},
+		{"code":"653121","name":"疏附县","value":"1","quantity":"52"},
+		{"code":"653122","name":"疏勒县","value":"1","quantity":"76"},
+		{"code":"653123","name":"英吉沙县","value":"1","quantity":"44"},
+		{"code":"653124","name":"泽普县","value":"1","quantity":"109"},
+		{"code":"653125","name":"莎车县","value":"1","quantity":"239"},
+		{"code":"653126","name":"叶城县","value":"1","quantity":"148"},
+		{"code":"653127","name":"麦盖提县","value":"1","quantity":"73"},
+		{"code":"653128","name":"岳普湖县","value":"1","quantity":"42"},
+		{"code":"653129","name":"伽师县","value":"1","quantity":"34"},
+		{"code":"653130","name":"巴楚县","value":"1","quantity":"149"},
+		{"code":"653131","name":"塔什库尔干塔吉克自治县","value":"1","quantity":"8"}
+	]	
+};
+
+var xjkr=
+{
+	"data":
+	[
+		{"code":"650100","name":"乌鲁木齐市","value":"2","quantity":"15916"},
+		{"code":"650200","name":"克拉玛依市","value":"0","quantity":"0"},
+		{"code":"652100","name":"吐鲁番地区","value":"0","quantity":"0"},
+		{"code":"652200","name":"哈密地区","value":"0","quantity":"0"},
+		{"code":"652300","name":"昌吉回族自治州","value":"0","quantity":"0"},
+		{"code":"652700","name":"博尔塔拉蒙古自治州","value":"0","quantity":"0"},
+		{"code":"652800","name":"巴音郭楞蒙古自治州","value":"0","quantity":"0"},
+		{"code":"652900","name":"阿克苏地区","value":"0","quantity":"0"},
+		{"code":"653000","name":"克孜勒苏柯尔克孜自治州","value":"0","quantity":"0"},
+		{"code":"653100","name":"喀什地区","value":"1","quantity":"2618"},
+		{"code":"653200","name":"和田地区","value":"0","quantity":"0"},
+		{"code":"654000","name":"伊犁哈萨克自治州","value":"0","quantity":"0"},
+		{"code":"654200","name":"塔城地区","value":"0","quantity":"0"},
+		{"code":"654300","name":"阿勒泰地区","value":"0","quantity":"0"},
+		{"code":"659001","name":"石河子市","value":"0","quantity":"0"},
+		{"code":"659002","name":"阿拉尔市","value":"0","quantity":"0"},
+		{"code":"659003","name":"图木舒克市","value":"0","quantity":"0"},
+		{"code":"659004","name":"五家渠市","value":"0","quantity":"0"},
+		{"code":"659005","name":"北屯市","value":"0","quantity":"0"},
+		{"code":"659006","name":"铁门关市","value":"0","quantity":"0"},
+		{"code":"659007","name":"双河市","value":"0","quantity":"0"}
+	]	
+};
+
+var wskr=
+{
+	"data":
+	[
+		{"code":"650102","name":"天山区","value":"2","quantity":"3057"},
+		{"code":"650103","name":"沙依巴克区","value":"2","quantity":"3062"},
+		{"code":"650104","name":"新市区","value":"2","quantity":"4788"},
+		{"code":"650105","name":"水磨沟区","value":"2","quantity":"2125"},
+		{"code":"650106","name":"头屯河区","value":"2","quantity":"1047"},
+		{"code":"650107","name":"达坂城区","value":"2","quantity":"4"},
+		{"code":"650109","name":"米东区","value":"2","quantity":"1520"},
+		{"code":"650121","name":"乌鲁木齐县","value":"2","quantity":"313"}
+	]	
+};
+
+var kskr=
+{
+	"data":
+	[
+		{"code":"653101","name":"喀什市","value":"1","quantity":"1644"},
+		{"code":"653121","name":"疏附县","value":"1","quantity":"52"},
+		{"code":"653122","name":"疏勒县","value":"1","quantity":"76"},
+		{"code":"653123","name":"英吉沙县","value":"1","quantity":"44"},
+		{"code":"653124","name":"泽普县","value":"1","quantity":"109"},
+		{"code":"653125","name":"莎车县","value":"1","quantity":"239"},
+		{"code":"653126","name":"叶城县","value":"1","quantity":"148"},
+		{"code":"653127","name":"麦盖提县","value":"1","quantity":"73"},
+		{"code":"653128","name":"岳普湖县","value":"1","quantity":"42"},
+		{"code":"653129","name":"伽师县","value":"1","quantity":"34"},
+		{"code":"653130","name":"巴楚县","value":"1","quantity":"149"},
+		{"code":"653131","name":"塔什库尔干塔吉克自治县","value":"1","quantity":"8"}
+	]	
+};
+
+var xjjy=
+{
+	"data":
+	[
+		{"code":"650100","name":"乌鲁木齐市","value":"2","quantity":"15916"},
+		{"code":"650200","name":"克拉玛依市","value":"0","quantity":"0"},
+		{"code":"652100","name":"吐鲁番地区","value":"0","quantity":"0"},
+		{"code":"652200","name":"哈密地区","value":"0","quantity":"0"},
+		{"code":"652300","name":"昌吉回族自治州","value":"0","quantity":"0"},
+		{"code":"652700","name":"博尔塔拉蒙古自治州","value":"0","quantity":"0"},
+		{"code":"652800","name":"巴音郭楞蒙古自治州","value":"0","quantity":"0"},
+		{"code":"652900","name":"阿克苏地区","value":"0","quantity":"0"},
+		{"code":"653000","name":"克孜勒苏柯尔克孜自治州","value":"0","quantity":"0"},
+		{"code":"653100","name":"喀什地区","value":"1","quantity":"2618"},
+		{"code":"653200","name":"和田地区","value":"0","quantity":"0"},
+		{"code":"654000","name":"伊犁哈萨克自治州","value":"0","quantity":"0"},
+		{"code":"654200","name":"塔城地区","value":"0","quantity":"0"},
+		{"code":"654300","name":"阿勒泰地区","value":"0","quantity":"0"},
+		{"code":"659001","name":"石河子市","value":"0","quantity":"0"},
+		{"code":"659002","name":"阿拉尔市","value":"0","quantity":"0"},
+		{"code":"659003","name":"图木舒克市","value":"0","quantity":"0"},
+		{"code":"659004","name":"五家渠市","value":"0","quantity":"0"},
+		{"code":"659005","name":"北屯市","value":"0","quantity":"0"},
+		{"code":"659006","name":"铁门关市","value":"0","quantity":"0"},
+		{"code":"659007","name":"双河市","value":"0","quantity":"0"}
+	]	
+};
+
+var wsjy=
+{
+	"data":
+	[
+		{"code":"650102","name":"天山区","value":"2","quantity":"3057"},
+		{"code":"650103","name":"沙依巴克区","value":"2","quantity":"3062"},
+		{"code":"650104","name":"新市区","value":"2","quantity":"4788"},
+		{"code":"650105","name":"水磨沟区","value":"2","quantity":"2125"},
+		{"code":"650106","name":"头屯河区","value":"2","quantity":"1047"},
+		{"code":"650107","name":"达坂城区","value":"2","quantity":"4"},
+		{"code":"650109","name":"米东区","value":"2","quantity":"1520"},
+		{"code":"650121","name":"乌鲁木齐县","value":"2","quantity":"313"}
+	]	
+};
+
+var ksjy=
+{
+	"data":
+	[
+		{"code":"653101","name":"喀什市","value":"1","quantity":"1644"},
+		{"code":"653121","name":"疏附县","value":"1","quantity":"52"},
+		{"code":"653122","name":"疏勒县","value":"1","quantity":"76"},
+		{"code":"653123","name":"英吉沙县","value":"1","quantity":"44"},
+		{"code":"653124","name":"泽普县","value":"1","quantity":"109"},
+		{"code":"653125","name":"莎车县","value":"1","quantity":"239"},
+		{"code":"653126","name":"叶城县","value":"1","quantity":"148"},
+		{"code":"653127","name":"麦盖提县","value":"1","quantity":"73"},
+		{"code":"653128","name":"岳普湖县","value":"1","quantity":"42"},
+		{"code":"653129","name":"伽师县","value":"1","quantity":"34"},
+		{"code":"653130","name":"巴楚县","value":"1","quantity":"149"},
+		{"code":"653131","name":"塔什库尔干塔吉克自治县","value":"1","quantity":"8"}
+	]	
+};

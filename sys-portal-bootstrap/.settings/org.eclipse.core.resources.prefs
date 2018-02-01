@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
+encoding//src/main/resources=UTF-8
+encoding//src/main/resources/mySqlDB.properties=UTF-8
+encoding//src/main/resources/sys.properties=UTF-8
+encoding//src/main/webapp/pages/login/index.jsp=UTF-8
+encoding//src/main/webapp/pages/sys/user/editor.jsp=UTF-8
+encoding//src/main/webapp/pages/sys/user/index.jsp=UTF-8
+encoding//src/main/webapp/pages/welcome/index.jsp=UTF-8
+encoding//src/test/java=UTF-8
+encoding/<project>=UTF-8

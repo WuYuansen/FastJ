@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+*{padding:0px;margin:0px;}html,body{width:100%;height:100%;overflow: hidden;overflow-x:hidden;overflow-y:hidden;}
+.layoutcon{ margin:0 auto;background:rgb(255,255,255); display:block; overflow:hidden; }
+.topPanel {background:#00A1CB;color: #fff;font-size: 12px;font-family:'Microsoft Yahei',"\u5fae\u8f6f\u96c5\u9ed1","\5b8b\4f53",Arial;}
+.logo{ width:200px; height:50px; margin:5px 0;float:left;}
+
+.leftPanel{border-right:1px rgb(198,200,204) solid;top:0;left:0;_left:0;bottom:0; position:absolute;background:rgb(245,245,245);overflow-x:hidden;overflow-y:auto;}
+.centPanel{float:right;top:0;right:0;bottom:0; position:absolute; background:rgb(237,237,237);}
+.botPanel{border-top:1px rgb(198,200,204) solid; background:#fff; line-height:30px;}
+/*顶部菜单与用户控制*/
+.laytopnav{height:60px; margin:0 10px; float:left;}
+.laytopnav li{ color:#fff;display:block;height:60px;padding:0 15px; float:left; cursor:pointer;}
+.laytopnav li em{ width:25px; height:25px; margin:8px auto 0 auto; display:block;}
+.laytopnav li em img{width:25px; height:25px;}
+.laytopnav li p{ padding-top:1px;}
+.laytopnav li.oncurr{ color:#fff;height:60px;background:#00A1CB; box-shadow:0 0 15px #004A5E inset;display:block;}
+.laytopnav li:hover{ color:#fff;height:60px;background:#00A1CB; box-shadow:0 0 15px #004A5E inset;display:block;}
+.laytopbox{ color:#666; padding-right:20px;}
+.laytoplia{height:28px; line-height:28px; position:absolute; top:0; right:20px;}
+.laytoplib{height:28px; line-height:28px; position:absolute; top:28px; right:20px;}
+.layli{height:30px; line-height:30px; float:left;display:block;color:#fff;}
+.layli a,.layli a:link,.layli a:visited{color:#fff;display:block;}
+.layli a:hover{color:#fff;display:block; text-decoration: underline;}
+.layli.user{background:url(../images/user_ico.png) no-repeat 0 8px; padding-left:24px;}
+.layli a.help{background:url(../images/help_ico.png) no-repeat 0 8px; padding-left:20px;}
+.layli a.exit{background:url(../images/exit_ico.png) no-repeat 0 8px; padding-left:20px;}
+.ispn{height:30px; line-height:30px;float:left; padding:0 10px; color:#ddd;}
+.tabp{width:100%;height:40px;line-height:40px;overflow:hidden; margin-top:1px;}
+.tabp li{ color:#666;display:block;height:38px;line-height:38px; padding:0 10px; float:left; margin-left:20px;}
+.tabp li.oncurr{ color:#000;height:37px;line-height:39px;border-bottom:2px rgb(40,152,224) solid;display:block; font-weight:bold;}
+
+/*左边菜单样式*/
+.jtree { width:100%;padding:0; color:#333;font-family:'Microsoft Yahei',"\u5fae\u8f6f\u96c5\u9ed1","\5b8b\4f53",Arial;}
+.jtree dl{ padding:0;}
+.jtree dl h3{cursor:pointer; font-size:14px;}
+.jtree dl dd{padding:0; margin:0; list-style:none; line-height:30px;font-size:14px; text-align:left; white-space:nowrap; outline:0; background:#FFF;}
+.jtree dl dd dl{ margin:0; padding:5px 0 5px 20px;}
+.jtree dl dd dl a{ color:#333; display:block;}
+.jtree .titbox{ height:38px;line-height:38px;border-bottom:1px rgb(216,216,216) solid; background:rgb(233,233,233); color:#333;padding:0 10px;font-size:16px;}
+.jtree .treeclose{padding-left:20px; background:url(../images/folder-close.gif) no-repeat left center; color:#333;}
+.jtree .treeopen {padding-left:20px; background:url(../images/folder-open.gif) no-repeat left  center; color:#333;}
+.jtree .treeleaf {padding-left:20px; height:30px;line-height:30px; background:url(../images/folder-tree.gif) no-repeat left  center;}
+

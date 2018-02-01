@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+	<display-name>sapp-portal</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	<!-- SESSION超时 -->
+	<filter>  
+		<filter-name>SessionTimeoutFilter</filter-name>  
+		<filter-class>org.gtjy.p2p.filters.SessionTimeoutFilter</filter-class>  
+		<init-param>
+			<param-name>login</param-name>
+			<param-value>/index.jsp,/app/index.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>overleap_path</param-name>
+			<param-value>/index.jsp,/app/index.jsp,/services/login.json,/services/api/lift.json,/services/api/dict.json,/services/api/enterprise.json,/services/enterprise/data.json</param-value>
+		</init-param>
+		<init-param>
+			<param-name>overleap_file</param-name>
+			<param-value>jpg,gif,css,js,png,swf</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>SessionTimeoutFilter</filter-name>
+		<url-pattern>/services/*</url-pattern>
+	</filter-mapping>
+	<!-- 加载日志相关 -->
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>/WEB-INF/classes/log4j.properties</param-value>
+	</context-param>
+	<context-param>
+		<param-name>log4jRefreshInterval</param-name>
+		<param-value>60000</param-value>
+	</context-param>
+	<listener>
+		<listener-class>
+			org.springframework.web.util.Log4jConfigListener
+		</listener-class>
+	</listener>
+	<!--<servlet>
+		<servlet-name>Log4jStart</servlet-name>
+		<servlet-name>org.gtjy.p2p.log4j.Log4jStart</servlet-name>
+		<init-param>
+			<param-name>log4jLocation</param-name>
+			<param-value>classpath*:/log4j.properties</param-value>			
+		</init-param>
+		<load-on-startup>0</load-on-startup>
+	</servlet>-->
+	<!-- SSO 远程访问协议
+	<servlet>
+		<servlet-name>RIMInitServlet</servlet-name>
+		<servlet-class>com.gtjy.ssoServer.handler.RIMInitServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet> -->
+  	<!-- 加载 Spring MVC -->
+	<servlet>
+		<servlet-name>SpringMVC</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath*:/spring-mvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SpringMVC</servlet-name>
+		<url-pattern>/services/*</url-pattern>
+	</servlet-mapping>
+	
+	<!--  POST请求 中文乱码解决方案 -->
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/services/*</url-pattern>
+    </filter-mapping>
+  	<!-- 启动加载XML配置文件 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath*:/mybatis.xml,
+			classpath*:/ws-beans-server.xml
+		</param-value>
+	</context-param>
+	<!-- druid数据源Web监控配置 -->
+	<filter>
+		<filter-name>druidWebStatFilter</filter-name>
+		<filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>
+		<init-param>
+			<param-name>exclusions</param-name>
+			<param-value>*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*</param-value>
+		</init-param>
+	</filter>
+	<!-- druid数据源Web监控配置 mapping -->
+	<filter-mapping>
+		<filter-name>druidWebStatFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- druid监控页面，使用${pageContext.request.contextPath}/druid/index.html,/mini-web/druid/index.html 访问 -->
+	<servlet>
+		<servlet-name>druidStatView</servlet-name>
+		<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+		<init-param>
+	        <param-name>allow</param-name>
+	        <param-value>127.0.0.1,192.168.2.123</param-value>
+	    </init-param>
+	</servlet>
+	<!-- druid监控页面 ，mapping -->
+	<servlet-mapping>
+		<servlet-name>druidStatView</servlet-name>
+		<url-pattern>/druid/*</url-pattern>
+	</servlet-mapping>
+	<!-- 开启spring加载监听器功能 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- 监听项目启动,并且加载初始数据到缓存 -->
+	<listener>
+		<listener-class>org.gtjy.p2p.web.SystemInitListeners</listener-class>		
+	</listener>
+	<!-- 防止内存溢出监听器 --> 
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	
+	<!-- Request 作用域   scope="request" 分别是 singleton、prototype、request、session、global session-->
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	<!-- 提高系统性能，压缩js,css等文件 -->
+	<filter>
+		<filter-name>ecsideExport</filter-name>
+		<filter-class>org.gtjy.p2p.filters.gzip.GzipFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ecsideExport</filter-name>
+		<url-pattern>*.*</url-pattern>
+	</filter-mapping>
+	
+	<!-- session超时设置30分钟  -->
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+	<!-- 页面缓存过滤器 
+	<filter>
+		<filter-name>PageCacheFilter</filter-name>
+		<filter-class>org.gtjy.p2p.filters.PageCachingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>PageCacheFilter</filter-name>
+		<url-pattern>/</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>PageCacheFilter</filter-name>
+		<url-pattern>*.html</url-pattern>
+	</filter-mapping> -->
+	<!-- 项目定时任务启动监听 'on' or  'off'  -->
+	<!-- cfxs -->
+	<servlet>
+		<servlet-name>CXFService</servlet-name>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CXFService</servlet-name>
+		<url-pattern>/soap/*</url-pattern>
+	</servlet-mapping>
+</web-app>

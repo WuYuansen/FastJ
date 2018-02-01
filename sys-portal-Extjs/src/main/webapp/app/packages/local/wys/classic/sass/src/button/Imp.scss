@@ -1,0 +1,14 @@
+/*
+    定义ui='button-impbtn-toolbar'
+*/
+@include extjs-button-toolbar-small-ui(
+    $ui: 'button-impbtn',
+    $color:#ffffff,
+    $glyph-color:#ffffff,
+    $background-color:#3c8dbc,
+	$inner-border-width:1px,
+	$border-color:#3c8dbc,
+    $text-padding:0px,
+    $icon-spacing:0px,
+    $border-width:1px
+);

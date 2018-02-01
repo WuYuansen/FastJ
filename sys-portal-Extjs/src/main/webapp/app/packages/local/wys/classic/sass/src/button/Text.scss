@@ -1,0 +1,26 @@
+/*
+    定义ui='button-textbtn-toolbar'
+*/
+@include extjs-button-toolbar-small-ui(
+    $ui: 'button-textbtn',
+    $color:#00c0ef,
+    $glyph-color:#00c0ef,
+    $background-color:#ffffff,
+    $inner-border-width:1px,
+	$border-color:#ffffff,
+    $text-padding:0px,
+    $icon-spacing:0px,
+    $border-width:1px
+);
+
+@include extjs-button-toolbar-small-ui(
+    $ui: 'button-gobackBtn',
+    $color:#32404e,
+    $glyph-color:#00c0ef,
+    $background-color:#ffffff,
+    $inner-border-width:1px,
+	$border-color:#ffffff,
+    $text-padding:0px,
+    $icon-spacing:0px,
+    $border-width:0px
+);

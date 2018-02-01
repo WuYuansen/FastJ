@@ -1,0 +1,41 @@
+.#{$prefix}form-item-label-default {//form的label文字颜色
+  color: #6F757B;
+}
+.#{$prefix}form-item-body-default {
+  color: #6F757B;
+}
+
+
+/*
+    ui='label-primary'
+*/
+@include extjs-label-ui(
+	$ui: 'label-primary',
+	$ui-font-color:$base-color,
+	$ui-height:36px,
+	$ui-line-height:36px
+);
+.#{$prefix}form-item-body-label-primary{
+  color:$base-color;
+  height:36px;
+  line-height: 36px;
+}
+
+/*
+    ui='label-danger'
+*/
+@include extjs-label-ui(
+	$ui: 'label-danger',
+	$ui-height:36px,
+	$ui-line-height:36px
+);
+.#{$prefix}form-item-body-label-danger{
+  color:#ED4D4D;
+  height:36px;
+  line-height: 36px;
+}
+
+//状态为disabled的radio或者checkbox的透明度
+.#{$prefix}item-disabled .x-form-field{
+  opacity:0.3;
+}

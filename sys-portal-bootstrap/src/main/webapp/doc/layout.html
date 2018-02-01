@@ -1,0 +1,453 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>layout 页面布局</title>
+<link href="css/jeui.css" rel="stylesheet" type="text/css">
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="js/laycode/laycode.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/laycode/laycode.min.js"></script>
+<style>
+.brs{ border:1px #ccc solid;}
+.br-t{ border-top:1px #ccc solid;}
+.br-r{ border-right:1px #ccc solid;}
+.br-b{ border-bottom:1px #ccc solid;}
+.br-l{ border-left:1px #ccc solid;}
+.dmw{height:30px; line-height:30px; background:#e5e5e5; text-align:center;}
+.dmlist{border:1px #ddd solid;border-top:none; background:#fff;}
+.dmlist ul{border-top:none;}
+.dmlist ul li{border-top:1px #ddd solid;border-right:1px #ddd solid; padding:8px 0; line-height:20px;}
+.dmlist ul li:last-child{border-right:0;}
+</style>
+</head>
+
+<body class="fmy">
+<div class="centauto">
+     <h1 class="centtitle f20">layout -- HTML CSS页面布局</h1>
+     <div class="centinfo f14 fmy">
+<!--  start  -->
+<h2 class="demotit">margin样式说明：（margin指的是外边距）</h2>
+<div class="prebox mb15">
+<pre>
+ .mt(上边距)   .mr(右边距)   .mb(下边距)  .ml(左边距)  .m(全边距)
+ margin具体边距有（0,2,5,8,10,15,20,25,30）,例如：.mt5 .mt8 .mr5 .mr8 ......
+</pre>
+</div>
+
+<h2 class="demotit">padding样式说明：（padding指的是内边距）</h2>
+<div class="prebox mb15">
+<pre>
+ .pt(上边距)   .pr(右边距)   .pb(下边距)  .pl(左边距)  .p(全边距)
+ padding具体边距有（0,2,5,8,10,15,20,25,30）,例如：.pt5 .pt8 .pr5 .pr8 ......
+</pre>
+</div>
+
+<h2 class="demotit">字体样式说明：</h2>
+<div class="prebox mb15">
+<pre>
+.f0{font-size:0;}       .f12{font-size:12px;}    .f14{font-size:14px;}   .f16{font-size:16px;}  .f18{font-size:18px;}  .f20{font-size:20px;}   .f22{font-size:22px;} 
+.f24{font-size:24px;}   .f26{font-size:26px;}    .f28{font-size:28px;}   .f30{font-size:30px;}
+例如：f12,指的是12号字体
+</pre>
+<p class="f12">12号，字体大小演示</p>
+<p class="f14">14号，字体大小演示</p>
+<p class="f16">16号，字体大小演示</p>
+<p class="f18">18号，字体大小演示</p>
+<p class="f20">20号，字体大小演示</p>
+<p class="f22">22号，字体大小演示</p>
+</div>
+
+<h2 class="demotit">width样式说明：（margin指的是div盒子的宽度）</h2>
+<div class="prebox mb15">
+<pre>
+.jew100{width:100%;}   .jew90{width:90%;}   .jew80{width:85%;}   .jew80{width:80%;}   .jew75{width:75%;}   .jew70{width:70%;}    
+.jew67{width:67%;}     .jew60{width:60%;}   .jew50{width:50%;}   .jew40{width:40%;}   .jew33{width:33%;}   .jew30{width:30%;}    
+.jew25{width:25%;}     .jew20{width:20%;}   .jew10{width:15%;}   .jew10{width:10%;}   .jew5{width:5%;}
+例如：jew20,指的是宽度为20%
+</pre>
+<p class="f14">以下是将盒子分为4份，每份25%</p>
+<div class="jew100 ovh">
+<p class="dmw br-r fl boxsiz jew25">25%</p>
+<p class="dmw br-r fl boxsiz jew25">25%</p>
+<p class="dmw br-r fl boxsiz jew25">25%</p>
+<p class="dmw fl boxsiz jew25">25%</p>
+</div>
+<pre class="codepre mt10">
+<div class="jew100 ovh">
+  <p class="fl boxsiz jew25">25%</p>
+  <p class="fl boxsiz jew25">25%</p>
+  <p class="fl boxsiz jew25">25%</p>
+  <p class="fl boxsiz jew25">25%</p>
+</div>
+</pre>
+</div>
+
+<h2 class="demotit">box-flex样式说明：（box-flex指的是弹性盒子模型）</h2>
+<div class="prebox">
+<pre>
+.jeflex{position:relative;-webkit-box-flex:1;box-flex:1;}
+</pre>
+<p class="f14">以下是将盒子分为5份，每份20%</p>
+<div class="flexbox jew100 ovh">
+<p class="dmw brs  jeflex jew100">20%</p>
+<p class="dmw brs  jeflex jew100">20%</p>
+<p class="dmw brs  jeflex jew100">20%</p>
+<p class="dmw brs  jeflex jew100">20%</p>
+<p class="dmw brs  jeflex jew100">20%</p>
+</div>
+<xmp class="mt10">
+    <div class="flexbox jew100 ovh">
+      <p class="jeflex jew100">20%</p>
+      <p class="jeflex jew100">20%</p>
+      <p class="jeflex jew100">20%</p>
+      <p class="jeflex jew100">20%</p>
+      <p class="jeflex jew100">20%</p>
+    </div>
+</xmp>
+</div>
+
+<h2 class="demotit">DIV表单与DIV表格：</h2>
+<div class="prebox">
+<p class="f18 blue p10 br-b">表单一行一列</p>
+<div class="flexbox jew100 mt15 ovh">
+     <ul class="jew100 f14">
+          <li class="flexbox je-box-left pb10 jew100">
+              <span class="flexbox jeflex je-text-right jew10 pr10">用户账号：</span>
+              <p class="flexbox jeflex jew90"><input type="text" class="jeflex rdu4 input" placeholder="用户账号"></p>
+          </li>
+          <li class="flexbox je-box-left pb10 jew100">
+              <span class="flexbox jeflex jew10">用户密码：</span>
+              <p class="flexbox jeflex jew90"><input type="password" class="jeflex rdu4 input" placeholder="用户密码"></p>
+          </li>
+     </ul>
+</div>
+<xmp class="mb20">
+<div class="flexbox jew100">
+     <ul class="jew100 f14">
+          <li class="flexbox je-box-left pb10 jew100">
+              <span class="flexbox jeflex je-text-right jew15 pr10">用户账号：</span>
+              <p class="flexbox jeflex jew90"><input type="text" class="jeflex rdu4 input" placeholder="用户账号"></p>
+          </li>
+          <li class="flexbox je-box-left pb10 jew100">
+              <span class="flexbox jeflex jew10 pr10">用户密码：</span>
+              <p class="flexbox jeflex jew90"><input type="password" class="jeflex rdu4 input" placeholder="用户密码"></p>
+          </li>
+     </ul>
+</div>
+</xmp>
+<p class="f18 blue p10 br-b">表单一行两列</p>
+<div class="flexbox jew100 mt15">
+     <ul class="jew100 f14">
+          <li class="flexbox je-box-left pb10 jew50 fl">
+              <span class="flexbox jeflex je-text-right jew20 pr10">表单名称：</span>
+              <p class="flexbox jeflex jew80"><input type="text" class="jeflex rdu4 input" placeholder="表单名称"></p>
+          </li>
+          <li class="flexbox je-box-left pb10 jew50 fl">
+              <span class="flexbox jeflex je-text-right jew20 pr10">表单名称：</span>
+              <p class="flexbox jeflex jew80"><input type="text" class="jeflex rdu4 input" placeholder="表单名称"></p>
+          </li>
+     </ul>
+</div>
+<xmp class="mb20">
+<div class="flexbox jew100">
+     <ul class="jew100 f14">
+          <li class="flexbox je-box-left pb10 jew50 fl">
+              <span class="flexbox jeflex je-text-right jew20 pr10">表单名称：</span>
+              <p class="flexbox jeflex jew80"><input type="text" class="jeflex rdu4 input" placeholder="表单名称"></p>
+          </li>
+          <li class="flexbox je-box-left pb10 jew50 fl">
+              <span class="flexbox jeflex je-text-right jew20 pr10">表单名称：</span>
+              <p class="flexbox jeflex jew80"><input type="text" class="jeflex rdu4 input" placeholder="表单名称"></p>
+          </li>
+     </ul>
+</div>
+</xmp>
+<p class="f18 blue p10 br-b">表单一行三列</p>
+<div class="flexbox jew100 mt15">
+     <ul class="jew100 f14">
+          <li class="flexbox je-box-left pb10 jew33 fl">
+              <span class="flexbox jeflex je-text-right jew30 pr10">表单名称：</span>
+              <p class="flexbox jeflex jew70"><input type="text" class="jeflex rdu4 input" placeholder="表单名称"></p>
+          </li>
+          <li class="flexbox je-box-left pb10 jew33 fl">
+              <span class="flexbox jeflex je-text-right jew30 pr10">表单名称：</span>
+              <p class="flexbox jeflex jew70"><input type="text" class="jeflex rdu4 input" placeholder="表单名称"></p>
+          </li>
+          <li class="flexbox je-box-left pb10 jew33 fl">
+              <span class="flexbox jeflex je-text-right jew30 pr10">表单名称：</span>
+              <p class="flexbox jeflex jew70"><input type="text" class="jeflex rdu4 input" placeholder="表单名称"></p>
+          </li>
+     </ul>
+</div>
+<xmp class="mb20">
+<div class="flexbox jew100 mt15">
+     <ul class="jew100 f14">
+          <li class="flexbox je-box-left pb10 jew33 fl">
+              <span class="flexbox jeflex je-text-right jew30 pr10">表单名称：</span>
+              <p class="flexbox jeflex jew70"><input type="text" class="jeflex rdu4 input" placeholder="表单名称"></p>
+          </li>
+          <li class="flexbox je-box-left pb10 jew33 fl">
+              <span class="flexbox jeflex je-text-right jew30 pr10">表单名称：</span>
+              <p class="flexbox jeflex jew70"><input type="text" class="jeflex rdu4 input" placeholder="表单名称"></p>
+          </li>
+          <li class="flexbox je-box-left pb10 jew33 fl">
+              <span class="flexbox jeflex je-text-right jew30 pr10">表单名称：</span>
+              <p class="flexbox jeflex jew70"><input type="text" class="jeflex rdu4 input" placeholder="表单名称"></p>
+          </li>
+     </ul>
+</div>
+</xmp>
+<p class="f18 blue p10 br-b">表单综合列</p>
+<div class="flexbox jew100 mt15">
+     <ul class="jew100 f14">
+          <li class="flexbox je-box-left pb10 jew100">
+              <span class="flexbox je-text-right pl10 pr10">一行一列：</span>
+              <p class="flexbox jeflex"><input type="text" class="jeflex rdu4 input" placeholder="一行一列"></p>
+          </li>
+          <li class="flexbox je-box-left pb10 jew50 fl">
+              <span class="flexbox je-text-right pl10 pr10">一行两列：</span>
+              <p class="flexbox jeflex"><input type="text" class="jeflex rdu4 input" placeholder="一行两列"></p>
+          </li>
+          <li class="flexbox je-box-left pb10 jew50 fl">
+              <span class="flexbox je-text-right pl10 pr10">表单名称：</span>
+              <p class="flexbox jeflex"><input type="text" class="jeflex rdu4 input" placeholder="表单名称"></p>
+          </li>   
+          <li class="flexbox je-box-left pb10 jew33 fl">
+              <span class="flexbox je-text-right pl10 pr10">一行三列：</span>
+              <p class="flexbox jeflex"><input type="text" class="jeflex rdu4 input" placeholder="一行三列"></p>
+          </li>
+          <li class="flexbox je-box-left pb10 jew33 fl">
+              <span class="flexbox je-text-right pl10 pr10">表单名称：</span>
+              <p class="flexbox jeflex"><input type="text" class="jeflex rdu4 input" placeholder="表单名称"></p>
+          </li>
+          <li class="flexbox je-box-left pb10 jew33 fl">
+              <span class="flexbox je-text-right pl10 pr10">表单名称：</span>
+              <p class="flexbox jeflex"><input type="text" class="jeflex rdu4 input" placeholder="我被禁用了" disabled></p>
+          </li>
+     </ul>
+</div>
+<xmp class="mb20">
+<div class="flexbox jew100 mt15">
+     <ul class="jew100 f14">
+          <li class="flexbox je-box-left pb10 jew100">
+              <span class="flexbox je-text-right pl10 pr10">一行一列：</span>
+              <p class="flexbox jeflex"><input type="text" class="jeflex rdu4 input" placeholder="一行一列"></p>
+          </li>
+          <li class="flexbox je-box-left pb10 jew50 fl">
+              <span class="flexbox je-text-right pl10 pr10">一行两列：</span>
+              <p class="flexbox jeflex"><input type="text" class="jeflex rdu4 input" placeholder="一行两列"></p>
+          </li>
+          <li class="flexbox je-box-left pb10 jew50 fl">
+              <span class="flexbox je-text-right pl10 pr10">表单名称：</span>
+              <p class="flexbox jeflex"><input type="text" class="jeflex rdu4 input" placeholder="表单名称"></p>
+          </li>   
+          <li class="flexbox je-box-left pb10 jew33 fl">
+              <span class="flexbox je-text-right pl10 pr10">一行三列：</span>
+              <p class="flexbox jeflex"><input type="text" class="jeflex rdu4 input" placeholder="一行三列"></p>
+          </li>
+          <li class="flexbox je-box-left pb10 jew33 fl">
+              <span class="flexbox je-text-right pl10 pr10">表单名称：</span>
+              <p class="flexbox jeflex"><input type="text" class="jeflex rdu4 input" placeholder="表单名称"></p>
+          </li>
+          <li class="flexbox je-box-left pb10 jew33 fl">
+              <span class="flexbox je-text-right pl10 pr10">表单名称：</span>
+              <p class="flexbox jeflex"><input type="text" class="jeflex rdu4 input" placeholder="我被禁用了" disabled></p>
+          </li>
+     </ul>
+</div>
+</xmp>
+
+<p class="f18 blue p10 br-b">表单综合列</p>
+<div class="jew100 dmlist mt15 mb15 dib f14">
+     <ul class="jew100 flexbox">
+          <li class="flexbox je-box-left flexbox">
+              <span class="flexbox je-text-right pl10 pr10">文本内容：</span>
+              <p class="flexbox jeflex g9">一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！</p>
+          </li>
+     </ul>
+     <ul class="jew100 flexbox">
+          <li class="flexbox je-box-left jeflex jew100">
+              <span class="flexbox je-text-right pl10 pr10">一行两列：</span>
+              <p class="flexbox jeflex">一行两列表格内容！</p>
+          </li>
+          <li class="flexbox je-box-left jeflex jew100">
+              <span class="flexbox je-text-right pl10 pr10">表单名称：</span>
+              <p class="flexbox jeflex">一行两列表格内容！</p>
+          </li>  
+     </ul>
+     <ul class="jew100 flexbox"> 
+          <li class="flexbox je-box-left jeflex jew100">
+              <span class="flexbox je-text-right pl10 pr10">一行三列：</span>
+              <p class="flexbox jeflex">一行三列表格内容！</p>
+          </li>
+          <li class="flexbox je-box-left jeflex jew100">
+              <span class="flexbox je-text-right pl10 pr10">表单名称：</span>
+              <p class="flexbox jeflex">一行三列表格内容！</p>
+          </li>
+          <li class="flexbox je-box-left jeflex jew100">
+              <span class="flexbox je-text-right pl10 pr10">表单名称：</span>
+              <p class="flexbox jeflex">一行三列表格内容！</p>
+          </li>
+     </ul>
+</div>
+<xmp class="mb20">
+<div class="jew100 dmlist mt15 mb15 dib f14">
+     <ul class="jew100 flexbox">
+          <li class="flexbox je-box-left flexbox">
+              <span class="flexbox je-text-right pl10 pr10">文本内容：</span>
+              <p class="flexbox jeflex g9">一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！一行一列表格内容！</p>
+          </li>
+     </ul>
+     <ul class="jew100 flexbox">
+          <li class="flexbox je-box-left jeflex jew100">
+              <span class="flexbox je-text-right pl10 pr10">一行两列：</span>
+              <p class="flexbox jeflex">一行两列表格内容！</p>
+          </li>
+          <li class="flexbox je-box-left jeflex jew100">
+              <span class="flexbox je-text-right pl10 pr10">表单名称：</span>
+              <p class="flexbox jeflex">一行两列表格内容！</p>
+          </li>  
+     </ul>
+     <ul class="jew100 flexbox"> 
+          <li class="flexbox je-box-left jeflex jew100">
+              <span class="flexbox je-text-right pl10 pr10">一行三列：</span>
+              <p class="flexbox jeflex">一行三列表格内容！</p>
+          </li>
+          <li class="flexbox je-box-left jeflex jew100">
+              <span class="flexbox je-text-right pl10 pr10">表单名称：</span>
+              <p class="flexbox jeflex">一行三列表格内容！</p>
+          </li>
+          <li class="flexbox je-box-left jeflex jew100">
+              <span class="flexbox je-text-right pl10 pr10">表单名称：</span>
+              <p class="flexbox jeflex">一行三列表格内容！</p>
+          </li>
+     </ul>
+</div>
+</xmp>
+</div>
+
+<h2 class="demotit">按钮：</h2>
+<div class="prebox">
+<div class="jew100 ovh mb15">
+<p class="flexbox je-box-left jew100 f14 mb15"><span class="flexbox jew10">input:</span> 
+    <input type="button" value="默认按钮" class="jebtn rdu"> 
+    <input type="button" value="黑色按钮" class="jebtn jebtn-black rdu"> 
+    <input type="button" value="红色按钮" class="jebtn jebtn-red rdu"> 
+    <input type="button" value="橙色按钮" class="jebtn jebtn-orange rdu"> 
+    <input type="button" value="蓝色按钮" class="jebtn jebtn-blue rdu"> 
+    <input type="button" value="绿色按钮" class="jebtn jebtn-green rdu">
+    <input type="button" value="禁用状态" class="jebtn jebtn-blue rdu" disabled>
+</p>
+<p class="flexbox je-box-left jew100 f14 mb15"><span class="flexbox jew10">button:</span> 
+    <button type="button" class="jebtn rdu4">默认按钮</button> 
+    <button type="button" class="jebtn jebtn-black rdu4">黑色按钮</button> 
+    <button type="button" class="jebtn jebtn-red rdu4">红色按钮</button> 
+    <button type="button" class="jebtn jebtn-orange rdu4">橙色按钮</button> 
+    <button type="button" class="jebtn jebtn-blue rdu4">蓝色按钮</button> 
+    <button type="button" class="jebtn jebtn-green rdu4">绿色按钮</button>
+    <button type="button" class="jebtn jebtn-blue rdu4" disabled>禁用状态</button>
+</p>
+<p class="flexbox je-box-left jew100 f14"><span class="flexbox jew10">无底色按钮:</span> 
+    <button type="button" class="jebtn jebdr rdu4">默认按钮</button> 
+    <button type="button" class="jebtn jebdr-black rdu4">黑色按钮</button> 
+    <button type="button" class="jebtn jebdr-red rdu4">红色按钮</button> 
+    <button type="button" class="jebtn jebdr-orange rdu4">橙色按钮</button> 
+    <button type="button" class="jebtn jebdr-blue rdu4">蓝色按钮</button> 
+    <button type="button" class="jebtn jebdr-green rdu4">绿色按钮</button>
+    <button type="button" class="jebtn jebdr-blue rdu4" disabled>禁用状态</button>
+</p>
+</div>
+<xmp class="mt10">
+<div class="jew100 ovh mb15">
+    <p class="flexbox je-box-left jew100 f14 mb15"><span class="flexbox jew10">input:</span> 
+        <input type="button" value="默认按钮" class="jebtn rdu"> 
+        <input type="button" value="黑色按钮" class="jebtn jebtn-black rdu"> 
+        <input type="button" value="红色按钮" class="jebtn jebtn-red rdu"> 
+        <input type="button" value="橙色按钮" class="jebtn jebtn-orange rdu"> 
+        <input type="button" value="蓝色按钮" class="jebtn jebtn-blue rdu"> 
+        <input type="button" value="绿色按钮" class="jebtn jebtn-green rdu">
+        <input type="button" value="禁用状态" class="jebtn jebtn-blue rdu" disabled>
+    </p>
+    <p class="flexbox je-box-left jew100 f14 mb15"><span class="flexbox jew10">button:</span> 
+        <button type="button" class="jebtn rdu4">默认按钮</button> 
+        <button type="button" class="jebtn jebtn-black rdu4">黑色按钮</button> 
+        <button type="button" class="jebtn jebtn-red rdu4">红色按钮</button> 
+        <button type="button" class="jebtn jebtn-orange rdu4">橙色按钮</button> 
+        <button type="button" class="jebtn jebtn-blue rdu4">蓝色按钮</button> 
+        <button type="button" class="jebtn jebtn-green rdu4">绿色按钮</button>
+        <button type="button" class="jebtn jebtn-blue rdu4" disabled>禁用状态</button>
+    </p>
+    <p class="flexbox je-box-left jew100 f14"><span class="flexbox jew10">无底色按钮:</span> 
+        <button type="button" class="jebtn jebdr rdu4">默认按钮</button> 
+        <button type="button" class="jebtn jebdr-black rdu4">黑色按钮</button> 
+        <button type="button" class="jebtn jebdr-red rdu4">红色按钮</button> 
+        <button type="button" class="jebtn jebdr-orange rdu4">橙色按钮</button> 
+        <button type="button" class="jebtn jebdr-blue rdu4">蓝色按钮</button> 
+        <button type="button" class="jebtn jebdr-green rdu4">绿色按钮</button>
+        <button type="button" class="jebtn jebdr-blue rdu4" disabled>禁用状态</button>
+    </p> 
+</div>
+</xmp>
+</div>
+
+<h2 class="demotit">搜索表单：</h2>
+<div class="prebox">
+<div class="jew100  mb15">
+<div class="jew100 f14">
+    <p class="flexbox je-box-left jeflex jew100 mb10">
+        <span class="flexbox je-text-left jew10">input:</span> 
+        <span class="flexbox je-box-left jew50">
+            <input type="text" placeholder="请输入关键字" class="input jeflex"><input type="button" value="搜索" class="jebtn"> 
+        </span>
+    </p>
+    <p class="flexbox je-box-left jeflex jew100">
+        <span class="flexbox je-text-left jew10">input:</span> 
+        <span class="flexbox je-box-left jew50">
+            <input type="text" placeholder="请输入关键字" class="input jebdr-blue jebg jeflex"><input type="button" value="搜索" class="jebtn jebtn-blue"> 
+        </span>
+    </p>
+</div>
+
+</div>
+<xmp class="mt10">
+<div class="jew100 f14 mb15">
+    <p class="flexbox je-box-left jeflex jew100 mb10">
+        <span class="flexbox je-text-left jew10">input:</span> 
+        <span class="flexbox je-box-left jew50">
+            <input type="text" placeholder="请输入关键字" class="input jeflex"><input type="button" value="搜索" class="jebtn"> 
+        </span>
+    </p>
+    <p class="flexbox je-box-left jeflex jew100">
+        <span class="flexbox je-text-left jew10">input:</span> 
+        <span class="flexbox je-box-left jew50">
+            <input type="text" placeholder="请输入关键字" class="input jebdr-blue jeflex"><input type="button" value="搜索" class="jebtn jebtn-blue"> 
+        </span>
+    </p>
+</div>
+</xmp>
+</div>
+
+
+
+<!--  end  -->
+     </div>
+</div>
+<script type="text/javascript">
+
+	$('.codepre').each(function(i){
+        var othis = $(this);
+		var code = othis.html().replace(/\</g,'&lt;')
+		othis.empty().html(code);
+	})
+	$('xmp').each(function(){
+		var wrapdiv = $("<div class='codewrap' style='position:relative;'></div>");
+		$(this).wrap(wrapdiv);		
+	})
+	$(".codewrap").prepend("<span class='icode'>Code:</span>");
+	
+	//触发例子
+    new Function($('.run').text())();
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="${classPath}.DAO.${className}DAO" > 
+<!-- 
+	${codeName}
+ -->
+ <!-- 缓存
+ <cache eviction="FIFO" flushInterval="60000" size="1024" readOnly="true" /> -->
+<!-- Result Map-->
+<resultMap id="BaseResultMap" type="${classPath}.dto.$!{className}DTO" >
+#foreach($item in $!{columnDatas})
+	<result column="$!item.columnName" property="$item.columnName"/>
+#end
+</resultMap>
+       
+<!-- $!{tableName} table all fields -->
+<sql id="Base_Column_List" >
+	 $!{SQL.columnFields}
+</sql>
+   
+<sql id="Example_Where_Clause_Page">
+	where 1=1
+	<trim  suffixOverrides="," >
+		#foreach($item in $!{columnDatas})
+		#set($testStr = "params."+$!item.columnName + " != null")
+			#set($testStr = $!testStr + " and params." + $!item.columnName + " != ''")
+		<if test="$!testStr" >
+		    and $!item.columnName =  #{params.$!item.columnName}
+		</if>
+	#end
+	</trim>
+</sql>
+<!-- 查询条件 -->
+<sql id="Example_Where_Clause">
+where 1=1
+<trim  suffixOverrides="," >
+	#foreach($item in $!{columnDatas})
+	#set($testStr = $!item.columnName + " != null")
+		#set($testStr = $!testStr + " and " + $!item.columnName + " != ''")
+	<if test="$!testStr" >
+	    and $!item.columnName =  #{$!item.columnName}
+	</if>
+#end
+</trim>
+</sql>
+   
+
+<sql id="insert_columns">
+	<trim  suffixOverrides="," >
+		#foreach($item in $!{columnDatas})
+			#set($testStr = $!item.columnName + " != null")
+				#set($testStr = $!testStr + " and " + $!item.columnName + " != ''")
+			<if test="$!testStr" >
+			    $!item.columnName,
+			</if>
+		#end
+	</trim>
+</sql>
+<sql id="insert_value">
+	<trim suffixOverrides=",">
+		#foreach($item in $!{columnDatas})
+			#set($testStr = $!item.columnName + " != null")
+				#set($testStr = $!testStr + " and " + $!item.columnName + " != ''")
+			<if test="$!testStr" >
+			    #{$!item.columnName},
+			</if>
+		#end
+	</trim>
+</sql>
+<!-- 插入记录 -->
+<insert id="insert" parameterType="Object" >
+  <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+	SELECT LAST_INSERT_ID()
+  </selectKey>
+  <!--废除的: $!{SQL.insert} -->
+  <!-- ORACLE 序列 s_${tableName}.next -->
+  INSERT INTO  ${tableName}(<include refid="insert_columns"/>) VALUES(<include refid="insert_value"/> )
+</insert>
+
+<!-- 根据id，修改记录-->  
+ <update id="updateByPrimaryKey" parameterType="Object" >
+  $!{SQL.update}
+ </update>
+ 
+ <!-- 修改记录，只修改只不为空的字段 -->
+<update id="updateBySelective" parameterType="Object" >
+	$!{SQL.updateSelective}
+</update>
+
+<!-- 删除记录 -->
+<delete id="deleteByPrimaryKey" parameterType="Object">
+	$!{SQL.delete}
+</delete>
+ 
+<!-- 根据id查询 ${codeName} -->
+<select id="selectByPrimaryKey"  resultMap="BaseResultMap" parameterType="Object">
+	$!{SQL.selectById}
+</select>
+
+<!-- ${codeName} 列表总数 (分页)-->
+<select id="selectByMapPagingCount" resultType="java.lang.Integer" useCache="false"  parameterType="Object">
+	select count(1) from ${tableName} 
+	<include refid="Example_Where_Clause"/>
+</select>
+  	
+<!-- 查询${codeName}列表 (分页) useCache="false" -->
+<select id="selectByMapPaging"   resultMap="BaseResultMap" >
+	select 
+	<include refid="Base_Column_List"/>
+	from ${tableName} 
+	<include refid="Example_Where_Clause_Page"/>
+</select>
+
+<!-- ${codeName} 递归查询 此方法公开需要自己实现 -->
+<select id="selectByChild" resultMap="BaseResultMap" >
+	
+</select>
+<!-- ${codeName} 列表总数 -->
+<select id="selectByMapCount" resultType="java.lang.Integer"  parameterType="java.util.Map">
+	select count(1) from ${tableName} 
+	<include refid="Example_Where_Clause"/>
+</select>
+<!-- ${codeName} 列表 -->
+<select id="selectByMap" resultMap="BaseResultMap" parameterType="java.util.Map">
+	select 
+	<include refid="Base_Column_List"/>
+	from ${tableName} 
+	<include refid="Example_Where_Clause"/>
+</select>
+<!-- =============================== 动态公共部分 传入sql执行 ========================================== -->
+<select id="selectBySql" resultType="java.util.Map" parameterType="java.lang.String"><![CDATA[#{SQL}]]></select>
+<delete id="deleteByEntity" parameterType="Object"></delete>
+<delete id="deleteBySql" parameterType="java.lang.String"><![CDATA[#{sql}]]></delete>
+<update id="updateBySql" parameterType="java.lang.String"><![CDATA[#{sql}]]></update>
+<insert id="insertBySql" parameterType="java.lang.String"><![CDATA[#{sql}]]></insert>
+</mapper>   

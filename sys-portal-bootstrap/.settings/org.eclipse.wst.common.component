@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="sys-portal-bootstrap">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <dependent-module archiveName="sys-services-0.6.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/sys-services/sys-services">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="sys-tiles-0.6.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/sys-tiles/sys-tiles">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="sys-dao-0.6.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/sys-dao/sys-dao">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="sys-common-0.6.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/sys-common/sys-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="sys-portal-bootstrap"/>
+        <property name="java-output-path" value="/sys-portal-bootstrap/target/classes"/>
+    </wb-module>
+</project-modules>

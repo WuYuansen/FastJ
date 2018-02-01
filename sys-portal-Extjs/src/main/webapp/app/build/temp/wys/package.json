@@ -1,0 +1,58 @@
+{
+  "name": "wys",
+  "format": "1",
+  "version": "1.0.0",
+  "creator": "吴元森",
+  "summary": "词包主要对Extjs进行从组封装",
+  "detailedDescription": "此包主要是封装Extjs原始组件，主要母体是为了开发者适应方便",
+  "type": "theme",
+  "extend": "theme-crisp",
+  "js": [
+    {
+      "path": "resources/lang/zh_CN.js",
+      "update": "full"
+    }
+  ],
+  "css": [
+    {
+      "path": "${build.out.css.path}",
+      "bundle": true,
+      "exclude": [
+        "fashion"
+      ]
+    },
+    {
+      "path": "resources/icons/css/font-awesome.min.css",
+      "update": "full"
+    },
+    {
+      "path": "resources/console.css",
+      "update": "full"
+    }
+  ],
+  "slicer": {
+    "js": [
+      {
+        "path": "${package.dir}/sass/example/custom.js",
+        "isWidgetManifest": true
+      }
+    ]
+  },
+  "namespace": "wys",
+  "toolkit": "classic",
+  "output": "${package.dir}/build",
+  "sass": {
+    "namespace": "wys",
+    "etc": "${package.dir}/sass/etc/all.scss,${package.dir}/${toolkit.name}/sass/etc/all.scss",
+    "var": "${package.dir}/sass/var,${package.dir}/${toolkit.name}/sass/var",
+    "src": "${package.dir}/sass/src,${package.dir}/${toolkit.name}/sass/src"
+  },
+  "classpath": "${package.dir}/src,${package.dir}/${toolkit.name}/src",
+  "overrides": "${package.dir}/overrides,${package.dir}/${toolkit.name}/overrides",
+  "example": {
+    "path": [
+      "${package.dir}/examples"
+    ]
+  },
+  "framework": "ext"
+}

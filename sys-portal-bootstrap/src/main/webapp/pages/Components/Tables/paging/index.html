@@ -1,0 +1,66 @@
+<!--
+ User: 吴元森/15909910367@163.com
+ Date: 2017/2/10
+ Time: 10:47
+ -->
+<div class="my-main">
+    <fieldset class="my-elem-field my-field-title" style="margin-top: 10px;margin-bottom: 10px;">
+        <legend>当前位置：{{location_path}}</legend>
+    </fieldset>
+    <div class="" style="top:40px;bottom:40px;">
+        <div class="tools mt10 ml10 mr10 fmy">
+            <ul class="flexbox je-box-left jew100 f14">
+                <li class="flexbox je-box-left jew25">
+                    <span class="flexbox je-text-right pr10">开始日期：</span>
+                    <p class="flexbox jeflex">
+                        <input type="text" id="startdata" class="my-input" readonly
+                        placeholder="yyyy-mm-dd" autocomplete="off" class="my-input" onclick="layui.laydate({elem: this})" />
+                    </p>
+                </li>
+                <li class="flexbox je-box-left jew25">
+                    <span class="flexbox je-text-right pl10 pr10">终止日期：</span>
+                    <p class="flexbox jeflex"><input type="text" id="enddata" class="my-input" readonly
+                                                     placeholder="yyyy-mm-dd" autocomplete="off" class="my-input" onclick="layui.laydate({elem: this})" /></p>
+                </li>
+                <li class="flexbox je-box-left jew25">
+                    <span class="flexbox je-text-right pl10 pr10">关 键 词：</span>
+                    <p class="flexbox jeflex"><input type="text" class="my-input" placeholder="请输入关键词"></p>
+                </li>
+                <li class="flexbox je-box-left jew25">
+                    <span class="flexbox je-text-left pr10">选择：</span>
+                    <p class="flexbox jeflex">
+                    <form class="my-form" name="form" data-auto="true" method="post">
+                        <select name="quiz" >
+                            <option value="0">选择1</option>
+                            <option value="1" selected>选择2</option>
+                            <option value="2">选择3</option>
+                        </select>
+                    </form>
+                    </p>
+                </li>
+            </ul>
+            <ul class="flexbox je-box-left jew100 f14">
+                <li class="flexbox je-box-left jew50">
+                    <button type="button" ng-click="addClick()" class="jebtn jebtn-blue tool_add rdu4">添加</button>
+                    <button type="button" ng-click="deleteClick()" class="jebtn jebtn-red tool_delete rdu4">删除</button>
+                </li>
+                <li class="flexbox je-box-right jew50">
+                    <button type="button" ng-click="reloadClick()" class="jebtn jebtn-blue tool_sobtn rdu4">查询</button>
+                </li>
+            </ul>
+        </div>
+        <div class="centinfo" id="divData">
+        </div>
+    </div>
+    <div class="fixbot">
+        <div class="divpages f14 fmy">
+            <a href="javascript:void(0);" class="disabled">« 上一页</a>
+            <a href="javascript:void(0);">1</a>
+            <a href="javascript:void(0);">2</a>
+            <a href="javascript:void(0);" class="on">3</a>
+            <a href="javascript:void(0);">4</a>
+            <a href="javascript:void(0);">下一页 »</a>
+            <span class="fl ml20">总数：10条</span><span class="fl ml20"><i class="red">2</i>/10</span>
+        </div>
+    </div>
+</div>

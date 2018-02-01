@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gtjy.p2p.modules.sys.DAO.RightDAO">
+	<!-- 类名： 系统权限表 -->
+	<!-- 缓存 -->
+	<cache eviction="FIFO" flushInterval="60000" size="1024"
+		readOnly="true" />
+	<!-- Result Map -->
+	<resultMap id="BaseResultMap" type="com.gtjy.p2p.modules.sys.dto.Right">
+		<result column="id" property="id" />
+		<result column="modularname" property="modularname" />
+		<result column="childrenmodular" property="childrenmodular" />
+		<result column="rightcode" property="rightcode" />
+		<result column="rightname" property="rightname" />
+		<result column="sourcescode" property="sourcescode" />
+		<result column="modifyuser" property="modifyuser" />
+		<result column="modifydate" property="modifydate" />
+		<result column="remarks" property="remarks" />
+	</resultMap>
+	<!-- sys_right 查询所需列  rig.modularname as 'modularname',-->
+	<sql id="Base_Column_List">
+		rig.id as "id",
+		rig.childrenmodular as "childrenmodular",
+		rig.rightcode as "rightcode",
+		rig.rightname as "rightname",
+		rig.sourcescode as "sourcescode",
+		rig.modifyuser as "modifyuser",
+		rig.modifydate as "modifydate",
+		rig.remarks as "remarks",
+		modular.modularName as "modularName"
+	</sql>
+
+	<!-- 分页查询条件 -->
+	<sql id="Example_Where_Clause_Page">
+		where 1=1
+		<trim suffixOverrides=",">
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id}
+			</if>
+			<if test="params.modularname != null and params.modularname != ''">
+				and modularname = #{params.modularname}
+			</if>
+			<if test="params.childrenmodular != null and params.childrenmodular != ''">
+				and childrenmodular = #{params.childrenmodular}
+			</if>
+			<if test="params.rightcode != null and params.rightcode != ''">
+				and rightcode = #{params.rightcode}
+			</if>
+			<if test="params.rightname != null and params.rightname != ''">
+				and rightname like CONCAT('%',CONCAT(#{params.rightname},'%')) 
+			</if>
+			<if test="params.sourcescode != null and params.sourcescode != ''">
+				and sourcescode = #{params.sourcescode}
+			</if>
+			<if test="params.modifyuser != null and params.modifyuser != ''">
+				and modifyuser = #{params.modifyuser}
+			</if>
+			<if test="params.modifydate != null and params.modifydate != ''">
+				and modifydate = #{params.modifydate}
+			</if>
+			<if test="params.remarks != null and params.remarks != ''">
+				and remarks = #{params.remarks}
+			</if>
+		</trim>
+	</sql>
+	<!-- 查询条件 -->
+	<sql id="Example_Where_Clause">
+		where 1=1
+		<trim suffixOverrides=",">
+			<if test="id != null and id != ''">
+				and id = #{id}
+			</if>
+			<if test="modularname != null and modularname != ''">
+				and modularname = #{modularname}
+			</if>
+			<if test="childrenmodular != null and childrenmodular != ''">
+				and childrenmodular = #{childrenmodular}
+			</if>
+			<if test="rightcode != null and rightcode != ''">
+				and rightcode = #{rightcode}
+			</if>
+			<if test="rightname != null and rightname != ''">
+				and rightname like CONCAT('%',CONCAT(#{rightname},'%')) 
+			</if>
+			<if test="sourcescode != null and sourcescode != ''">
+				and sourcescode = #{sourcescode}
+			</if>
+			<if test="modifyuser != null and modifyuser != ''">
+				and modifyuser = #{modifyuser}
+			</if>
+			<if test="modifydate != null and modifydate != ''">
+				and modifydate = #{modifydate}
+			</if>
+			<if test="remarks != null and remarks != ''">
+				and remarks = #{remarks}
+			</if>
+		</trim>
+	</sql>
+	<!-- 插入列 -->
+	<sql id="insert_columns">
+		<trim suffixOverrides=",">
+			<if test="modularname != null and modularname != ''">
+				modularname,
+			</if>
+			<if test="childrenmodular != null and childrenmodular != ''">
+				childrenmodular,
+			</if>
+			<if test="rightcode != null and rightcode != ''">
+				rightcode,
+			</if>
+			<if test="rightname != null and rightname != ''">
+				rightname,
+			</if>
+			<if test="sourcescode != null and sourcescode != ''">
+				sourcescode,
+			</if>
+			<if test="modifyuser != null and modifyuser != ''">
+				modifyuser,
+			</if>
+			<if test="modifydate != null and modifydate != ''">
+				modifydate,
+			</if>
+			<if test="remarks != null and remarks != ''">
+				remarks,
+			</if>
+		</trim>
+	</sql>
+	<!-- 插入值 -->
+	<sql id="insert_value">
+		<trim suffixOverrides=",">
+			<if test="modularname != null and modularname != ''">
+				#{modularname},
+			</if>
+			<if test="childrenmodular != null and childrenmodular != ''">
+				#{childrenmodular},
+			</if>
+			<if test="rightcode != null and rightcode != ''">
+				#{rightcode},
+			</if>
+			<if test="rightname != null and rightname != ''">
+				#{rightname},
+			</if>
+			<if test="sourcescode != null and sourcescode != ''">
+				#{sourcescode},
+			</if>
+			<if test="modifyuser != null and modifyuser != ''">
+				#{modifyuser},
+			</if>
+			<if test="modifydate != null and modifydate != ''">
+				#{modifydate},
+			</if>
+			<if test="remarks != null and remarks != ''">
+				#{remarks},
+			</if>
+		</trim>
+	</sql>
+	<!-- 插入记录 按需插入 -->
+	<insert id="insert" parameterType="Object">
+		INSERT INTO sys_right(
+		<include refid="insert_columns" />
+		) VALUES(
+		<include refid="insert_value" />
+		)
+	</insert>
+
+	<!-- 根据id，修改记录 ,完全修改 类似hibernate的save方法 -->
+	<update id="updateByPrimaryKey" parameterType="Object">
+		update sys_right
+		set
+		modularname=#{modularname},childrenmodular=#{childrenmodular},rightcode=#{rightcode},rightname=#{rightname},sourcescode=#{sourcescode},modifyuser=#{modifyuser},modifydate=#{modifydate},remarks=#{remarks}
+		where id=#{id}
+	</update>
+
+	<!-- 修改记录，只修改只不为空的字段 -->
+	<update id="updateBySelective" parameterType="Object">
+		update sys_right set
+		<trim suffixOverrides=",">
+			<if test="modularname != null  and modularname != '' ">
+				modularname=#{modularname},
+			</if>
+			<if test="childrenmodular != null  and childrenmodular != '' ">
+				childrenmodular=#{childrenmodular},
+			</if>
+			<if test="rightcode != null  and rightcode != '' ">
+				rightcode=#{rightcode},
+			</if>
+			<if test="rightname != null  and rightname != '' ">
+				rightname=#{rightname},
+			</if>
+			<if test="sourcescode != null  and sourcescode != '' ">
+				sourcescode=#{sourcescode},
+			</if>
+			<if test="modifyuser != null  and modifyuser != '' ">
+				modifyuser=#{modifyuser},
+			</if>
+			<if test="modifydate != null  ">
+				modifydate=#{modifydate},
+			</if>
+			<if test="remarks != null  and remarks != '' ">
+				remarks=#{remarks},
+			</if>
+		</trim>
+		where id=#{id}
+	</update>
+
+	<!-- 删除记录 -->
+	<delete id="deleteByPrimaryKey" parameterType="Object">
+		delete from
+		sys_right where id = #{id}
+	</delete>
+
+	<!-- 根据id查询 系统权限表 -->
+	<select id="selectByPrimaryKey" resultType="com.gtjy.p2p.modules.sys.dto.Right"
+		parameterType="Object">
+		select
+		<include refid="Base_Column_List" />
+		from sys_right rig left join sys_modular modular on rig.sourcescode = modular.modularCode where rig.id = #{id}
+	</select>
+
+	<!-- 系统权限表 列表总数 (分页) -->
+	<select id="selectByMapPagingCount" resultType="java.lang.Integer"
+		useCache="false" parameterType="Object">
+		select count(1) from sys_right rig left join sys_modular modular on rig.sourcescode = modular.modularCode
+		<include refid="Example_Where_Clause" />
+	</select>
+
+	<!-- 查询系统权限表列表 (分页) useCache="false" -->
+	<select id="selectByMapPaging" useCache="false" resultType="com.gtjy.p2p.modules.sys.dto.Right">
+		select
+		<include refid="Base_Column_List" />
+		from sys_right rig left join sys_modular modular on rig.sourcescode = modular.modularCode
+		<include refid="Example_Where_Clause_Page" />
+	</select>
+
+	<!-- 系统权限表 递归查询 此方法公开需要自己实现 -->
+	<select id="selectByChild" resultMap="BaseResultMap">
+
+	</select>
+	<!-- 系统权限表 列表总数 -->
+	<select id="selectByMapCount" resultType="java.lang.Integer"
+		parameterType="java.util.Map">
+		select count(1) from sys_right rig left join sys_modular modular on rig.sourcescode = modular.modularCode
+		<include refid="Example_Where_Clause" />
+	</select>
+	<!-- 系统权限表 列表 -->
+	<select id="selectByMap" resultType="com.gtjy.p2p.modules.sys.dto.Right"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from sys_right rig left join sys_modular modular on rig.sourcescode = modular.modularCode
+		<include refid="Example_Where_Clause" />
+	</select>
+	<!--  -->
+	<select id="findSourceParent" resultType="java.lang.String" parameterType="Object">
+		SELECT
+		distinct(substr(rights.SourcesCode,0,10) )
+		FROM 
+		sys_userrole userrole
+		JOIN sys_roleright roleright on userrole.rolecode = roleright.roleId
+		JOIN sys_right rights on roleright.rightId = rights.id
+		WHERE userrole.usercode = #{usercode}	
+	</select>
+	<select id="findRightByUserCode" resultType="com.gtjy.p2p.modules.sys.dto.Right"
+		parameterType="java.util.Map">
+		SELECT
+		rights.id as "id",
+		rights.RightCode as "rightcode",
+		rights.SourcesCode as "sourcescode"
+		FROM 
+		sys_userrole userrole
+		JOIN sys_roleright roleright on userrole.rolecode = roleright.roleId
+		JOIN sys_right rights on roleright.rightId = rights.id
+		WHERE userrole.usercode = #{usercode}
+	</select>
+	<select id="findSourceByRole" resultType="java.lang.String"
+		parameterType="java.util.Map">
+		SELECT distinct(rig.SourcesCode)
+		FROM 
+		sys_role role 
+		JOIN sys_roleright roleright on role.id = roleright.roleId
+		JOIN sys_right rig on rig.id = roleright.rightid
+		WHERE role.id = #{roleId}
+	</select>
+</mapper>   

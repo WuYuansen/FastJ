@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jeGrid</title>
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<link href="css/global.css" rel="stylesheet" type="text/css">
+<link href="js/laycode/laycode.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/laycode/laycode.min.js"></script>
+<script type="text/javascript" src="js/jegrid/jquery.jegrid.js"></script>
+<style>
+.tabledata{width:100%;border-collapse:collapse;border-spacing:0;border:solid 1px #ddd;font-family:Consolas;color:#333;background-color:white;margin:10px 0}
+.tabledata th,td{font-size:14px;border:solid 1px #ddd;padding:8px;display:table-cell;vertical-align:inherit;text-align:left}
+.tc{text-align:center}
+.tabledata th{border-bottom:solid 2px #ddd;background-color:#eef;font-weight:normal;color:#00A1CB; text-align:center}
+.tabledata td img{width:100px;}
+.tabledata tr:hover{background-color:#ffffcd;}
+.odd{background-color:#f8f8f8;}
+.even{background-color:#ffffff;}
+#divPage{text-align:left;padding:10px 0;font-size:14px;line-height: 30px;overflow:hidden;}
+#divPage a,#divPage span{height: 28px;line-height: 28px;padding: 0 12px;border-radius: 3px;text-decoration:none;color:#666;background-color:#f1eff0;text-align:center;border:solid 1px #ddd;display:inline-block; overflow:hidden; margin:0 0 0 8px; float:left;}
+#divPage i{height: 28px;line-height: 28px;padding: 0 6px;overflow:hidden; margin:0 0 0 8px; float:left;color:#333;font-size:16px;display:inline-block;}
+#divPage em{padding: 0 6px;margin:0 0 0 8px; float:left;color:#666;display:inline-block;}
+#divPage span{color:gray}
+#divPage a:hover{background-color:#00A1CB;color:#fff;border:solid 1px #00A1CB;}
+#divPage .acurr{background-color:#00A1CB;color:#fff;border:solid 1px #00A1CB;font-weight:bold}
+#divPage .pagecount{color:#333;}
+#divPage .pagenum{width:40px;height: 26px;line-height: 26px;border:solid 1px #ccc;border-radius: 3px; text-align:center; margin:0 5px;vertical-align: top; -webkit-box-shadow: inset 1px 1px 3px rgba(0,0,0,.15);box-shadow: inset 1px 1px 3px rgba(0,0,0,.15);}
+#divPage .pagebut{height: 28px;line-height: 28px;padding: 0 12px;border-radius: 3px;text-decoration:none;background-color:#00A1CB;color:#fff;border:solid 1px #00A1CB;}
+.sortall{ background-repeat:no-repeat; background-position:right center;background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAJCAYAAADdA2d2AAAAT0lEQVR4XqXSoQ0AIAxE0ZYwCpqE/YcgQbPLoVBnPuFMVV/aQkoKktaH9poZIIWCt36jBkG4cJDD4KbvqWxSjz2arc8aHeSoAwB0lML0nx7DbyYN4ji8FwAAAABJRU5ErkJggg==');cursor:pointer;}
+.sort-desc{ background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAEAQMAAABbU+brAAAABlBMVEX///8jLTBpOkGEAAAAAXRSTlMAQObYZgAAABtJREFUeF4FwDENAAAIA7DiBInI37GDmCI4rAcadwKGQAhN2QAAAABJRU5ErkJggg==');}
+.sort-asc{ background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAEAQMAAABbU+brAAAABlBMVEUAAAAjLTCZnys1AAAAAXRSTlMAQObYZgAAABpJREFUeF4FwAENAAAIArBHMA7hyM4ch6CYBwgEAcOLW/JRAAAAAElFTkSuQmCC');}
+</style>
+</head>
+
+<body class="fmy">
+<div class="centauto">
+     <h1 class="centtitle f20">jeGrid - js表格控件插件</h1>
+     <div class="centinfo f14">
+     <!--  start  -->
+     <pre class="codes" title="核心方法与其它方法" skin="5">
+      一、核心方法：
+          dataUrl: null, //用于AJAX内容的URL或对象
+          jsonType: "GET", //AJAX请求方式 ("POST" 或 "GET")， 默认为 "GET"。
+          jsondataType: "json", //用于AJAX内容的服务器返回的数据类型
+          jsonAsync: true, //用于AJAX内容同步或异步加载
+          dataRows: "rows", //数据格式类
+          columns: null, //表头格式
+          columnSort: [ ], //设定哪些表头可以排序
+          colsHtml: [ ],  //为表格加入一些HTML元素
+          pageSize: 5, //页显示
+          pageIndex: 1, //页索引
+          pageField: ["pageNo", "size"], //用于AJAX分页的分页类型		
+          pageCount:["totalPage","total"], //用于分页统计，totalPage为分页总数，total为每页显示多少个，可自定义字段
+          pageCell: "#divPage", //分页容器
+          dblclickFun:function(n) {}, //双击行的回调,n为当前序列值
+          pageFun: function(n) {}, //点击分页的回调
+          success: null //内容加载成功后的回调
+    </pre>
+        <pre class="codes" title="初步认识对应的说明">
+以下是html标签：
+&lt;div id="divData"&gt;&lt;/div&gt
+&lt;div id="divPage"&gt;&lt;/div&gt;
+"divData"为表格内容的ID，ID可以自定义
+"divPage"为表格分页内容的ID，ID可以自定义
+        </pre>
+        <h2 class="b f16">功能演示</h2>
+        <div id="divData" onselectstart="return false;" style="-moz-user-select:none;"></div>
+        <div id="divPage"></div>
+        
+        <pre class="codes" title="【js方法调用】" skin="5" heg="400">
+&lt;script&gt;<span class="run">
+var data={
+  "total":6,
+  "totalPage":1,
+  "rows": [
+      {
+          "ID": 1,
+          "name": "公共js和公共css样式部分123456789",
+          "descrtion":"描述公共js和公共css样式部分",
+          "Price": 950
+      },
+      {
+          "ID": 2,
+          "name": "自定义特性（如：皮肤风格选择等）部分",
+          "descrtion":"描述自定义特性（如：皮肤风格选择等）",
+          "Price": 5500
+      },
+       { 
+           "ID": 3,
+          "name": "具体定义及实现部分",
+          "descrtion":"描述具体定义及实现部分",
+          "Price": 150
+      },
+      {
+          "ID": 4,
+          "name": "对外开放部分",
+          "descrtion":"描述对外开放部分",
+          "Price": 650
+      },
+      {
+          "ID": 5,
+          "name": "公共js和公共css样式部分",
+          "descrtion":"描述公共js和公共css样式部分",
+          "Price": 950
+      },
+      {
+          "ID": 6,
+          "name": "匹配所有大于给定索引值的元素",
+          "descrtion":"描述匹配所有大于给定索引值的元素",
+          "Price": 5500
+      }
+  ]
+}
+    $("#divData").jeGrid({
+        dataUrl:data,
+        dataRows:"rows",
+        columnSort: [1,2,4],
+        columns:['&lt;input id="jqchk" name="valitems" type="checkbox"/>','ID','名称','描述','价格'],    
+        colsHtml:[
+             {field:'ID',html:'&lt;input id="jqchk" name="valitems" value="$" type="checkbox"/>',cell:"tc",css:"width:5%;"},
+             {field:'ID',html:'$',cell:"tc",css:"width:5%;"},
+             {field:'name',html:'$'},
+             {field:'descrtion',html:'$'},
+             {field:'Price',html:'$'}
+        ],
+        dblclickFun:function(i){ alert(i)}
+	});
+</span>&lt;/script&gt;
+        </pre>
+        <div class="f14 mb20">
+            <p class="b f18 mb8">表格接口对应说明</p>
+            <p><span class="b">dataUrl: </span>，分为两种数据类型，当为本地数据时（例如：var data=[ ]）dataUrl:data，当为json数据连接时dataUrl:'http://m.msyc.cc/index?tmn=1' </p>
+            <p><span class="b">columnSort: [1,2,4]</span>，例如有5段内容（0，1，2，3，4），从0开始计算，其中[1,2,4]指表头内容可以排序。</p>
+            <p><span class="b">colsHtml</span>: 为表格加入一些HTML元素，包含的字段（field，html，cell，css）。</p>
+            <p><span class="b">field</span>: 的值与数据中的字段对应（例如："ID": 6 ，其中的"ID"与field:'ID'中ID对应），field字段值可以是多个（field：["ID","name"]），与html的值对应（&lt;span> $ &lt;/span>&lt;span> $ &lt;/span>）。</p>
+            <p><span class="b">html</span>: 加入任意HTML标签元素（例如：&lt;div> $ &lt;/div>）,field:'ID'在解释后&lt;div> $ &lt;/div>中 $ 符号会把'ID'对应的值获取进来，最后变成&lt;div> 6 &lt;/div>。</p>
+            <p><span class="b">cell</span>: 为CLASS样式名，例如：我定义 .tc{text-align:center}，那么cell:"tc"。</p>
+            <p><span class="b">css</span>: 为CSS值，例如：css:"width:5%;text-align:center;"。</p>
+            <p><span class="b">pageField: ["pageNo", "size"]</span>, 用于AJAX分页的分页类型，pageNo为分页总数字段默认 1 ，size为每页显示多少个的字段，可自定义字段。</p>	
+			<p><span class="b">pageCount:["totalPage","total"]</span>, 用于分页统计，totalPage为分页总数与数据中的"totalPage":1对应，total为每页显示多少个与数据中的"total":6对应，可自定义字段。</p>
+        </div>
+
+
+<!--  end  -->
+     </div>
+</div>
+<script type="text/javascript">
+    //修饰代码
+    $('.codes').each(function(i){
+        var othis = $(this);
+        othis.laycode({
+            title: othis.attr('title') || '对应代码说明',
+            height: othis.attr('heg') || 'auto',
+            skin: othis.attr('skin') || 0,
+			by:false
+        });
+    });
+	//触发例子
+    new Function($('.run').text())();
+</script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+﻿$imageCommand-text-color:#000000;
+
+.row-imagecommand-cell .x-grid-cell-inner {
+    padding: 0 !important;
+    color:$imageCommand-text-color;
+}
+
+.x-ie6 .row-imagecommand-cell .x-grid-cell-inner,.x-ie7 .row-imagecommand-cell .x-grid-cell-inner,.x-ie8 .row-imagecommand-cell .x-grid-cell-inner {
+    margin-top: -1px;
+}
+
+.row-imagecommand{
+    float: left !important;
+    min-width: 16px !important;
+    height: 22px !important;
+    margin: 1px 1px 0 0 !important;
+    overflow: hidden !important;
+    background-repeat: no-repeat !important;
+    cursor: pointer !important;
+    &:hover{
+        text-decoration:underline;
+    }
+    span {
+        padding: 0 8px 0 8px !important;
+        line-height: 23px !important;
+        vertical-align: middle !important;
+        white-space: nowrap !important;
+    }
+}
+
+.x-ie6 div.no-row-imagecommand-text {
+    width: 16px !important;
+}
+.x-grid-group-imagecommand .x-grid-group-hd .x-grid-group-title {
+    font:400 16px/22px 'Microsoft YaHei', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+}
+
+.group-row-imagecommand {
+    float: left;
+    min-width: 16px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    margin: 0 0 0 1px;
+    padding: 0;
+    cursor: pointer;
+    padding-top: 0;
+}
+
+.right-group-imagecommand {
+    float: right;
+    margin: 0 3px 0 2px;
+    padding: 0 !important;
+}
+
+.group-row-imagecommand-cell {
+    float: left;
+    padding: 0;
+    padding-right: 5px;
+    margin: 1px 0 0 0;
+    background: transparent none !important;
+}
+
+.group-row-imagecommand span {
+    margin: 0 4px 0 18px;
+    padding: 0;
+    line-height: 18px;
+
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.x-hide-command .row-imagecommand {
+    height: 0 !important;
+    width: 0 !important;
+}
+
+.cell-imagecommand-cell .x-grid-cell-inner {
+    padding: 1px 0 0 0;
+}
+
+.cell-imagecommand {
+    float: right;
+    min-width: 16px;
+    height: 32px;
+    margin: 0 5px 0 0;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.left-cell-imagecommand {
+    float: left;
+}
+
+.cell-imagecommand span {
+    padding: 0 10px 0 10px;
+    line-height: 23px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.cell-imagecommand-value {
+    float: left;
+    padding: 2px 6px 3px 6px;
+}
+
+.cell-imagecommand-right-value .cell-imagecommand-value {
+    float: right;
+}
+
+.x-hide-command .cell-imagecommand {
+    height: 0;
+    width: 0;
+}
+
+.x-imagecommand-disabled {
+    cursor: default !important;
+    filter: alpha(opacity=30);
+    opacity: .3;
+}
+
+.radiusBtn{
+    border-radius: 4px;
+    background-color: #3d8fc5; /* #77CE87 */
+    color: #fff;
+}
+.commandBtnColor-red{
+	background-color:#d60b0b;
+}
+
+/* grid 按钮样式 */
+.command-success-color{
+	background:#27c24c;
+}
+.command-info-color{
+	background:#23b7e5;
+}
+.command-light-color{
+	background:#edf1f2;
+}
+.command-exp-color{
+	background:#7266ba;
+}
+.command-modify-color{
+	background : #1ab394;
+}
+.command-remove-color{
+	background : #f8ac59;
+}
+.command-yellow-color{
+	background:#FFFF00;
+}
+.command-none-color{
+	background:#ffffff;
+}
+.command-red-color{
+	background:#d44837;
+}

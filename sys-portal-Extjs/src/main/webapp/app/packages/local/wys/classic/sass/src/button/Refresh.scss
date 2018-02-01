@@ -1,0 +1,14 @@
+/*
+    定义ui='button-refreshbtn-toolbar'
+*/
+@include extjs-button-toolbar-small-ui(
+    $ui: 'button-refreshbtn',
+    $color:#ffffff,
+    $glyph-color:#ffffff,
+    $background-color:#5ac594,
+    $inner-border-width:1px,
+	$border-color:#5ac594,
+    $text-padding:0px,
+    $icon-spacing:0px,
+    $border-width:1px
+);

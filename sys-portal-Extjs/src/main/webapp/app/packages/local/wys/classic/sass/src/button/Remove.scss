@@ -1,0 +1,16 @@
+/*
+    定义ui='button-removebtn-toolbar'的控件
+*/
+$uiRemove:'button-removebtn';
+
+@include extjs-button-toolbar-small-ui(
+    $ui: $uiRemove,
+    $color:#ffffff,
+    $glyph-color:#ffffff,
+    $background-color:#dd4b39,
+	$inner-border-width:1px,
+	$border-color:#dd4b39,
+    $text-padding:0px,
+    $icon-spacing:0px,
+    $border-width:1px
+);

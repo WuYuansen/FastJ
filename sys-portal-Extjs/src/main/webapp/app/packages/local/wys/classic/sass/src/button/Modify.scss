@@ -1,0 +1,16 @@
+/*
+    定义ui='button-editcontent-toolbar'的控件
+*/
+$ui:'button-editcontent';
+
+@include extjs-button-toolbar-small-ui(
+	$ui: $ui,
+	$color:#ffffff,
+    $glyph-color:#ffffff,
+    $background-color:#00acd6,
+	$inner-border-width:1px,
+	$border-color:#00acd6,
+    $text-padding:0px,
+    $icon-spacing:0px,
+    $border-width:1px
+);

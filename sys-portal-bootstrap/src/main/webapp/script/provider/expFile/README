@@ -1,0 +1,6 @@
+使用说明 
+	在所需的页面脚本中引入expFile 然后在对应的下载点击事件中调用 expFile(tableDomID,fileName,fileType)函数
+	参数说明：
+		tableDomID 	导出页面DOMID
+		fileName	导出文件保存名称
+		fileType	导出文件类型

@@ -1,0 +1,67 @@
+/*
+    ui="citypickertab"
+
+@include extjs-tab-panel-ui(
+    $ui: 'citypickertab',
+    $ui-tab-background-color: #fff,
+    $ui-tab-background-color-over: #fff,
+    $ui-tab-background-color-active: #fff,
+    $ui-tab-color: #000,
+    $ui-tab-color-active: #006CB8,
+    $ui-tab-color-over:#000,
+    $ui-tab-border-color: #CED4E0,
+    $ui-tab-border-color-active:#006CB8,
+    $ui-tab-border-color-over:#CED4E0,
+    $ui-tab-border-width: 2px,
+    $ui-tab-inner-border-color:transparent,
+    $ui-tab-outline-width-focus:0px,
+    $ui-tab-inner-border-width:0px,
+    $ui-tab-inner-border-width-focus:0px,
+    $ui-tab-inner-border-width-active:0px,
+    $ui-tab-inner-border-width-focus-active:0px,
+    $ui-tab-padding: 24px,
+    $ui-tab-margin: 0,
+    $ui-tab-font-size: 15px,
+    $ui-tab-line-height: 19px,
+    $ui-bar-border-width:0px,
+    $ui-bar-background-color: #fff,
+    $ui-bar-padding: 0,
+    $ui-strip-height: 0
+);*/
+.citypickerwindow *{
+ margin:0px auto 0px auto;
+}
+
+div.provinceIndicator,div.cityIndicator{
+    font-size:16px;
+    margin-top:20px;
+    border-bottom:2px solid #CED4E0;
+    padding:2px 0px 8px 0px;
+    text-align:center;
+    float:left;
+}
+div.active{
+    color:#54A1F3;
+    border-bottom:2px solid #57A3F1;
+}
+
+span.province{
+    margin:0px 7px;
+    padding:0px 7px;
+    &:hover{
+        background-color:#54A1F1;
+        color:#fff;
+        cursor:pointer;
+        outline:0px dashed #006cb8!important;
+    }
+    &:focus{
+        background-color:#54A1F1;
+        color:#fff;
+        outline:0px dashed #006cb8!important;
+    }
+}
+
+.x-boundlist-floating
+{
+    box-shadow: 0px 2px 5px #888888;
+}

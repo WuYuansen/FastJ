@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gtjy.p2p.modules.sys.DAO.RoleDAO">
+	<!-- 类名： 角色表 -->
+	<!-- 缓存 -->
+	<cache eviction="FIFO" flushInterval="60000" size="1024"
+		readOnly="true" />
+	<!-- Result Map -->
+	<resultMap id="BaseResultMap" type="com.gtjy.p2p.modules.sys.dto.Role">
+		<result column="id" property="id" />
+		<result column="rolename" property="rolename" />
+		<result column="remarks" property="remarks" />
+		<result column="modifyuser" property="modifyuser" />
+		<result column="modifyuserText" property="modifyuserText"/>
+		<result column="modifydate" property="modifydate" />
+	</resultMap>
+	<!-- sys_role 查询所需列 -->
+	<sql id="Base_Column_List">
+		id,rolename,remarks,modifyuser,modifydate,
+		(select realname from sys_user where id=modifyuser) as "modifyuserText"
+	</sql>
+
+	<!-- 分页查询条件 -->
+	<sql id="Example_Where_Clause_Page">
+		where 1=1
+		<trim suffixOverrides=",">
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id}
+			</if>
+			<if test="params.rolename != null and params.rolename != ''">
+				and rolename like CONCAT('%',CONCAT(#{params.rolename},'%'))
+			</if>
+			<if test="params.remarks != null and params.remarks != ''">
+				and remarks = #{params.remarks}
+			</if>
+			<if test="params.modifyuser != null and params.modifyuser != ''">
+				and modifyuser = #{params.modifyuser}
+			</if>
+			<if test="params.modifydate != null and params.modifydate != ''">
+				and modifydate = #{params.modifydate}
+			</if>
+		</trim>
+	</sql>
+	<!-- 查询条件 -->
+	<sql id="Example_Where_Clause">
+		where 1=1
+		<trim suffixOverrides=",">
+			<if test="id != null and id != ''">
+				and id = #{id}
+			</if>
+			<if test="rolename != null and rolename != ''">
+				and rolename = #{rolename}
+			</if>
+			<if test="remarks != null and remarks != ''">
+				and remarks = #{remarks}
+			</if>
+			<if test="modifyuser != null and modifyuser != ''">
+				and modifyuser = #{modifyuser}
+			</if>
+			<if test="modifydate != null and modifydate != ''">
+				and modifydate = #{modifydate}
+			</if>
+		</trim>
+	</sql>
+	<!-- 插入列 -->
+	<sql id="insert_columns">
+		<trim suffixOverrides=",">
+			<if test="rolename != null and rolename != ''">
+				rolename,
+			</if>
+			<if test="remarks != null and remarks != ''">
+				remarks,
+			</if>
+			<if test="modifyuser != null and modifyuser != ''">
+				modifyuser,
+			</if>
+			<if test="modifydate != null and modifydate != ''">
+				modifydate,
+			</if>
+		</trim>
+	</sql>
+	<!-- 插入值 -->
+	<sql id="insert_value">
+		<trim suffixOverrides=",">
+			<if test="rolename != null and rolename != ''">
+				#{rolename},
+			</if>
+			<if test="remarks != null and remarks != ''">
+				#{remarks},
+			</if>
+			<if test="modifyuser != null and modifyuser != ''">
+				#{modifyuser},
+			</if>
+			<if test="modifydate != null and modifydate != ''">
+				#{modifydate},
+			</if>
+		</trim>
+	</sql>
+	<!-- 插入记录 按需插入 -->
+	<insert id="insert" parameterType="Object">
+		INSERT INTO sys_role(
+		<include refid="insert_columns" />
+		) VALUES(
+		<include refid="insert_value" />
+		)
+	</insert>
+
+	<!-- 根据id，修改记录 ,完全修改 类似hibernate的save方法 -->
+	<update id="updateByPrimaryKey" parameterType="Object">
+		update sys_role
+		set
+		rolename=#{rolename},remarks=#{remarks},modifyuser=#{modifyuser},modifydate=#{modifydate}
+		where id=#{id}
+	</update>
+
+	<!-- 修改记录，只修改只不为空的字段 -->
+	<update id="updateBySelective" parameterType="Object">
+		update sys_role set
+		<trim suffixOverrides=",">
+			<if test="rolename != null  and rolename != '' ">
+				rolename=#{rolename},
+			</if>
+			<if test="remarks != null  and remarks != '' ">
+				remarks=#{remarks},
+			</if>
+			<if test="modifyuser != null  and modifyuser != '' ">
+				modifyuser=#{modifyuser},
+			</if>
+			<if test="modifydate != null  ">
+				modifydate=#{modifydate},
+			</if>
+		</trim>
+		where id=#{id}
+	</update>
+
+	<!-- 删除记录 -->
+	<delete id="deleteByPrimaryKey" parameterType="Object">
+		delete from
+		sys_role where id = #{id}
+	</delete>
+
+	<!-- 根据id查询 角色表 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="Object">
+		select
+		<include refid="Base_Column_List" />
+		from sys_role where id = #{id}
+	</select>
+
+	<!-- 角色表 列表总数 (分页) -->
+	<select id="selectByMapPagingCount" resultType="java.lang.Integer"
+		useCache="false" parameterType="Object">
+		select count(1) from sys_role
+		<include refid="Example_Where_Clause" />
+	</select>
+
+	<!-- 查询角色表列表 (分页) useCache="false" -->
+	<select id="selectByMapPaging" resultMap="BaseResultMap" useCache="false">
+		select
+		<include refid="Base_Column_List" />
+		from sys_role
+		<include refid="Example_Where_Clause_Page" />
+	</select>
+
+	<!-- 角色表 递归查询 此方法公开需要自己实现 -->
+	<select id="selectByChild" resultMap="BaseResultMap">
+
+	</select>
+	<!-- 角色表 列表总数 -->
+	<select id="selectByMapCount" resultType="java.lang.Integer"
+		parameterType="java.util.Map">
+		select count(1) from sys_role
+		<include refid="Example_Where_Clause" />
+	</select>
+	<!-- 角色表 列表 -->
+	<select id="selectByMap" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from sys_role
+		<include refid="Example_Where_Clause" />
+	</select>
+</mapper>   

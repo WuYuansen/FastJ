@@ -1,0 +1,100 @@
+.my_spinner {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	z-index: 10
+}
+.my_spinner .my_spinWrap {
+	width: 200px;
+	height: 100px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -100px;
+	margin-top: -50px
+}
+.my_spinner .my_loader,
+.my_spinner .my_spinnerImage {
+	height: 100px;
+	width: 100px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	opacity: 1;
+	filter: alpha(opacity=100)
+}
+.my_spinner .my_spinnerImage {
+	margin: 24px 0 0 -30px;;
+	background: url(../resources/icons/tip/load.png) no-repeat;
+	z-index:10;
+}
+.my_spinner .my_loader {
+	margin: 0 0 0 -55px;
+	background-color: transparent;
+	-webkit-animation: rotation .7s infinite linear;
+	-moz-animation: rotation .7s infinite linear;
+	-o-animation: rotation .7s infinite linear;
+	animation: rotation .7s infinite linear;
+	border-left: 5px solid #cbcbca;
+	border-right: 5px solid #cbcbca;
+	border-bottom: 5px solid #cbcbca;
+	border-top: 5px solid #2380be;
+	border-radius: 100%;
+	background: #FFF;
+}
+.my_spinner .my_loadingMessage {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	margin-top: 112px;
+	font-weight: bold;
+	text-align: center;
+	z-index: 100;
+	outline: 0
+}
+.my_spinner .my_loadingSubHeading {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 150%;
+	margin-top: 10px;
+	margin-left: -42px;
+	text-align: center;
+	z-index: 100;
+	outline: 0
+}
+@-webkit-keyframes rotation {
+	from {
+		-webkit-transform: rotate(0)
+	}
+	to {
+		-webkit-transform: rotate(359deg)
+	}
+}
+@-moz-keyframes rotation {
+	from {
+		-moz-transform: rotate(0)
+	}
+	to {
+		-moz-transform: rotate(359deg)
+	}
+}
+@-o-keyframes rotation {
+	from {
+		-o-transform: rotate(0)
+	}
+	to {
+		-o-transform: rotate(359deg)
+	}
+        }
+        @keyframes rotation {
+            from {
+                transform: rotate(0)
+            }
+            to {
+                transform: rotate(359deg)
+            }
+        }

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gtjy.p2p.modules.sys.DAO.DeptDAO">
+	<!-- 类名： 部门信息 -->
+	<!-- 缓存 -->
+	<cache eviction="FIFO" flushInterval="60000" size="1024"
+		readOnly="true" />
+	<!-- Result Map -->
+	<resultMap id="BaseResultMap" type="com.gtjy.p2p.modules.sys.dto.Dept">
+		<result column="id" property="id" />
+		<result column="deptname" property="deptname" />
+		<result column="depttype" property="depttype" />
+		<result column="deptmanagerid" property="deptmanagerid" />
+		<result column="deptmanagername" property="deptmanagername" />
+		<result column="deptremarks" property="deptremarks" />
+		<result column="deptsuper" property="deptsuper" />
+		<result column="managerArea" property="managerArea"/>
+	</resultMap>
+	<!-- sys_dept 查询所需列 -->
+	<sql id="Base_Column_List">
+		dept.id as "id",
+		dept.deptname as "deptname",
+		dept.depttype as "depttype",
+		dept.deptmanagerid as "deptmanagerid",
+		dept.deptmanagername as "deptmanagername",
+		dept.deptremarks as "deptremarks",
+		dept.managerArea as "managerArea",
+		dept.deptsuper as "deptsuper",
+		dict.keyname as "depttypename",
+		(select loginName from sys_user where deptmanagerid = id) as "deptmanageridText",
+		(select deptname from sys_dept where id=dept.deptsuper) as "deptsuperText"
+	</sql>
+
+	<!-- 分页查询条件 -->
+	<sql id="Example_Where_Clause_Page">
+		where 1=1
+		<trim suffixOverrides=",">
+			<if test="params.id != null and params.id != ''">
+				and dept.id = #{params.id}
+			</if>
+			<if test="params.deptname != null and params.deptname != ''">
+				and dept.deptname like CONCAT('%',CONCAT(#{params.deptname},'%')) 
+			</if>
+			<if test="params.depttype != null and params.depttype != ''">
+				and dept.depttype = #{params.depttype}
+			</if>
+			<if test="params.deptmanagerid != null and params.deptmanagerid != ''">
+				and dept.deptmanagerid = #{params.deptmanagerid}
+			</if>
+			<if test="params.deptmanagername != null and params.deptmanagername != ''">
+				and dept.deptmanagername = #{params.deptmanagername}
+			</if>
+			<if test="params.deptremarks != null and params.deptremarks != ''">
+				and dept.deptremarks = #{params.deptremarks}
+			</if>
+			<if test="params.deptsuper != null and params.deptsuper != ''">
+				and dept.deptsuper = #{params.deptsuper}
+			</if>
+		</trim>
+	</sql>
+	<!-- 查询条件 -->
+	<sql id="Example_Where_Clause">
+		where 1=1
+		<trim suffixOverrides=",">
+			<if test="id != null and id != ''">
+				and dept.id = #{id}
+			</if>
+			<if test="deptname != null and deptname != ''">
+				and dept.deptname like CONCAT('%',CONCAT(#{deptname},'%')) 
+			</if>
+			<if test="depttype != null and depttype != ''">
+				and dept.depttype = #{depttype}
+			</if>
+			<if test="deptmanagerid != null and deptmanagerid != ''">
+				and dept.deptmanagerid = #{deptmanagerid}
+			</if>
+			<if test="deptmanagername != null and deptmanagername != ''">
+				and dept.deptmanagername = #{deptmanagername}
+			</if>
+			<if test="deptremarks != null and deptremarks != ''">
+				and dept.deptremarks = #{deptremarks}
+			</if>
+			<if test="deptsuper != null and deptsuper != ''">
+				and dept.deptsuper = #{deptsuper}
+			</if>
+		</trim>
+	</sql>
+	<!-- 插入列 -->
+	<sql id="insert_columns">
+		<trim suffixOverrides=",">
+			<if test="deptname != null and deptname != ''">
+				deptname,
+			</if>
+			<if test="depttype != null and depttype != ''">
+				depttype,
+			</if>
+			<if test="deptmanagerid != null and deptmanagerid != ''">
+				deptmanagerid,
+			</if>
+			<if test="deptmanagername != null and deptmanagername != ''">
+				deptmanagername,
+			</if>
+			<if test="deptremarks != null and deptremarks != ''">
+				deptremarks,
+			</if>
+			<if test="deptsuper != null and deptsuper != ''">
+				deptsuper,
+			</if>
+		</trim>
+	</sql>
+	<!-- 插入值 -->
+	<sql id="insert_value">
+		<trim suffixOverrides=",">
+			<if test="deptname != null and deptname != ''">
+				#{deptname},
+			</if>
+			<if test="depttype != null and depttype != ''">
+				#{depttype},
+			</if>
+			<if test="deptmanagerid != null and deptmanagerid != ''">
+				#{deptmanagerid},
+			</if>
+			<if test="deptmanagername != null and deptmanagername != ''">
+				#{deptmanagername},
+			</if>
+			<if test="deptremarks != null and deptremarks != ''">
+				#{deptremarks},
+			</if>
+			<if test="deptsuper != null and deptsuper != ''">
+				#{deptsuper},
+			</if>
+		</trim>
+	</sql>
+	<!-- 插入记录 按需插入 -->
+	<insert id="insert" parameterType="Object">
+		INSERT INTO sys_dept(
+		<include refid="insert_columns" />
+		) VALUES(
+		<include refid="insert_value" />
+		)
+	</insert>
+
+	<!-- 根据id，修改记录 ,完全修改 类似hibernate的save方法 -->
+	<update id="updateByPrimaryKey" parameterType="Object">
+		update sys_dept
+		set
+		deptname=#{deptname},depttype=#{depttype},deptmanagerid=#{deptmanagerid},deptmanagername=#{deptmanagername},deptremarks=#{deptremarks},deptsuper=#{deptsuper}
+		where id=#{id}
+	</update>
+
+	<!-- 修改记录，只修改只不为空的字段 -->
+	<update id="updateBySelective" parameterType="Object">
+		update sys_dept set
+		<trim suffixOverrides=",">
+			<if test="deptname != null  and deptname != '' ">
+				deptname=#{deptname},
+			</if>
+			<if test="depttype != null  ">
+				depttype=#{depttype},
+			</if>
+			<if test="deptmanagerid != null  ">
+				deptmanagerid=#{deptmanagerid},
+			</if>
+			<if test="deptmanagername != null  and deptmanagername != '' ">
+				deptmanagername=#{deptmanagername},
+			</if>
+			<if test="deptremarks != null  or deptremarks != '' ">
+				deptremarks=#{deptremarks},
+			</if>
+			<if test="deptsuper != null  ">
+				deptsuper=#{deptsuper},
+			</if>
+		</trim>
+		where id=#{id}
+	</update>
+
+	<!-- 删除记录 -->
+	<delete id="deleteByPrimaryKey" parameterType="Object">
+		delete from
+		sys_dept where id = #{id}
+	</delete>
+
+	<!-- 根据id查询 部门信息 -->
+	<select id="selectByPrimaryKey" resultType="com.gtjy.p2p.modules.sys.dto.Dept"
+		parameterType="Object">
+		select
+		<include refid="Base_Column_List" />
+		from sys_dept dept left join sys_dict dict on  depttype = dict.value and dict.type='DEPTTYPE' 
+		where dept.id = #{id}
+	</select>
+
+	<!-- 部门信息 列表总数 (分页) -->
+	<select id="selectByMapPagingCount" resultType="java.lang.Integer"
+		useCache="false" parameterType="Object">
+		select count(1) from sys_dept dept left join sys_dict dict on  depttype = dict.value and dict.type='DEPTTYPE'
+		<include refid="Example_Where_Clause" />
+	</select>
+
+	<!-- 查询部门信息列表 (分页) useCache="false" -->
+	<select id="selectByMapPaging" resultType="com.gtjy.p2p.modules.sys.dto.Dept" useCache="false">
+		select
+		<include refid="Base_Column_List" />
+		from sys_dept dept left join sys_dict dict on  depttype = dict.value and dict.type='DEPTTYPE'
+		<include refid="Example_Where_Clause_Page" />
+	</select>
+
+	<!-- 部门信息 递归查询 此方法公开需要自己实现 -->
+	<select id="selectByChild" resultMap="BaseResultMap">
+
+	</select>
+	<!-- 部门信息 列表总数 -->
+	<select id="selectByMapCount" resultType="java.lang.Integer"
+		parameterType="java.util.Map">
+		select count(1) from sys_dept dept left join sys_dict dict on  depttype = dict.value and dict.type='DEPTTYPE'
+		<include refid="Example_Where_Clause" />
+	</select>
+	<!-- 部门信息 列表 -->
+	<select id="selectByMap" resultType="com.gtjy.p2p.modules.sys.dto.Dept"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from sys_dept dept left join sys_dict dict on  depttype = dict.value and dict.type='DEPTTYPE'
+		<include refid="Example_Where_Clause" />
+	</select>
+</mapper>   

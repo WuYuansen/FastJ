@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<TITLE> ZTREE DEMO - checkbox</TITLE>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="../../../css/demo.css" type="text/css">
+	<link rel="stylesheet" href="../../../css/zTreeStyle/zTreeStyle.css" type="text/css">
+	<script type="text/javascript" src="../../../js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="../../../js/jquery.ztree.core.js"></script>
+	<script type="text/javascript" src="../../../js/jquery.ztree.excheck.js"></script>
+	<!--
+	<script type="text/javascript" src="../../../js/jquery.ztree.exedit.js"></script>
+	-->
+	<SCRIPT type="text/javascript">
+		<!--
+		var setting = {
+			check: {
+				enable: true
+			},
+			data: {
+				simpleData: {
+					enable: true
+				}
+			}
+		};
+
+		var zNodes =[{"id":null,"sourcesCode":"0001","name":"电梯应急处置平台","icon":null,"leaf":false,"checked":false,"children":[{"id":null,"sourcesCode":"0001002","name":"后台菜单资源","icon":null,"leaf":false,"checked":false,"children":[{"id":null,"sourcesCode":"0001002001","name":"系统管理","icon":null,"leaf":false,"checked":false,"children":[{"id":null,"sourcesCode":"0001002001001","name":"用户管理","icon":null,"leaf":false,"checked":false,"children":[{"id":"1","sourcesCode":"0001002001001","name":"用户管理_查询","icon":null,"leaf":true,"checked":false,"children":null},{"id":"7","sourcesCode":"0001002001001","name":"用户管理_修改","icon":null,"leaf":true,"checked":false,"children":null},{"id":"14","sourcesCode":"0001002001001","name":"用户管理_删除","icon":null,"leaf":true,"checked":false,"children":null},{"id":"21","sourcesCode":"0001002001001","name":"用户管理_保存","icon":null,"leaf":true,"checked":false,"children":null}]},{"id":null,"sourcesCode":"0001002001002","name":"权限管理","icon":null,"leaf":false,"checked":false,"children":[{"id":"2","sourcesCode":"0001002001002","name":"权限管理_查询","icon":null,"leaf":true,"checked":false,"children":null},{"id":"8","sourcesCode":"0001002001002","name":"权限管理_修改","icon":null,"leaf":true,"checked":false,"children":null},{"id":"15","sourcesCode":"0001002001002","name":"权限管理_删除","icon":null,"leaf":true,"checked":false,"children":null},{"id":"22","sourcesCode":"0001002001002","name":"权限管理_保存","icon":null,"leaf":true,"checked":false,"children":null}]},{"id":null,"sourcesCode":"0001002001003","name":"角色管理","icon":null,"leaf":false,"checked":false,"children":[{"id":"3","sourcesCode":"0001002001003","name":"角色管理_查询","icon":null,"leaf":true,"checked":false,"children":null},{"id":"9","sourcesCode":"0001002001003","name":"角色管理_修改","icon":null,"leaf":true,"checked":false,"children":null},{"id":"16","sourcesCode":"0001002001003","name":"角色管理_删除","icon":null,"leaf":true,"checked":false,"children":null},{"id":"23","sourcesCode":"0001002001003","name":"角色管理_保存","icon":null,"leaf":true,"checked":false,"children":null}]},{"id":null,"sourcesCode":"0001002001004","name":"菜单资源管理","icon":null,"leaf":false,"checked":false,"children":[{"id":"4","sourcesCode":"0001002001004","name":"菜单资源管理_查询","icon":null,"leaf":true,"checked":false,"children":null},{"id":"10","sourcesCode":"0001002001004","name":"菜单资源管理_修改","icon":null,"leaf":true,"checked":false,"children":null},{"id":"17","sourcesCode":"0001002001004","name":"菜单资源管理_删除","icon":null,"leaf":true,"checked":false,"children":null},{"id":"24","sourcesCode":"0001002001004","name":"菜单资源管理_保存","icon":null,"leaf":true,"checked":false,"children":null}]},{"id":null,"sourcesCode":"0001002001005","name":"字典管理","icon":null,"leaf":false,"checked":false,"children":[{"id":"5","sourcesCode":"0001002001005","name":"字典管理_查询","icon":null,"leaf":true,"checked":false,"children":null},{"id":"11","sourcesCode":"0001002001005","name":"字典管理_修改","icon":null,"leaf":true,"checked":false,"children":null},{"id":"18","sourcesCode":"0001002001005","name":"字典管理_删除","icon":null,"leaf":true,"checked":false,"children":null},{"id":"25","sourcesCode":"0001002001005","name":"字典管理_保存","icon":null,"leaf":true,"checked":false,"children":null}]},{"id":null,"sourcesCode":"0001002001006","name":"组织机构","icon":null,"leaf":false,"checked":false,"children":[{"id":"6","sourcesCode":"0001002001006","name":"组织机构_查询","icon":null,"leaf":true,"checked":false,"children":null},{"id":"12","sourcesCode":"0001002001006","name":"组织机构_修改","icon":null,"leaf":true,"checked":false,"children":null},{"id":"19","sourcesCode":"0001002001006","name":"组织机构_删除","icon":null,"leaf":true,"checked":false,"children":null},{"id":"26","sourcesCode":"0001002001006","name":"组织机构_保存","icon":null,"leaf":true,"checked":false,"children":null}]},{"id":null,"sourcesCode":"0001002001007","name":"系统监控","icon":null,"leaf":true,"checked":false,"children":null},{"id":null,"sourcesCode":"0001002001009","name":"系统日志","icon":null,"leaf":false,"checked":false,"children":[{"id":"13","sourcesCode":"0001002001009","name":"系统日志_修改","icon":null,"leaf":true,"checked":false,"children":null},{"id":"20","sourcesCode":"0001002001009","name":"系统日志_删除","icon":null,"leaf":true,"checked":false,"children":null},{"id":"27","sourcesCode":"0001002001009","name":"系统日志_保存","icon":null,"leaf":true,"checked":false,"children":null}]}]},{"id":null,"sourcesCode":"0001002002","name":"数据管理","icon":null,"leaf":false,"checked":false,"children":[{"id":null,"sourcesCode":"0001002002005","name":"应急处置信息管理","icon":null,"leaf":false,"checked":false,"children":[{"id":"68","sourcesCode":"0001002002005","name":"应急处置信息管理_查询","icon":null,"leaf":true,"checked":false,"children":null}]},{"id":null,"sourcesCode":"0001002002001","name":"电梯基本信息管理","icon":null,"leaf":false,"checked":false,"children":[{"id":"58","sourcesCode":"0001002002001","name":"电梯基本信息管理_查询","icon":null,"leaf":true,"checked":false,"children":null}]},{"id":null,"sourcesCode":"0001002002002","name":"使用单位信息管理","icon":null,"leaf":false,"checked":false,"children":[{"id":"59","sourcesCode":"0001002002002","name":"使用单位信息管理_查询","icon":null,"leaf":true,"checked":false,"children":null}]},{"id":null,"sourcesCode":"0001002002003","name":"维保单位信息管理","icon":null,"leaf":false,"checked":false,"children":[{"id":"60","sourcesCode":"0001002002003","name":"维保单位信息管理_查询","icon":null,"leaf":true,"checked":false,"children":null}]},{"id":null,"sourcesCode":"0001002002004","name":"救援机构信息管理","icon":null,"leaf":false,"checked":false,"children":[{"id":"61","sourcesCode":"0001002002004","name":"救援机构信息管理_查询","icon":null,"leaf":true,"checked":false,"children":null}]}]},{"id":null,"sourcesCode":"0001002003","name":"统计分析","icon":null,"leaf":false,"checked":false,"children":[{"id":null,"sourcesCode":"0001002003001","name":"应急处置分析","icon":null,"leaf":false,"checked":false,"children":[{"id":"62","sourcesCode":"0001002003001","name":"应急处置分析_查询","icon":null,"leaf":true,"checked":false,"children":null}]},{"id":null,"sourcesCode":"0001002003002","name":"安全隐患分析","icon":null,"leaf":false,"checked":false,"children":[{"id":"63","sourcesCode":"0001002003002","name":"安全隐患分析_查询","icon":null,"leaf":true,"checked":false,"children":null}]},{"id":null,"sourcesCode":"0001002003003","name":"应急救援分析","icon":null,"leaf":false,"checked":false,"children":[{"id":"64","sourcesCode":"0001002003003","name":"应急救援分析_查询","icon":null,"leaf":true,"checked":false,"children":null}]},{"id":null,"sourcesCode":"0001002003004","name":"困人故障分析","icon":null,"leaf":false,"checked":false,"children":[{"id":"65","sourcesCode":"0001002003004","name":"困人故障分析_查询","icon":null,"leaf":true,"checked":false,"children":null}]},{"id":null,"sourcesCode":"0001002003005","name":"故障原因分析","icon":null,"leaf":false,"checked":false,"children":[{"id":"66","sourcesCode":"0001002003005","name":"故障原因分析_查询","icon":null,"leaf":true,"checked":false,"children":null}]}]},{"id":null,"sourcesCode":"0001002004","name":"接口管理","icon":null,"leaf":false,"checked":false,"children":[{"id":null,"sourcesCode":"0001002004001","name":"接口配置","icon":null,"leaf":false,"checked":false,"children":[{"id":"56","sourcesCode":"0001002004001","name":"接口配置_查询","icon":null,"leaf":true,"checked":false,"children":null}]},{"id":null,"sourcesCode":"0001002004002","name":"接口调用日志","icon":null,"leaf":false,"checked":false,"children":[{"id":"57","sourcesCode":"0001002004002","name":"接口调用日志_查询","icon":null,"leaf":true,"checked":false,"children":null}]}]},{"id":null,"sourcesCode":"0001002005","name":"地理系统","icon":null,"leaf":false,"checked":false,"children":[{"id":null,"sourcesCode":"0001002005001","name":"快速定位查询","icon":null,"leaf":false,"checked":false,"children":[{"id":"67","sourcesCode":"0001002005001","name":"快速定位查询_查询","icon":null,"leaf":true,"checked":false,"children":null}]}]}]}]}];
+
+		var code;
+
+		function setCheck() {
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+			py = $("#py").attr("checked")? "p":"",
+			sy = $("#sy").attr("checked")? "s":"",
+			pn = $("#pn").attr("checked")? "p":"",
+			sn = $("#sn").attr("checked")? "s":"",
+			type = { "Y":py + sy, "N":pn + sn};
+			zTree.setting.check.chkboxType = type;
+			showCode('setting.check.chkboxType = { "Y" : "' + type.Y + '", "N" : "' + type.N + '" };');
+		}
+		function showCode(str) {
+			if (!code) code = $("#code");
+			code.empty();
+			code.append("<li>"+str+"</li>");
+		}
+
+		$(document).ready(function(){
+			$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+			setCheck();
+			$("#py").bind("change", setCheck);
+			$("#sy").bind("change", setCheck);
+			$("#pn").bind("change", setCheck);
+			$("#sn").bind("change", setCheck);
+		});
+		//-->
+	</SCRIPT>
+</HEAD>
+
+<BODY>
+<h1>Checkbox Operation</h1>
+<h6>[ File Path: excheck/checkbox.html ]</h6>
+<div class="content_wrap">
+	<div class="zTreeDemoBackground left">
+		<ul id="treeDemo" class="ztree"></ul>
+	</div>
+	<div class="right">
+		<ul class="info">
+			<li class="title"><h2>1, Explanation of setting</h2>
+				<ul class="list">
+				<li class="highlight_red">Must set setting.check attributes, see the API documentation for more related contents.</li>
+				<li><p>Linkage relationship between parent and child nodes:<br/>
+						check: <input type="checkbox" id="py" class="checkbox first" checked /><span>affect the parent</span>
+						<input type="checkbox" id="sy" class="checkbox first" checked /><span>affect the child</span><br/>
+						uncheck: <input type="checkbox" id="pn" class="checkbox first" checked /><span>affect the parent</span>
+						<input type="checkbox" id="sn" class="checkbox first" checked /><span>affect the child</span><br/>
+						<ul id="code" class="log" style="height:20px;"></ul></p>
+				</li>
+				</ul>
+			</li>
+			<li class="title"><h2>2, Explanation of treeNode</h2>
+				<ul class="list">
+				<li class="highlight_red">1), If you need to initialize the node is checked, please set treeNode.checked attribute. See the API documentation for more related contents.</li>
+				<li class="highlight_red">2), If you need to initialize the node's checkbox is disabled, please set treeNode.chkDisabled attribute. See the API documentation for more related contents and 'chkDisabled Demo'.</li>
+				<li class="highlight_red">3), If you need to initialize the node don't show checkbox, please set treeNode.nocheck attribute. See the API documentation for more related contents and 'nocheck Demo'.</li>
+				<li class="highlight_red">4), If you need to change 'checked' to other attribute, please set setting.data.key.checked attribute. See the API documentation for more related contents.</li>
+				<li>5), By the way, please see the API documentation for 'treeNode.checkedOld / getCheckStatus / check_Child_State / check_Focus'.</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+</BODY>
+</HTML>

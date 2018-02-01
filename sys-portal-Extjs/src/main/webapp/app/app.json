@@ -1,0 +1,143 @@
+{
+    "name": "app",
+    "version": "1.0.0.0",
+    "indexHtmlPath": "index.html",
+    "classpath": [
+        "app",
+        "${toolkit.name}/src"
+    ],
+    "overrides": [
+        "overrides",
+        "${toolkit.name}/overrides"
+    ],
+    "framework": "ext",
+    "toolkit": "classic",
+    "theme": "wys",
+    "requires": [
+        "font-awesome",
+        "wys"
+    ],
+    "sass": {
+        "namespace": "app",
+        "etc": [
+            "sass/etc/all.scss",
+            "${toolkit.name}/sass/etc/all.scss"
+        ],
+        "var": [
+            "sass/var/all.scss",
+            "sass/var",
+            "${toolkit.name}/sass/var"
+        ],
+        "src": [
+            "sass/src",
+            "${toolkit.name}/sass/src"
+        ]
+    },
+    "js": [
+        {
+            "path": "app.js",
+            "bundle": true
+        }
+    ],
+    "classic": {
+        "js": [
+            {
+                // Remove this entry to individually load sources from the framework.
+                "path": "${framework.dir}/build/ext-all-rtl-debug.js"
+            }
+        ],
+        "requires":[
+        	"locale",
+        	"font-awesome",
+	        "ext-locale",
+	        "wys"
+        ],
+        "locale" : "zh_CN"
+    },
+    "modern": {
+        "js": [
+            {
+                // Remove this entry to individually load sources from the framework.
+                "path": "${framework.dir}/build/ext-modern-all-debug.js"
+            }
+        ]
+    },
+    "css": [
+        {
+            // this entry uses an ant variable that is the calculated
+            // value of the generated output css file for the app,
+            // defined in .sencha/app/defaults.properties
+            "path": "${build.out.css.path}",
+            "bundle": true,
+            "exclude": ["fashion"]
+        }
+    ],
+     "loader": {
+         "cache": false,
+         "cacheParam": "_dc"
+     },
+    "production": {
+        "output": {
+            
+            "appCache": {
+                "enable": true,
+                "path": "cache.appcache"
+            }
+            
+        },
+        "loader": {
+            "cache": "${build.timestamp}"
+        },
+        "cache": {
+            "enable": true
+        }
+    },
+    
+    "testing": {
+    },
+    "development": {
+        "tags": [
+            // You can add this tag to enable Fashion when using app watch or
+            // you can add "?platformTags=fashion:1" to the URL to enable Fashion
+            // without changing this file.
+            //
+            // "fashion"
+        ]
+    },
+    "bootstrap": {
+        "base": "${app.dir}",
+        
+        "microloader": "bootstrap.js",
+        "css": "bootstrap.css"
+    },
+    "output": {
+        "base": "${workspace.build.dir}/${build.environment}/${app.name}",
+        "appCache": {
+            "enable": false
+        }
+    },
+    "cache": {
+        "enable": false,
+        "deltas": true
+    },
+    "appCache": {
+        "cache": [
+            "index.html"
+        ],
+        "network": [
+            "*"
+        ],
+        "fallback": []
+    },
+    "resource": {
+        "paths": [
+            "resources",
+            "${toolkit.name}/resources"
+        ]
+    },
+    "ignore": [
+        "(^|/)CVS(/?$|/.*?$)"
+    ],
+    "archivePath": "archive",
+    "id": "8b5a0c5c-56fa-4c7c-82dc-be5bf5faaf1d"
+}

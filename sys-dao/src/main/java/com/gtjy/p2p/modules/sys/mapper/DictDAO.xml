@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gtjy.p2p.modules.sys.DAO.DictDAO">
+	<!-- 类名： 字典表 -->
+	<!-- 缓存 -->
+	<cache eviction="FIFO" flushInterval="60000" size="1024"
+		readOnly="true" />
+	<!-- Result Map -->
+	<resultMap id="BaseResultMap" type="com.gtjy.p2p.modules.sys.dto.Dict">
+		<result column="id" property="id" />
+		<result column="typename" property="typename" />
+		<result column="keyname" property="key" />
+		<result column="keycode" property="keycode" />
+		<result column="value" property="value" />
+		<result column="parent" property="parent" />
+		<result column="state" property="state" />
+		<result column="ismodify" property="ismodify" />
+		<result column="orders" property="order" />
+		<result column="remarks" property="remarks" />
+		<result column="type" property="type" />
+	</resultMap>
+	<!-- sys_dict 查询所需列 -->
+	<sql id="Base_Column_List">
+		id,typename,keyname,keycode,value,parent,state,ismodify,orders,remarks,type
+	</sql>
+
+	<!-- 分页查询条件 -->
+	<sql id="Example_Where_Clause_Page">
+		where 1=1
+		<trim suffixOverrides=",">
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id}
+			</if>
+			<if test="params.typename != null and params.typename != ''">
+				and typename like CONCAT('%',CONCAT(#{params.typename},'%'))
+			</if>
+			<if test="params.key != null and params.key != ''">
+				and keyname = #{params.key}
+			</if>
+			<if test="params.keycode != null and params.keycode != ''">
+				and keycode = #{params.keycode}
+			</if>
+			<if test="params.value != null and params.value != ''">
+				and value = #{params.value}
+			</if>
+			<if test="params.parent != null and params.parent != ''">
+				and parent = #{params.parent}
+			</if>
+			<if test="params.state != null and params.state != ''">
+				and state = #{params.state}
+			</if>
+			<if test="params.ismodify != null and params.ismodify != ''">
+				and ismodify = #{params.ismodify}
+			</if>
+			<if test="params.order != null and params.order != ''">
+				and orders = #{params.order}
+			</if>
+			<if test="params.remarks != null and params.remarks != ''">
+				and remarks = #{params.remarks}
+			</if>
+			<if test="params.type != null and params.type != ''">
+				and type = #{params.type}
+			</if>
+		</trim>
+	</sql>
+	<!-- 查询条件 -->
+	<sql id="Example_Where_Clause">
+		where 1=1
+		<trim suffixOverrides=",">
+			<if test="id != null and id != ''">
+				and id = #{id}
+			</if>
+			<if test="typename != null and typename != ''">
+				and typename like CONCAT('%',CONCAT(#{typename},'%'))
+			</if>
+			<if test="key != null and key != ''">
+				and keyname = #{key}
+			</if>
+			<if test="keycode != null and keycode != ''">
+				and keycode = #{keycode}
+			</if>
+			<if test="value != null and value != ''">
+				and value = #{value}
+			</if>
+			<if test="parent != null and parent != ''">
+				and parent = #{parent}
+			</if>
+			<if test="state != null and state != ''">
+				and state = #{state}
+			</if>
+			<if test="ismodify != null and ismodify != ''">
+				and ismodify = #{ismodify}
+			</if>
+			<if test="order != null and order != ''">
+				and orders = #{order}
+			</if>
+			<if test="remarks != null and remarks != ''">
+				and remarks = #{remarks}
+			</if>
+			<if test="type != null and type != ''">
+				and type = #{type}
+			</if>
+		</trim>
+	</sql>
+	<!-- 插入列 -->
+	<sql id="insert_columns">
+		<trim suffixOverrides=",">
+			<if test="typename != null and typename != ''">
+				typename,
+			</if>
+			<if test="key != null and key != ''">
+				keyname,
+			</if>
+			<if test="keycode != null and keycode != ''">
+				keycode,
+			</if>
+			<if test="value != null and value != ''">
+				value,
+			</if>
+			<if test="parent != null and parent != ''">
+				parent,
+			</if>
+			<if test="state != null and state != ''">
+				state,
+			</if>
+			<if test="ismodify != null and ismodify != ''">
+				ismodify,
+			</if>
+			<if test="order != null and order != ''">
+				orders,
+			</if>
+			<if test="remarks != null and remarks != ''">
+				remarks,
+			</if>
+			<if test="type != null and type != ''">
+				type,
+			</if>
+		</trim>
+	</sql>
+	<!-- 插入值 -->
+	<sql id="insert_value">
+		<trim suffixOverrides=",">
+			<if test="typename != null and typename != ''">
+				#{typename},
+			</if>
+			<if test="key != null and key != ''">
+				#{key},
+			</if>
+			<if test="keycode != null and keycode != ''">
+				#{keycode},
+			</if>
+			<if test="value != null and value != ''">
+				#{value},
+			</if>
+			<if test="parent != null and parent != ''">
+				#{parent},
+			</if>
+			<if test="state != null and state != ''">
+				#{state},
+			</if>
+			<if test="ismodify != null and ismodify != ''">
+				#{ismodify},
+			</if>
+			<if test="order != null and order != ''">
+				#{order},
+			</if>
+			<if test="remarks != null and remarks != ''">
+				#{remarks},
+			</if>
+			<if test="type != null and type != ''">
+				#{type},
+			</if>
+		</trim>
+	</sql>
+	<!-- 插入记录 按需插入 -->
+	<insert id="insert" parameterType="Object">
+		INSERT INTO sys_dict(
+		<include refid="insert_columns" />
+		) VALUES(
+		<include refid="insert_value" />
+		)
+	</insert>
+
+	<!-- 根据id，修改记录 ,完全修改 类似hibernate的save方法 -->
+	<update id="updateByPrimaryKey" parameterType="Object">
+		update sys_dict
+		set
+		typename=#{typename},keyname=#{key},keycode=#{keycode},value=#{value},parent=#{parent},state=#{state},ismodify=#{ismodify},orders=#{order},remarks=#{remarks},type=#{type}
+		where id=#{id}
+	</update>
+
+	<!-- 修改记录，只修改只不为空的字段 -->
+	<update id="updateBySelective" parameterType="Object">
+		update sys_dict set
+		<trim suffixOverrides=",">
+			<if test="typename != null  and typename != '' ">
+				typename=#{typename},
+			</if>
+			<if test="key != null  and key != '' ">
+				keyname=#{key},
+			</if>
+			<if test="keycode != null  and keycode != '' ">
+				keycode=#{keycode},
+			</if>
+			<if test="value != null  and value != '' ">
+				value=#{value},
+			</if>
+			<if test="parent != null  ">
+				parent=#{parent},
+			</if>
+			<if test="state != null  ">
+				state=#{state},
+			</if>
+			<if test="ismodify != null  and ismodify != '' ">
+				ismodify=#{ismodify},
+			</if>
+			<if test="order != null  ">
+				orders=#{order},
+			</if>
+			<if test="remarks != null  and remarks != '' ">
+				remarks=#{remarks},
+			</if>
+			<if test="type != null  and type != '' ">
+				type=#{type},
+			</if>
+		</trim>
+		where id=#{id}
+	</update>
+
+	<!-- 删除记录 -->
+	<delete id="deleteByPrimaryKey" parameterType="Object">
+		delete from
+		sys_dict where id = #{id}
+	</delete>
+
+	<!-- 根据id查询 字典表 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="Object">
+		select
+		<include refid="Base_Column_List" />
+		from sys_dict where id = #{id}
+	</select>
+
+	<!-- 字典表 列表总数 (分页) -->
+	<select id="selectByMapPagingCount" resultType="java.lang.Integer"
+		useCache="false" parameterType="Object">
+		select count(1) from sys_dict
+		<include refid="Example_Where_Clause" />
+	</select>
+
+	<!-- 查询字典表列表 (分页) useCache="false" -->
+	<select id="selectByMapPaging" resultMap="BaseResultMap" useCache="false">
+		select
+		<include refid="Base_Column_List" />
+		from sys_dict
+		<include refid="Example_Where_Clause_Page" />
+		 order by id desc
+	</select>
+
+	<!-- 字典表 递归查询 此方法公开需要自己实现 -->
+	<select id="selectByChild" resultMap="BaseResultMap">
+
+	</select>
+	<!-- 字典表 列表总数 -->
+	<select id="selectByMapCount" resultType="java.lang.Integer"
+		parameterType="java.util.Map">
+		select count(1) from sys_dict
+		<include refid="Example_Where_Clause" />
+	</select>
+	<!-- 字典表 列表 -->
+	<select id="selectByMap" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from sys_dict
+		<include refid="Example_Where_Clause" />
+		order by orders,id
+	</select>
+	<!--  selectAllByQxz -->
+	<select id="selectAllByQxz"  resultMap="BaseResultMap" parameterType="Object">
+  			select <include refid="Base_Column_List" /> from sys_dict
+  		where type = #{type}  and keycode in 
+  		<foreach item="keycodes" collection="keycodes" open="(" separator="," close=")">
+			#{keycodes}
+		</foreach>
+  	</select>
+  	<update id="deleteByIds" parameterType="Object">
+ 		update sys_dict set state=2 where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+		#{id}
+		</foreach>
+	</update>
+</mapper>   

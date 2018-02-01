@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gtjy.p2p.modules.sys.DAO.LogsDAO">
+	<!-- 类名： 系统日志表 -->
+	<!-- 缓存 -->
+	<cache eviction="FIFO" flushInterval="60000" size="1024" readOnly="true" />
+	<!-- Result Map -->
+	<resultMap id="BaseResultMap" type="com.gtjy.p2p.modules.sys.dto.Logs">
+				<result column="id" property="id" />
+				<result column="logstype" property="logstype" />
+				<result column="logssource" property="logssource" />
+				<result column="operationdate" property="operationdate" />
+				<result column="operationstep" property="operationstep" />
+				<result column="operationtype" property="operationtype" />
+				<result column="operationremarks" property="operationremarks" />
+				<result column="operationuser" property="operationuser" />
+				<result column="operationip" property="operationip" />
+			</resultMap>
+	<!-- sys_logs 查询所需列 -->
+	<sql id="Base_Column_List">
+		id,logstype,logssource,operationdate,operationstep,operationtype,operationremarks,operationuser,operationip
+	</sql>
+	
+	<!-- 分页查询条件 -->
+	<sql id="Example_Where_Clause_Page">
+		where 1=1
+		<trim suffixOverrides=",">
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id}
+			</if>
+			<if test="params.logstype != null and params.logstype != ''">
+				and logstype = #{params.logstype}
+			</if>
+			<if test="params.logssource != null and params.logssource != ''">
+				and logssource = #{params.logssource}
+			</if>
+			<if test="params.operationdate != null and params.operationdate != ''">
+				and operationdate = #{params.operationdate}
+			</if>
+			<if test="params.operationstep != null and params.operationstep != ''">
+				and operationstep = like CONCAT('%',CONCAT(#{params.operationstep},'%'))				
+			</if>
+			<if test="params.operationtype != null and params.operationtype != ''">
+				and operationtype = #{params.operationtype}
+			</if>
+			<if test="params.operationremarks != null and params.operationremarks != ''">
+				and operationremarks = #{params.operationremarks}
+			</if>
+			<if test="params.operationuser != null and params.operationuser != ''">
+				and operationuser like CONCAT('%',CONCAT(#{params.operationuser},'%'))
+			</if>
+			<if test="params.operationip != null and params.operationip != ''">
+				and operationip = #{params.operationip}
+			</if>
+			<!-- <if test="params.beginDate != null and params.beginDate != ''">
+				and UNIX_TIMESTAMP(DATE_FORMAT(operationdate,'%Y-%m-%d')) <![CDATA[ >= ]]>UNIX_TIMESTAMP(#{params.beginDate}) 
+			</if>
+			<if test="params.endDate != null and params.endDate != ''">
+				and UNIX_TIMESTAMP(DATE_FORMAT(operationdate,'%Y-%m-%d')) <![CDATA[ <= ]]> UNIX_TIMESTAMP(#{params.endDate})
+			</if> -->
+			
+			</trim>
+	</sql>
+	<!-- 查询条件 -->
+	<sql id="Example_Where_Clause">
+		where 1=1
+		<trim suffixOverrides=",">
+			<if test="id != null and id != ''">
+				and id = #{id}
+			</if>
+						<if test="logstype != null and logstype != ''">
+				and logstype = #{logstype}
+			</if>
+						<if test="logssource != null and logssource != ''">
+				and logssource = #{logssource}
+			</if>
+			<if test="operationdate != null and operationdate != ''">
+				and operationdate = #{operationdate}
+			</if>
+				<if test="operationstep != null and operationstep != ''">
+				and operationstep = #{operationstep}
+			</if>
+						<if test="operationtype != null and operationtype != ''">
+				and operationtype = #{operationtype}
+			</if>
+						<if test="operationremarks != null and operationremarks != ''">
+				and operationremarks = #{operationremarks}
+			</if>
+			<if test="operationuser != null and operationuser != ''">
+				and operationuser like CONCAT('%',CONCAT(#{operationuser},'%'))
+			</if>
+			<if test="operationip != null and operationip != ''">
+				and operationip = #{operationip}
+			</if>			
+			<!-- <if test="beginDate != null and beginDate != ''">
+				and UNIX_TIMESTAMP(DATE_FORMAT(operationdate,'%Y-%m-%d'))  <![CDATA[ >= ]]>UNIX_TIMESTAMP(#{beginDate}) 
+			</if>
+			<if test="endDate != null and endDate != ''">
+				and UNIX_TIMESTAMP(DATE_FORMAT(operationdate,'%Y-%m-%d'))  <![CDATA[ <= ]]> UNIX_TIMESTAMP(#{endDate})
+			</if> -->
+			</trim>
+	</sql>
+	<!-- 插入列 -->	
+	<sql id="insert_columns">
+		<trim suffixOverrides=",">
+			<if test="logstype != null and logstype != ''">
+				logstype,
+			</if>
+						<if test="logssource != null and logssource != ''">
+				logssource,
+			</if>
+						<if test="operationdate != null and operationdate != ''">
+				operationdate,
+			</if>
+						<if test="operationstep != null and operationstep != ''">
+				operationstep,
+			</if>
+						<if test="operationtype != null and operationtype != ''">
+				operationtype,
+			</if>
+						<if test="operationremarks != null and operationremarks != ''">
+				operationremarks,
+			</if>
+						<if test="operationuser != null and operationuser != ''">
+				operationuser,
+			</if>
+						<if test="operationip != null and operationip != ''">
+				operationip,
+			</if>
+					</trim>
+	</sql>
+	<!-- 插入值 -->
+	<sql id="insert_value">
+		<trim suffixOverrides=",">
+			<if test="logstype != null and logstype != ''">
+				#{logstype},
+			</if>
+						<if test="logssource != null and logssource != ''">
+				#{logssource},
+			</if>
+						<if test="operationdate != null and operationdate != ''">
+				#{operationdate},
+			</if>
+						<if test="operationstep != null and operationstep != ''">
+				#{operationstep},
+			</if>
+						<if test="operationtype != null and operationtype != ''">
+				#{operationtype},
+			</if>
+						<if test="operationremarks != null and operationremarks != ''">
+				#{operationremarks},
+			</if>
+						<if test="operationuser != null and operationuser != ''">
+				#{operationuser},
+			</if>
+						<if test="operationip != null and operationip != ''">
+				#{operationip},
+			</if>
+					</trim>
+	</sql>
+	<!-- 插入记录 按需插入 -->
+	<insert id="insert2" parameterType="Object">
+		INSERT INTO sys_logs(
+		<include refid="insert_columns" />
+		) VALUES(
+		<include refid="insert_value" />
+		)
+	</insert>
+	
+	<!--2016-2-23 Silence -->
+	<insert id="insert" parameterType="Object">		
+		INSERT INTO sys_logs(
+			<include refid="insert_columns" />			
+		)
+		VALUES(
+			<include refid="insert_value" />
+		)
+	</insert>
+	
+	
+	<!-- 根据id，修改记录 ,完全修改 类似hibernate的save方法 -->
+	<update id="updateByPrimaryKey" parameterType="Object">
+		update sys_logs set logstype=#{logstype},logssource=#{logssource},operationdate=#{operationdate},operationstep=#{operationstep},operationtype=#{operationtype},operationremarks=#{operationremarks},operationuser=#{operationuser},operationip=#{operationip} where id=#{id}
+	</update>
+
+	<!-- 修改记录，只修改只不为空的字段 -->
+	<update id="updateBySelective" parameterType="Object">
+		update sys_logs set 
+	<trim  suffixOverrides="," >
+	<if test="logstype != null  ">
+		logstype=#{logstype},
+	</if>
+	<if test="logssource != null  and logssource != '' ">
+		logssource=#{logssource},
+	</if>
+	<if test="operationdate != null  ">
+		operationdate=#{operationdate},
+	</if>
+	<if test="operationstep != null  and operationstep != '' ">
+		operationstep=#{operationstep},
+	</if>
+	<if test="operationtype != null  and operationtype != '' ">
+		operationtype=#{operationtype},
+	</if>
+	<if test="operationremarks != null  and operationremarks != '' ">
+		operationremarks=#{operationremarks},
+	</if>
+	<if test="operationuser != null  and operationuser != '' ">
+		operationuser=#{operationuser},
+	</if>
+	<if test="operationip != null  and operationip != '' ">
+		operationip=#{operationip},
+	</if>
+	</trim> where id=#{id}
+	</update>
+
+	<!-- 删除记录 -->
+	<delete id="deleteByPrimaryKey" parameterType="Object">
+		delete 	 from sys_logs where id = #{id}
+	</delete>
+
+	<!-- 根据id查询 系统日志表 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="Object">
+		select <include refid="Base_Column_List" /> 
+	 from sys_logs where id = #{id}
+	</select>
+
+	<!-- 系统日志表 列表总数 (分页) -->
+	<select id="selectByMapPagingCount" resultType="java.lang.Integer"
+		useCache="false" parameterType="Object">
+		select count(1) from sys_logs
+		<include refid="Example_Where_Clause_Page" />
+	</select>
+
+	<!-- 查询系统日志表列表 (分页) useCache="false" -->
+	<select id="selectByMapPaging" resultMap="BaseResultMap" flushCache="true">
+		select
+		<include refid="Base_Column_List" />
+		from sys_logs
+		<include refid="Example_Where_Clause_Page" />
+		order by operationdate desc , id desc
+	</select>
+
+	<!-- 系统日志表 递归查询 此方法公开需要自己实现 -->
+	<select id="selectByChild" resultMap="BaseResultMap">
+
+	</select>
+	<!-- 系统日志表 列表总数   -->
+	<select id="selectByMapCount" resultType="java.lang.Integer"
+		parameterType="java.util.Map">
+		select count(1) from sys_logs
+		<include refid="Example_Where_Clause" />		
+	</select>
+	<!-- 系统日志表 列表 -->
+	<select id="selectByMap" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from sys_logs
+		<include refid="Example_Where_Clause" />
+		order by operationdate desc , id desc
+	</select>
+</mapper>   

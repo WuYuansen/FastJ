@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:simple="http://cxf.apache.org/simple"
+      xmlns:soap="http://cxf.apache.org/bindings/soap"
+      xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd 
+http://cxf.apache.org/simple http://cxf.apache.org/schemas/simple.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml"/>
+	<import resource="classpath:META-INF/cxf/cxf-extension-xml.xml"/>
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+
+	<simple:server id="pojoservice" serviceClass="com.gtjy.p2p.modules.cxf.ws.IWsDataCollection" address="/dataCollection">
+		<simple:serviceBean>
+			<bean class="com.gtjy.p2p.modules.cxf.ws.impl.WsDataCollection" />
+		</simple:serviceBean>
+	</simple:server>
+
+</beans>
