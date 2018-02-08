@@ -1,3 +1,5 @@
+## 目前为alpha版本，很多内容还在完善，请谨慎使用
+
 ## 项目架构以及开发工具:
 	eclipse + maven + jetty + myBatis3.1.1 + spring3.1.2 + springMVC3.1.2
 ## 项目使用的主要jar
